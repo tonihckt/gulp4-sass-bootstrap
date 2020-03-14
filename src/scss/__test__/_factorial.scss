@@ -1,0 +1,19 @@
+/**
+ * 00. FACTORIAL
+ *
+ * Can be used as a regular factorial function
+ * By providing the current counter and acculmulated value,
+ * can optimise to reduce recomputation from previous factorial values
+ * -------------------------------------------------------------------
+ * @link: https://medium.com/swlh/what-the-css-implementing-trigonometry-in-scss-and-lessons-learnt-15703e24e677
+ */
+
+ @function factorial($endAt, $startAt: 1, $currentVal: 1) {
+    $accVal: $currentVal;
+      
+    @for $i from $startAt + 1 to $endAt + 1 {
+      $accVal: $i * $accVal;
+    }
+      
+    @return $accVal;
+  }

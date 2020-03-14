@@ -1,0 +1,16 @@
+/**
+ * 00. FACTORIAL SPEC
+ *
+ * -------------------------------------------------------------------
+ */
+
+ @import 'true';
+@import 'factorial';
+
+@include describe('.factorial [function]') {
+  @include it('should return value for 10! as 3628800') {
+    @include assert-equal(factorial(10), 3628800);
+  }
+}
+
+@include report;

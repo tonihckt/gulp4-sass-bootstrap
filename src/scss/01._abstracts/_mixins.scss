@@ -1,0 +1,318 @@
+/*!
+ *
+ * ======================================================================
+ * 00. MIXINS
+ * ======================================================================
+ *
+ * They are declared using @mixin and you can name them pretty much whatever you * want (with some sensible exceptions, and obviously it will be easier to read 
+ * your code if you name it something relevant!):
+ * 
+ */
+
+ 
+// Utility mixins and functions for evaluating source code across our variables, maps, and mixins.
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+
+/**
+ * BACKGROUND IMAGE
+ * -------------------------------------------------------------------
+ */
+ 
+ @mixin background(
+  $imgpath,
+  $position: center,
+  $size: null,
+  $repeat: no-repeat
+) {
+  background: {
+    image: url($imagesUrl+$imgpath);
+    position: $position;
+    size: $size;
+    repeat: $repeat;
+  }
+}
+
+/**
+ * CLEARFIX
+ * -------------------------------------------------------------------
+ */
+ @mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/**
+ * PLACEHOLDER
+ * -------------------------------------------------------------------
+ */
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+
+@mixin placeholder {
+  @include optional-at-root("::-webkit-input-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root(":-moz-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root("::-moz-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root(":-ms-input-placeholder") {
+    @content;
+  }
+}
+
+/**
+ * LETTER-SPACING FROM ADOBE XD TO EM
+ * -------------------------------------------------------------------
+ */
+
+@mixin letter-spacing($spacing) {
+  letter-spacing: ($spacing / 1000) * 1em;
+}
+
+/**
+ * POSITION
+ * -------------------------------------------------------------------
+ * Define vertical, horizontal, or both position
+ */
+
+@mixin center($position) {
+  position: absolute;
+
+  @if $position == "vertical" {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  } @else if $position == "horizontal" {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  } @else if $position == "both" {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+/**
+ * FONTS
+ * -------------------------------------------------------------------
+ */
+
+// ==> Font Family
+@mixin ff-primary {
+  font-family: $ff-primary;
+}
+
+@mixin ff-secondary {
+  font-family: $ff-secondary;
+}
+
+// ==> Font Size
+@mixin fs-verysmall {
+  font-size: $fs-verysmall;
+  line-height: 1em;
+}
+
+@mixin fs-small {
+  font-size: $fs-small;
+  line-height: 1.2em;
+}
+
+@mixin fs-medium {
+  font-size: $fs-medium;
+  line-height: 1.2em;
+}
+
+@mixin fs-big {
+  font-size: $fs-big;
+  line-height: 1.2em;
+}
+
+@mixin fs-verybig {
+  font-size: $fs-verybig;
+  line-height: 1.1em;
+}
+
+@mixin font(
+  $ff: false,
+  $fs: false,
+  $fw: false,
+  $fst: false,
+  $lh: false,
+  $co: false,
+  $ls: false
+) {
+  @if $ff {
+    font-family: $ff;
+  }
+  @if $fs {
+    font-size: $fs;
+  }
+  @if $fw {
+    font-weight: $fw;
+  }
+  @if $fst {
+    font-style: $fst;
+  }
+  @if $lh {
+    line-height: $lh;
+  }
+  @if $co {
+    color: $co;
+  }
+  @if $ls {
+    @include letter-spacing($ls);
+  }
+}
+
+@mixin font-source-sans(
+  $size: false,
+  $color: false,
+  $weight: false,
+  $lh: false
+) {
+  font-family: $ff-primary;
+  @if $size {
+    font-size: $size;
+  }
+  @if $color {
+    color: $colour;
+  }
+  @if $weight {
+    font-weight: $weight;
+  }
+  @if $lh {
+    line-height: $lh;
+  }
+}
+
+/**
+ * TRANSITION
+ * -------------------------------------------------------------------
+ */
+@mixin transition(
+  $transition-property: all,
+  $transition-time: 0.15s,
+  $method: ease-in-out
+) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+
+.container {
+  padding-right: $gutter / 2;
+  padding-left: $gutter / 2;
+}
+
+.row {
+  margin-right: -$gutter / 2;
+  margin-left: -$gutter / 2;
+}
+
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+  padding-right: $gutter / 2;
+  padding-left: $gutter / 2;
+}
+
+/**
+ * STICKY FOOTER
+ * -------------------------------------------------------------------
+ */
+@mixin sticky-footer {
+  html,
+  body,
+  main,
+  .page,
+  .cscontent {
+    height: 100%;
+  }
+
+  .cscontent {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      flex: 1 0 auto;
+    }
+  }
+
+  .row-top {
+    flex: 0;
+    flex-shrink: 0;
+  }
+
+  .row-bottom {
+    flex: 0;
+    flex-shrink: 0;
+  }
+}

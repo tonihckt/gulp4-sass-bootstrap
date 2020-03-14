@@ -1,0 +1,61 @@
+ /*!
+ *
+ * ======================================================================
+ * 00. BASE
+ * ======================================================================
+ * 
+ */
+
+ body {
+  color: grey;
+  background: rgb(92,18,18);
+  height: 400vh;
+}
+
+body {
+    background-color: $clr-secondary;
+  }
+  
+  .Panel {
+    background-color: #fff;
+    padding: 25px;
+  
+    &-destacado {
+      background-color: aqua;
+    }
+  }
+
+// table styles
+table {
+  border: 1px solid $clr-table-border;
+}
+
+th {
+  color: $clr-table-header-text;
+}
+
+td {
+  color: $clr-table-text;
+}
+
+.row {
+  max-width: $grid-width;
+  background-color: #eee;
+  margin: 0 auto;
+&:not(:last-child) {
+    margin-bottom: $vertical-margin;
+  }
+}
+
+// CSS Variable Syntax
+.subtitle {
+  color: var(--secondary-color);
+}
+.subtext {
+  color: var(--secondary-color);
+}
+
+h2 {
+  --h2-color: #999;
+  color: var(--h2-color);
+}

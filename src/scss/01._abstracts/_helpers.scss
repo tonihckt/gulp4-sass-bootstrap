@@ -1,0 +1,102 @@
+/*!
+ *
+ * ======================================================================
+ * 00.HELPERS
+ * ======================================================================
+ * 
+ */
+
+/**
+ * CONVERT REM
+ * -------------------------------------------------------------------
+ */
+// Variable Font size rem & px
+// @mixin fz($size: 24, $base: 16){
+//     // font-size: $size + px
+//     font-size: ($size / ($base * 0.625)) + rem
+// }
+
+
+/**
+ * CONTAINER
+ * -------------------------------------------------------------------
+ */
+ @mixin container($ancho, $alto, $color) {
+  width: $ancho;
+  height: $alto;
+  background-color: $color;
+  border-radius: 5%;
+  text-align: center;
+  margin: 5px;
+}
+
+/**
+* FLEX
+* -------------------------------------------------------------------
+* .centered-elements{@include flex-center(); border: 1px solid gray}
+*/
+@mixin flex-center {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/**
+* ROTATE
+* -------------------------------------------------------------------
+* .rotate-elements{@include rotate(45eg);}
+*/
+@mixin rotate($degree) {
+  -webit-transform:rotate($degree); // Webkit-based
+  -moz-transform:rotate($degree); // Firefox
+  -ms-transform:rotate($degree); // Internet Explore
+  -o-transform:rotate($degree); // Opera
+  transform:rotate($degree); // Standar Css
+}
+
+/**
+* ZEBRA
+* -------------------------------------------------------------------
+* {@include zebra();}
+*/
+@mixin zebra() {
+  @for $i from 1 through 7 {
+    @if ($i % 2 == 1){
+      .stripe-#{$i}{
+        background-color: black;
+        color: white;
+      }
+    }
+  }
+}
+
+/**
+* PADDING > MARGIN
+* -------------------------------------------------------------------
+* @mixin that will choose padding sizing if it’s greater than the margin
+* .container{@include spacing(10px, 20px}
+*/
+
+@mixin spacing($padding, $margin) {
+  @if($padding > $margin){
+    padding: $padding;
+  } @else {
+    padding: $margin;
+  }
+}
+
+/**
+* BUTTON -> CHANGES COLOR
+* -------------------------------------------------------------------
+* @mixin Changes its background color based on its width.
+* .button{@include buttom-color(20px, 30px}
+*/
+
+@mixin buttom-color($height, $width) {
+  @if(($height > $width) and ($width >= 35px)){
+    background-color: blue;
+  } @else {
+    background-color: red;
+  }
+}

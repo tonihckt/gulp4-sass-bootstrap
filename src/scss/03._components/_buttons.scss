@@ -1,0 +1,28 @@
+ /*!
+ *
+ * ======================================================================
+ * 00. BUTTONS
+ * ======================================================================
+ * 
+ */
+ %btn {
+    width: 100px;
+    text-align: center;
+    padding: 5px 0;
+    margin: 2px auto;
+    border-radius: 2px;
+    color: #FFFFFF;
+  }
+  
+  .btn_success {
+    @extend %btn;
+    background-color: #108EFF;
+  }
+  .btn_alert {
+    @extend %btn;
+    background-color: #FF8516;
+  }
+  .btn_cancel {
+    @extend %btn;
+    background-color: #D61E20;
+  }

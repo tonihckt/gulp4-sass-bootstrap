@@ -1,0 +1,90 @@
+/*!
+ *
+ * ======================================================================
+ * 00. SETTINGS
+ * ======================================================================
+ *
+ * It is used for global variables, configuration elements
+ * (If we use preprocessor, if not, we can skip this layer).
+ *
+ */
+
+
+/**
+ * SOURCES
+ * -------------------------------------------------------------------
+ */
+ $imagesUrl: null;
+ $fontsUrl: null;
+ 
+ /**
+  * SETTINGS
+  * -------------------------------------------------------------------
+  */
+ $site: Project-Name; // Mismo nombre que carpeta static url
+ $workspace: nolocal; // Valores posibles: local/qualquier valor. Cambia URLs de source.
+ $subsideFolder: $site; // Nombre del subsite (carpeta static url)
+ 
+ /**
+  * COLORS
+  * -------------------------------------------------------------------
+  */
+ 
+ // ==> Color values defined in _settings.multisitevars.scss
+ $clr-black: #000;
+ $clr-white: #fff;
+  
+ /**
+  * FONTS
+  * -------------------------------------------------------------------
+  */
+ 
+ // ==> Font Family
+ $ff-primary: "Merriweather", Helvetica, sans-serif;
+ $ff-secondary: "Rubik", Arial, Helvetica, sans-serif;
+ 
+ // ==> Font Size
+ $fs-verysmall: 12px;
+ $fs-small: 14px;
+ $fs-medium: 16px;
+ $fs-big: 20px;
+ $fs-verybig: 36px;
+ 
+ // ==> Font Weight
+ $fw-light: 300;
+ $fw-regular: 400;
+ $fw-medium: 500;
+ $fw-bold: 700;
+ $fw-black: 800;
+ 
+ /**
+  * GRID BREAKPOINTS
+  * -------------------------------------------------------------------
+  * Define the minimum dimensions at which your layout will change,
+  * adapting to different screen sizes, for use in media queries.
+  */
+ 
+ $grid-breakpoints: (
+     xs: 0,
+     sm: 481px,
+     md: 651px,
+     lg: 769px,
+     xl: 1200px
+ ) !default;
+ 
+ 
+ /**
+  * GUTTER
+  * -------------------------------------------------------------------
+  */
+ $gutter: 30px;
+ 
+ /**
+  * CONTAINER
+  * -------------------------------------------------------------------
+  */
+ @media (min-width: 1300px) {
+   .container {
+     width: 1020px;
+   }
+ }

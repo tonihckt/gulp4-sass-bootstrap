@@ -1,0 +1,17 @@
+/**
+ * 00. HEXAGON SIDE
+ *
+ * -------------------------------------------------------------------
+ */
+ 
+ @import 'tan';
+
+// Some random units, as an example
+$hexagonCoreLength: 100px;
+$hexagonBorderThickness: 2px;
+$computationAngle: $PI/6;
+
+$adjacentLength: $hexagonCoreLength + 2 * $hexagonBorderThickness;
+
+// Compute the hexagon length for the side before using it
+$hexagonSideLength: tan($computationAngle) * $adjacentLength;
