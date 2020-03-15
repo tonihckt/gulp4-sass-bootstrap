@@ -1,0 +1,61 @@
+/*!
+ *
+ * ======================================================================
+ * 00. ICONS
+ * ======================================================================
+ * 
+ */
+
+ /**
+ * ICONS SOCIAL MEDIA
+ * -------------------------------------------------------------------
+ */
+
+
+// ==> Icons Social Media
+$icon-facebook   : url(‘assets/facebook.png’);
+$icon-twitter    : url(‘assets/twitter.png’);
+$icon-linkedin    : url(‘assets/linkedin.png’);
+$icon-pinterest  : url(‘assets/pinterest.png’);
+$icon-youtube    : url(‘assets/youtube.png’);
+$icon-whatsapp    : url(‘assets/ywhatsapp.png’);
+/*!
+ *
+ * ======================================================================
+ * 00. ICONS
+ * ======================================================================
+ * 
+ */
+
+ /**
+ * ICONS SOCIAL MEDIA
+ * -------------------------------------------------------------------
+ */
+
+
+// ==> Icons Social Media
+$icon-facebook   : url(‘assets/icons/facebook.svg’);
+$icon-twitter    : url(‘assets/icons/twitter.svg’);
+$icon-linkedin   : url(‘assets/icons/linkedin.svg’);
+$icon-pinterest  : url(‘assets/icons/pinterest.svg’);
+$icon-youtube    : url(‘assets/icons/youtube.svg’);
+$icon-telegram   : url(‘assets/icons/telegram.svg’);
+$icon-google     : url(‘assets/icons/google.svg’);
+$icon-email      : url(‘assets/icons/email.svg’);
+$icon-print      : url(‘assets/icons/print.svg’);
+
+
+// ==> Icons Social Media Map
+
+$social-media-icons: (
+  facebook        : $icon-facebook,
+  twitter         : $icon-twitter,
+  linkedin        : $icon-linkedin,
+  pinterest       : $icon-pinterest,
+  youtube         : $icon-youtube,
+  whatsapp        : $icon-whatsapp,
+  telegram        : $icon-telegram,
+  google          : $icon-google,
+  email           : $icon-email,
+  print           : $icon-print
+)

@@ -7508,6 +7508,10 @@ h2 {
  * ======================================================================
  * 
  */
+/**
+* BUTTON -> CHANGES STATES
+* -------------------------------------------------------------------
+*/
 .btn {
   border: none;
   border-radius: 3px;
@@ -7519,29 +7523,36 @@ h2 {
   padding: 0 12px;
   position: relative;
   text-align: center; }
-  .btn--primary {
-    background: #928a97; }
-  .btn--danger {
-    background: #900c27; }
-  .btn--small {
-    font-size: 11.375px;
-    line-height: 2.2;
-    padding: 0 12px; }
-  .btn--large {
-    font-size: 17.875px;
-    line-height: 1.25;
-    padding: 16px 25px 17px; }
-  .btn--inverted {
-    background: #fff;
-    color: #52fde8; }
-  .btn--link {
-    background: #fff;
-    color: #f4f4f4; }
-    .btn--link:hover {
-      text-decoration: underline; }
-  .btn[disabled] {
-    background: #928a97;
-    cursor: not-allowed; }
+  .btn--default {
+    background-color: #75bedb;
+    color: rgba(255, 255, 255, 0.8); }
+  .btn--default:hover, .btn--default:focus {
+    background-color: shade(#75bedb, 20%);
+    color: #fff; }
+  .btn--success {
+    background-color: #79D1AD;
+    color: rgba(255, 255, 255, 0.8); }
+  .btn--success:hover, .btn--success:focus {
+    background-color: shade(#79D1AD, 20%);
+    color: #fff; }
+  .btn--error {
+    background-color: #e67478;
+    color: rgba(255, 255, 255, 0.8); }
+  .btn--error:hover, .btn--error:focus {
+    background-color: shade(#e67478, 20%);
+    color: #fff; }
+  .btn--warning {
+    background-color: #ed8864;
+    color: rgba(255, 255, 255, 0.8); }
+  .btn--warning:hover, .btn--warning:focus {
+    background-color: shade(#ed8864, 20%);
+    color: #fff; }
+  .btn--info {
+    background-color: #9279c3;
+    color: rgba(255, 255, 255, 0.8); }
+  .btn--info:hover, .btn--info:focus {
+    background-color: shade(#9279c3, 20%);
+    color: #fff; }
 
 /*!
  *

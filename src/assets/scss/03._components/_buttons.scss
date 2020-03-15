@@ -27,7 +27,75 @@
 //     background-color: #D61E20;
 //   }
 
+// .btn {
+//   border: none;
+//   border-radius: $base-radius;
+//   cursor: pointer;
+//   display: inline-block;
+//   font-size: $fs-base;
+//   font-weight: $fw-medium;
+//   line-height: 2.5;
+//   padding: 0 12px;
+//   position: relative;
+//   text-align: center;
+
+//   // Color Variants
+//   &--primary {
+//     background: $clr-grey;
+//   }
+
+//   &--danger {
+//     background: $clr-danger;
+//   }
+
+//   // Size Variants
+//   &--small {
+//     font-size: ($fs-base * 0.875);
+//     line-height: 2.2;
+//     padding: 0 12px;
+//   }
+
+//   &--large {
+//     font-size: ($fs-base * 1.375);
+//     line-height: 1.25;
+//     padding: 16px 25px 17px;
+//   }
+
+//   // Type Variants
+//   &--inverted {
+//     background: $clr-white;
+//     color: $clr-primary;
+//   }
+
+//   &--link {
+//     background: $clr-white;
+//     color: $clr-base;
+
+//     &:hover {
+//       text-decoration: underline;
+//     }
+//   }
+
+//   &[disabled] {
+//     background: $clr-grey;
+//     cursor: not-allowed;
+//   }
+// }
+
+
+/**
+* BUTTON -> CHANGES STATES
+* -------------------------------------------------------------------
+*  Usage:
+* .button .button--default
+* .button .button--success
+* .button .button--error
+* .button .button--warning
+* .button .button--info
+*/
+
 .btn {
+  // general styling for all buttons
   border: none;
   border-radius: $base-radius;
   cursor: pointer;
@@ -39,45 +107,44 @@
   position: relative;
   text-align: center;
 
-  // Color Variants
-  &--primary {
-    background: $clr-grey;
-  }
-
-  &--danger {
-    background: $clr-danger;
-  }
-
-  // Size Variants
-  &--small {
-    font-size: ($fs-base * 0.875);
-    line-height: 2.2;
-    padding: 0 12px;
-  }
-
-  &--large {
-    font-size: ($fs-base * 1.375);
-    line-height: 1.25;
-    padding: 16px 25px 17px;
-  }
-
-  // Type Variants
-  &--inverted {
-    background: $clr-white;
-    color: $clr-primary;
-  }
-
-  &--link {
-    background: $clr-white;
-    color: $clr-base;
-
-    &:hover {
-      text-decoration: underline;
+  // Generates modifier classes for .btn
+    @each $theme, $color in $colors-states {
+      &--#{$theme} {
+       background-color: $color;
+       color: transparentize($white, .2);
+     }
+     &--#{$theme}:hover,
+     &--#{$theme}:focus {
+       background-color: shade($color, 20%);
+       color: $white;
+     }
     }
   }
 
-  &[disabled] {
-    background: $clr-grey;
-    cursor: not-allowed;
+/**
+* BUTTON -> SOCIAL MEDIA
+* -------------------------------------------------------------------
+* Usage:
+* .social-media-icon .social-media-icon--facebook
+* .social-media-icon .social-media-icon--twitter
+* .social-media-icon .social-media-icon--pinterest
+* .social-media-icon .social-media-icon--youtube
+*/
+
+.social-media-icon {
+  border-radius: 50%;
+  padding: .5rem;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  @each $theme, $color in $social-media-colors {
+    &--#{$theme} {
+      background-color: $color;
+    }
+  }
+  @each $theme, $icon in $social-media-icons {
+    &--#{$theme} {
+      background-attachment: $icon;
+    }
   }
 }

@@ -125,3 +125,34 @@ $colors-states: (
  warning        : $clr-warning,
  info           : $clr-info
 );
+
+/**
+ * COLORS SOCIAL MEDIA
+ * -------------------------------------------------------------------
+ */
+
+ // ==> Colors Social media
+$clr-facebook  : #3B5998;
+$clr-twitter   : #00ACEE;
+$clr-pinterest : #CC2127;
+$clr-linkedin  : #0E76A8;
+$clr-youtube   : #E52D27;
+$clr-whatsapp  : #25D366;
+$clr-telegram  : #0088CC;
+$clr-google    : #a4c639;
+$clr-email     : #555;
+$clr-print     : #555;
+
+// ==> UI Colors Social Media Map
+$social-media-colors: (
+  facebook        : $clr-facebook,
+  twitter         : $clr-twitter,
+  linkedin        : $clr-linkedin,
+  pinterest       : $clr-pinterest,
+  youtube         : $clr-youtube,
+  whatsapp        : $clr-whatsapp,
+  telegram        : $clr-telegram,
+  google          : $clr-google,
+  email           : $clr-email,
+  print           : $clr-print
+);
