@@ -7447,12 +7447,12 @@ a.text-dark:hover, a.text-dark:focus {
  * 
  */
 body {
-  color: grey;
-  background: #5c1212;
+  color: #000;
+  background: #454545;
   height: 400vh; }
 
 body {
-  background-color: #f3fbf1; }
+  background-color: #f4f4f4; }
 
 .Panel {
   background-color: #fff;
@@ -7471,7 +7471,7 @@ td {
 
 .row {
   max-width: 114rem;
-  background-color: #eee;
+  background-color: #AAA;
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 8rem; }
@@ -7526,7 +7526,7 @@ h2 {
     color: #52fde8; }
   .btn--link {
     background: #fff;
-    color: #f3fbf1; }
+    color: #f4f4f4; }
     .btn--link:hover {
       text-decoration: underline; }
   .btn[disabled] {
