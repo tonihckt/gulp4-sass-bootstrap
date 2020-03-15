@@ -100,3 +100,35 @@
     background-color: red;
   }
 }
+
+/**
+* BOX-SHADOW
+* -------------------------------------------------------------------
+* div{@include box-shadow(0, 5px, 5px, rgba(0, 0, 0, 0.7));}
+*/
+@mixin box-shadow($x, $y, $blur, $spread) {
+  -webkit-box-shadow: $x $y $blur $spread;
+  -moz-box-shadow: $x $y $blur $spread;
+  -ms-box-shadow: $x $y $blur $spread;
+  box-shadow: $x $y $blur $spread;
+}
+
+/**
+* COLORS OF STATES
+* -------------------------------------------------------------------
+* .heading {@include color-state(error);}
+*/
+@mixin color-state($val) {
+  @if $val == error {
+    color: $clr-error;
+  }
+  @else if $val == warning {
+    color: $clr-warning;
+  }
+  @else if $val == success {
+    color: $clr-success;
+  }
+  @else {
+    color: $clr-default
+  }
+}

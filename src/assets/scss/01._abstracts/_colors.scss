@@ -88,21 +88,31 @@ $clr-table-border: $x-clr-borders;
  * -------------------------------------------------------------------
  */
  
+// ==> colors default 
+$clr-default : #75bedb;
+$clr-default-light: #91f3fc;
+$clr-default-dark:#0962ea;
 // ==> colors info
-$clr-info:#75bedb;
-$clr-info-light:#91f3fc;
-// ==> colors success
-$clr-success: #00541a;
-$clr-success-light: #50c19a;
+$clr-info: #9279c3;
+$clr-info-light: #8d42f5;
+$clr-info-dark:#2f2342;
 // ==> colors wraning
-$clr-warning:#0962ea;
-$clr-warning-light:#4287f5;
+$clr-warning:#ed8864;
+$clr-warning-light:#e42f45;
+$clr-warning-dark:#900c27;
+// ==> colors error
+$clr-error: #e67478;
+$clr-error-light: #e42f45;
+$clr-error-dark:#900c27;
+// ==> colors success
+$clr-success: #79D1AD;
+$clr-success-light:#50c19a;
+$clr-success-dark:#00541a;
 // ==> colors danger
 $clr-danger: #900c27;
 $clr-danger-light: #e42f45;
+$clr-danger-dark: #900c27;
 // ==> colors alert
 $clr-alert: #ffc057;
 $clr-alert-light:#ffe084;
-// ==> colors favorite
-$clr-myFaveColour: #2f2342;
-$clr-myFaveColour-light: #8d42f5;
+$clr-alert-: #ffc057;
