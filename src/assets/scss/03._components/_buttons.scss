@@ -144,7 +144,9 @@
   }
   @each $theme, $icon in $social-media-icons {
     &--#{$theme} {
-      background-attachment: $icon;
+      background-image: $icon;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
     }
   }
 }

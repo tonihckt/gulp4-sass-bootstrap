@@ -7175,12 +7175,38 @@ a.text-dark:hover, a.text-dark:focus {
  * COLORS OF STATES
  * -------------------------------------------------------------------
  */
+/**
+ * COLORS SOCIAL MEDIA
+ * -------------------------------------------------------------------
+ */
 /*!
  *
  * ======================================================================
  * 00. VARIABLES
  * ======================================================================
  * 
+ */
+/*!
+ *
+ * ======================================================================
+ * 00. ICONS
+ * ======================================================================
+ * 
+ */
+/**
+ * ICONS SOCIAL MEDIA
+ * -------------------------------------------------------------------
+ */
+/*!
+ *
+ * ======================================================================
+ * 00. ICONS
+ * ======================================================================
+ * 
+ */
+/**
+ * ICONS SOCIAL MEDIA
+ * -------------------------------------------------------------------
  */
 /*!
  *
@@ -7511,6 +7537,12 @@ h2 {
 /**
 * BUTTON -> CHANGES STATES
 * -------------------------------------------------------------------
+*  Usage:
+* .button .button--default
+* .button .button--success
+* .button .button--error
+* .button .button--warning
+* .button .button--info
 */
 .btn {
   border: none;
@@ -7553,6 +7585,62 @@ h2 {
   .btn--info:hover, .btn--info:focus {
     background-color: shade(#9279c3, 20%);
     color: #fff; }
+
+/**
+* BUTTON -> SOCIAL MEDIA
+* -------------------------------------------------------------------
+* Usage:
+* .social-media-icon .social-media-icon--facebook
+* .social-media-icon .social-media-icon--twitter
+* .social-media-icon .social-media-icon--pinterest
+* .social-media-icon .social-media-icon--youtube
+*/
+.social-media-icon {
+  border-radius: 50%;
+  padding: .5rem;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat; }
+  .social-media-icon--facebook {
+    background-color: #3B5998; }
+  .social-media-icon--twitter {
+    background-color: #00ACEE; }
+  .social-media-icon--linkedin {
+    background-color: #0E76A8; }
+  .social-media-icon--pinterest {
+    background-color: #CC2127; }
+  .social-media-icon--youtube {
+    background-color: #E52D27; }
+  .social-media-icon--whatsapp {
+    background-color: #25D366; }
+  .social-media-icon--telegram {
+    background-color: #0088CC; }
+  .social-media-icon--google {
+    background-color: #a4c639; }
+  .social-media-icon--email {
+    background-color: #555; }
+  .social-media-icon--print {
+    background-color: #555; }
+  .social-media-icon--facebook {
+    background-image: url(‘assets/icons/facebook.svg’); }
+  .social-media-icon--twitter {
+    background-image: url(‘assets/icons/twitter.svg’); }
+  .social-media-icon--linkedin {
+    background-image: url(‘assets/icons/linkedin.svg’); }
+  .social-media-icon--pinterest {
+    background-image: url(‘assets/icons/pinterest.svg’); }
+  .social-media-icon--youtube {
+    background-image: url(‘assets/icons/youtube.svg’); }
+  .social-media-icon--whatsapp {
+    background-image: url(‘assets/ywhatsapp.png’); }
+  .social-media-icon--telegram {
+    background-image: url(‘assets/icons/telegram.svg’); }
+  .social-media-icon--google {
+    background-image: url(‘assets/icons/google.svg’); }
+  .social-media-icon--email {
+    background-image: url(‘assets/icons/email.svg’); }
+  .social-media-icon--print {
+    background-image: url(‘assets/icons/print.svg’); }
 
 /*!
  *
