@@ -87,7 +87,7 @@ $clr-table-border: $x-clr-borders;
  * COLORS OF STATES
  * -------------------------------------------------------------------
  */
- 
+
 // ==> colors default 
 $clr-default : #75bedb;
 $clr-default-light: #91f3fc;
@@ -116,3 +116,12 @@ $clr-danger-dark: #900c27;
 $clr-alert: #ffc057;
 $clr-alert-light:#ffe084;
 $clr-alert-: #ffc057;
+
+// ==> UI Colors States Map
+$colors-states: (
+ default        : $clr-default,
+ success        : $clr-success,
+ error          : $clr-error,
+ warning        : $clr-warning,
+ info           : $clr-info
+);
