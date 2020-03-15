@@ -5,24 +5,79 @@
  * ======================================================================
  * 
  */
- %btn {
-    width: 100px;
-    text-align: center;
-    padding: 5px 0;
-    margin: 2px auto;
-    border-radius: 2px;
-    color: #FFFFFF;
-  }
+//  %btn {
+//     width: 100px;
+//     text-align: center;
+//     padding: 5px 0;
+//     margin: 2px auto;
+//     border-radius: 2px;
+//     color: #FFFFFF;
+//   }
   
-  .btn_success {
-    @extend %btn;
-    background-color: #108EFF;
+//   .btn_success {
+//     @extend %btn;
+//     background-color: #108EFF;
+//   }
+//   .btn_alert {
+//     @extend %btn;
+//     background-color: #FF8516;
+//   }
+//   .btn_cancel {
+//     @extend %btn;
+//     background-color: #D61E20;
+//   }
+
+.btn {
+  border: none;
+  border-radius: $base-radius;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $fs-base;
+  font-weight: $fw-medium;
+  line-height: 2.5;
+  padding: 0 12px;
+  position: relative;
+  text-align: center;
+
+  // Color Variants
+  &--primary {
+    background: $clr-grey;
   }
-  .btn_alert {
-    @extend %btn;
-    background-color: #FF8516;
+
+  &--danger {
+    background: $clr-danger;
   }
-  .btn_cancel {
-    @extend %btn;
-    background-color: #D61E20;
+
+  // Size Variants
+  &--small {
+    font-size: ($fs-base * 0.875);
+    line-height: 2.2;
+    padding: 0 12px;
   }
+
+  &--large {
+    font-size: ($fs-base * 1.375);
+    line-height: 1.25;
+    padding: 16px 25px 17px;
+  }
+
+  // Type Variants
+  &--inverted {
+    background: $clr-white;
+    color: $clr-primary;
+  }
+
+  &--link {
+    background: $clr-white;
+    color: $clr-base;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &[disabled] {
+    background: $clr-grey;
+    cursor: not-allowed;
+  }
+}

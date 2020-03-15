@@ -6,82 +6,13 @@
  * 
  */
 
-/**
- * CSS VARIABLE SYNTAX
- * -------------------------------------------------------------------
- */
-:root {
-    --base: #fff9e0;   
-}
-
-
-/**
- * COLORS
- * -------------------------------------------------------------------
- */
-
-// ==> palette
-$palette-astronaut: #254E70;
-$palette-calypso: #2e5685;
-$palette-spray: #8EE3EF;
-$palette-shadow-green: #8FC7BE;
-$palette-amaranth: #EF3054;
-
-// ==> primary
-$clr-primary: #52fde8;
-$clr-primary-light: #a4fbed;
-$clr-primary-extra-light: #00ffe2;
-$clr-primary-dark:#008080;
-$clr-primary-extra-dark: #137083 ; 
-
-// ==> secondary
-$clr-secondary:#ce7d00;
-$clr-secondary-light: #FF9966;
-$clr-secondary-extra-light: #FFB900;
-$clr-secondary-dark: #CC6633; 
-$clr-secondary-extra-dark: #935900; 
-
-// ==> grey
-$clr-grey: #928a97;
-$clr-grey-light: #AAA;
-$clr-grey-extra-light: #CCC;
-$clr-grey-dark: #999;
-$clr-grey-extra-dark:#777;
-
-// ==> white
-$clr-white: #fff;
-$clr-white-light: #f9f9f9;
-$clr-white-extra-light: #f4f4f4;
-$clr-white-dark: #f1fcfd;
-$clr-white-extra-dark:#eee;
-
-// ==> black
-$clr-black: #000;
-$clr-black-light: #454545;
-$clr-black-extra-light:#7f8080;
-$clr-black-dark: #292929;
-$clr-black-extra-dark: #333;
-
-// ==> border
-$clr-border: #3a4750;
-
-// ==> link
-$clr-link: #3a4750;
-
-// ==> functional
-$x-clr-default-text: $palette-astronaut;
-$x-clr-deemphasised-text: $palette-shadow-green;
-$x-clr-borders: $palette-calypso;
-$x-clr-destructive: $palette-amaranth;
-
-// ==> table component 
-$clr-table-header-text: $palette-astronaut;
-$clr-table-text: $x-clr-default-text;
-$clr-table-border: $x-clr-borders;
 
 // ==> margins
 $grid-width: 114rem;
 $vertical-margin: 8rem;
 $horizontal-margin: 6rem;
+
+// ==> buttons
+$base-radius: 3px;
 
 
