@@ -7452,13 +7452,13 @@ body {
   height: 400vh; }
 
 body {
-  background-color: #ce7d00; }
+  background-color: #f3fbf1; }
 
 .Panel {
   background-color: #fff;
   padding: 25px; }
   .Panel-destacado {
-    background-color: aqua; }
+    background-color: #ce7d00; }
 
 table {
   border: 1px solid #2e5685; }
@@ -7483,7 +7483,7 @@ td {
   color: var(--secondary-color); }
 
 h2 {
-  --h2-color: #999;
+  --h2-color: $clr-gray;
   color: var(--h2-color); }
 
 /**
@@ -7526,7 +7526,7 @@ h2 {
     color: #52fde8; }
   .btn--link {
     background: #fff;
-    color: #2e5685; }
+    color: #f3fbf1; }
     .btn--link:hover {
       text-decoration: underline; }
   .btn[disabled] {
