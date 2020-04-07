@@ -7292,6 +7292,38 @@ a.text-dark:hover, a.text-dark:focus {
  * ======================================================================
  * 
  */
+/**
+  * AUTO GRID - COLUMNS
+  * -------------------------------------------------------------------
+  * Set the minimum item size with `--auto-grid-min-size` and you'll
+  * get a fully responsive grid with no media queries.
+  *
+  * .auto-grid {
+  * --auto-grid-min-size: 16rem;
+  * display: grid;
+  * grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+  * grid-gap: 1rem;
+  * }
+  */
+.auto-grid {
+  --auto-grid-min-size: 16rem; }
+
+.auto-grid > * {
+  max-width: 400px; }
+
+.auto-grid > * + * {
+  margin-top: 1rem; }
+
+@supports (display: grid) {
+  .auto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+    grid-gap: 1rem; }
+  .auto-grid > * {
+    max-width: unset; }
+  .auto-grid > * + * {
+    margin-top: unset; } }
+
 /*!
  *
  * ======================================================================
@@ -7482,6 +7514,95 @@ a.text-dark:hover, a.text-dark:focus {
  * ======================================================================
  * 
  */
+/**
+  * FLEXBOX GRID MIXINS (VARIABLES)
+  * -------------------------------------------------------------------
+  * CSS: @include grid(); ->  @include grid-col(3); | @include grid-col(9);
+  * HTML: grid -> grid__col-3 | grid__col-9
+  */
+.grid {
+  box-sizing: border-box;
+  display: flex;
+  margin-left: -1%;
+  margin-right: -1%; }
+  .grid > .grid__col-1 {
+    box-sizing: border-box;
+    flex: 0 0 6.33333%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%; }
+  .grid > .grid__col-2 {
+    box-sizing: border-box;
+    flex: 0 0 14.66667%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%; }
+  .grid > .grid__col-3 {
+    box-sizing: border-box;
+    flex: 0 0 23%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%; }
+  .grid > .grid__col-4 {
+    box-sizing: border-box;
+    flex: 0 0 31.33333%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%; }
+  .grid > .grid__col-5 {
+    box-sizing: border-box;
+    flex: 0 0 39.66667%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%; }
+  .grid > .grid__col-6 {
+    box-sizing: border-box;
+    flex: 0 0 48%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%; }
+  .grid > .grid__col-7 {
+    box-sizing: border-box;
+    flex: 0 0 56.33333%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%; }
+  .grid > .grid__col-8 {
+    box-sizing: border-box;
+    flex: 0 0 64.66667%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%; }
+  .grid > .grid__col-9 {
+    box-sizing: border-box;
+    flex: 0 0 73%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%; }
+  .grid > .grid__col-10 {
+    box-sizing: border-box;
+    flex: 0 0 81.33333%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%; }
+  .grid > .grid__col-11 {
+    box-sizing: border-box;
+    flex: 0 0 89.66667%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%; }
+  .grid > .grid__col-12 {
+    box-sizing: border-box;
+    flex: 0 0 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 2%; }
+
+/**
+  * BASE
+  * -------------------------------------------------------------------
+  * 
+  */
 body {
   color: #000;
   background: #454545;
@@ -7521,6 +7642,117 @@ td {
 h2 {
   --h2-color: $clr-gray;
   color: var(--h2-color); }
+
+/*
+  WRAPPER
+  A utility with a max width that contains child elements and horizontal centers them
+*/
+.wrapper {
+  max-width: 65rem;
+  margin: 0 auto;
+  padding: 0 1rem; }
+
+/* Presentational styles */
+body {
+  background: #efefef;
+  padding: 1rem 0;
+  line-height: 1.4;
+  font-family: sans-serif; }
+
+.ul-li {
+  padding: 5rem 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  background: #22a6b3;
+  color: #ffffff; }
+
+.container-demo {
+  box-sizing: border-box;
+  display: flex; }
+
+.demo-omde {
+  box-sizing: border-box;
+  flex: 0 0 25%; }
+
+.omde-demo {
+  box-sizing: border-box;
+  flex: 0 0 75%; }
+
+.page-container {
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  margin: auto;
+  background: black; }
+
+.body-container {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  background: #a5c3e2; }
+
+.content-container {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  margin: 0 2%; }
+
+.nav-container {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 240px;
+  flex: 0 0 240px;
+  -webkit-box-ordinal-group: 0;
+  -ms-flex-order: -1;
+  order: -1;
+  background: gray; }
+
+.aside-container {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 120px;
+  flex: 0 0 120px;
+  background: blue; }
+
+header,
+footer {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto; }
+
+header,
+footer,
+.content-container,
+.nav-container,
+.aside-container {
+  background: #0e72da;
+  border: 1px solid #130e7d;
+  padding: 1em;
+  color: #fff;
+  text-align: center; }
 
 /**
   * components/ (or modules/)/
@@ -7622,25 +7854,45 @@ h2 {
   .social-media-icon--print {
     background-color: #555; }
   .social-media-icon--facebook {
-    background-image: url(‘assets/icons/facebook.svg’); }
+    background-image: url(‘assets/icons/facebook.svg’);
+    background-repeat: no-repeat;
+    background-attachment: fixed; }
   .social-media-icon--twitter {
-    background-image: url(‘assets/icons/twitter.svg’); }
+    background-image: url(‘assets/icons/twitter.svg’);
+    background-repeat: no-repeat;
+    background-attachment: fixed; }
   .social-media-icon--linkedin {
-    background-image: url(‘assets/icons/linkedin.svg’); }
+    background-image: url(‘assets/icons/linkedin.svg’);
+    background-repeat: no-repeat;
+    background-attachment: fixed; }
   .social-media-icon--pinterest {
-    background-image: url(‘assets/icons/pinterest.svg’); }
+    background-image: url(‘assets/icons/pinterest.svg’);
+    background-repeat: no-repeat;
+    background-attachment: fixed; }
   .social-media-icon--youtube {
-    background-image: url(‘assets/icons/youtube.svg’); }
+    background-image: url(‘assets/icons/youtube.svg’);
+    background-repeat: no-repeat;
+    background-attachment: fixed; }
   .social-media-icon--whatsapp {
-    background-image: url(‘assets/ywhatsapp.png’); }
+    background-image: url(‘assets/ywhatsapp.png’);
+    background-repeat: no-repeat;
+    background-attachment: fixed; }
   .social-media-icon--telegram {
-    background-image: url(‘assets/icons/telegram.svg’); }
+    background-image: url(‘assets/icons/telegram.svg’);
+    background-repeat: no-repeat;
+    background-attachment: fixed; }
   .social-media-icon--google {
-    background-image: url(‘assets/icons/google.svg’); }
+    background-image: url(‘assets/icons/google.svg’);
+    background-repeat: no-repeat;
+    background-attachment: fixed; }
   .social-media-icon--email {
-    background-image: url(‘assets/icons/email.svg’); }
+    background-image: url(‘assets/icons/email.svg’);
+    background-repeat: no-repeat;
+    background-attachment: fixed; }
   .social-media-icon--print {
-    background-image: url(‘assets/icons/print.svg’); }
+    background-image: url(‘assets/icons/print.svg’);
+    background-repeat: no-repeat;
+    background-attachment: fixed; }
 
 /*!
  *
