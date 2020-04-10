@@ -5,3 +5,76 @@
  * ======================================================================
  * 
  */
+
+// ==> main-footer
+ .c-main-footer{
+    $this: &;
+
+    &__container{}
+    &__top{}
+    &__bottom{}
+    &__logo{}
+    &__social{}
+    &__menu{}
+    &__stores{}
+
+ }
+
+// ==> main-menu
+ .c-footer-menu {
+    $this: &;
+
+     display: flex;
+     & + & {
+         margin-top: 10px;
+     }
+     &__item{
+        & + & {
+            margin-left: 10px;
+        }
+     }
+
+     &__title {
+        @include font(
+            $ff: $ff-secondary,
+            $fs: 14px,
+            $fw: $fw-bold,
+            $lh: 17px,
+            $co: $clr-white,
+        );
+        text-transform: uppercase;
+
+        .is-legal & {
+            @include font(
+                $ff: $ff-secondary,
+                $fs: 30px,
+                $fw: $fw-regular,
+                $lh: 15px,
+                $co: $clr-white,
+            );
+        }
+    }
+
+
+     &__link{}
+
+     &.is-legal{margin-top: 10px;}
+
+ }
+
+// ==> stores
+ .c-stores{
+    $this: &;
+
+     display:flex;
+
+     &__link{
+         & + & {
+             margin-left: 20px;
+         }
+     }
+     &__img{
+         width: 100%;
+         max-width: 100%;
+     }
+ }

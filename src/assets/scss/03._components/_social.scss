@@ -1,0 +1,64 @@
+/*!
+ *
+ * ======================================================================
+ * 00. SOCIAL
+ * ======================================================================
+ * 
+ */
+
+.c-social {
+  $this: &;
+
+  &__item {
+    & + & {
+      margin-left: 16px;
+    }
+    &.has-circle {
+      background-color: transparent;
+      border-radius: 50%;
+      border: 1px solid $co-border;
+      padding: 7px;
+    }
+  }
+
+  &__link {
+    width: 19px;
+    height: 17px;
+
+    .is-facebook & {
+      @include background("icons/icons-facebook.svg");
+    }
+
+    .is-twitter & {
+      @include background("icons/icons-twitter.svg");
+    }
+
+    .c-main-footer & {
+      filter: contrast(0.1);
+      width: 22px;
+      height: 22px;
+
+      @at-root .c-main-footer #{$this}__item {
+        & + #{$this}__item {
+          margin-left: 25px;
+        }
+      }
+
+      @at-root .c-main-footer {
+        .is-facebook #{$this}__link {
+          background-size: 12px 22px;
+        }
+        .is-twitter #{$this}__link {
+          background-size: 24px 17px;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(dm) {
+    &__item {
+    }
+    &__link {
+    }
+  }
+}

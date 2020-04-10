@@ -6,6 +6,120 @@
  * 
  */
 
- .header {
-    @include clearfix
+ // ==> main-header
+ .c-main-header {
+    $this: &;
+
+    @include clearfix;
+
+    &__wrapper{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__top{}
+
+    &__bottom{}
+
+    &__left{}
+
+    &__right{}
+
+    &__logo{}
+
+    &__sub-menu{}
+
+    &__menu{}
+
   }
+
+// ==> sub-menu
+  .c-sub-menu{
+    $this: &;
+
+    &__list {
+      display: flex;
+    }
+  
+    &__item {
+      & + & {
+        margin-left: 20px;
+      }
+    }
+  
+    &__link {
+      width: 29px;
+      height: 25px;
+  
+      .is-newsletter & {
+        @include background("icons/icon-mail-black.svg");
+      }
+  
+    }
+  }
+
+// ==> main-menu
+  .c-main-menu{
+    $this: &;
+
+    &__list{}
+
+    &__item {
+
+      & + & {
+          margin-left: 30px;
+      }
+
+      &.is-more {
+          #{$this}__link {
+              cursor:pointer;
+              &:after {
+                  content:"";
+                  display:inline-block;
+                  width:10px;
+                  height:8px;
+                  margin-left:4px;
+                  @include background("icons/icon-dropdown.svg");
+                  @include transition;
+              }
+              &.is-open {
+                  &:after {
+                      transform:rotate(180deg);
+                      @include transition;
+                  }
+              }
+          }
+      }
+
+      &.is-subscription {
+          display: none;
+      }
+
+  }
+
+
+    &__text, &__link{
+      @include font(
+        $ff: $ff-secondary,
+        $fw: $fw-bold,
+        $fs: 15px,
+        $lh: 18px,
+        $co: $clr-black
+    );
+    text-transform: uppercase;
+    }
+
+    &__title{}
+
+    &__link {
+      padding: 0;
+    }
+
+  }
+
+// ==> main-menu
+.c-main-logo{
+  &__link{}
+  &__img{}
+}
