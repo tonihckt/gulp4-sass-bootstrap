@@ -103,8 +103,8 @@ h2 {
 
 body {
   background: #efefef;
-  padding: 1rem 0;
-  line-height: 1.4;
+  // padding: 1rem 0;
+  // line-height: 1.4;
   font-family: sans-serif;
 }
 
@@ -117,17 +117,21 @@ body {
 }
 
 
-.container-demo{
+.main-demo{
   @include grid();
-}
-.demo-omde{
-  @include grid-col(3);
-}
-.omde-demo{
-  @include grid-col(9);
-}
 
-
+  &__container {}
+  &__wrap {}
+  &__right{
+    @include grid-col(3);
+    background:blue;
+  }
+  &__left{
+    @include grid-col(9);
+    background:red;
+  }
+  
+}
 
 .page-container{
   width: 100%;

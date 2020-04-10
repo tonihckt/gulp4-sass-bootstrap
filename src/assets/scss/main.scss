@@ -16,8 +16,10 @@
   * -------------------------------------------------------------------
   * Declaración de variables
   */
-@import "01._abstracts/colors";
+
 @import "01._abstracts/variables";
+@import "01._abstracts/colors";
+@import "01._abstracts/fonts";
 @import "01._abstracts/icons";
 @import "01._abstracts/settings";
 @import "01._abstracts/breakpoints";
@@ -34,9 +36,11 @@
   * -------------------------------------------------------------------
   */
 
+@import "02._base/normalize";
 @import "02._base/reset";
-@import "02._base/typography";
 @import "02._base/base";
+@import "02._base/typography";
+
 
 /**
   * components/ (or modules/)/
