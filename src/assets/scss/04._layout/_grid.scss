@@ -5,3 +5,23 @@
  * ======================================================================
  * 
  */
+
+  /**
+  * FLEXBOX GRID MIXINS (VARIABLES)
+  * -------------------------------------------------------------------
+  * CSS: @include grid(); ->  @include grid-col(3); | @include grid-col(9);
+  * HTML: grid -> grid__col-3 | grid__col-9
+  */
+
+$default-grid-columns: 12;
+$default-grid-gutter: 2%;
+
+.grid {
+	@include grid($gutter: $default-grid-gutter);
+
+	@for $i from 1 through $default-grid-columns {
+		> .grid__col-#{$i} {
+			@include grid-col($col: $i, $grid-columns: $default-grid-columns, $gutter: $default-grid-gutter);
+		}
+	}
+}

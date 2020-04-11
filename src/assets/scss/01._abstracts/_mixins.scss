@@ -114,6 +114,16 @@
 }
 
 /**
+ * COLOR PALETTE
+ * -------------------------------------------------------------------
+ * .element {background : color ($indigo , 400 );}
+ */
+
+ @function color($color, $value: 500) {
+  @return map-get($color, $value);
+}
+
+/**
  * FONTS
  * -------------------------------------------------------------------
  */
@@ -204,6 +214,54 @@
   @if $lh {
     line-height: $lh;
   }
+}
+
+/**
+ * BOX SHADOW
+ * -------------------------------------------------------------------
+ */
+
+
+/**
+ * CARD SHADOW
+ * -------------------------------------------------------------------
+ * .element{ @include card-shadow(1); }
+ */
+
+ @mixin card-shadow($level:1){
+
+  @if $level == 1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+  @else if $level == 2 {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+  @else if $level == 3 {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+  @else if $level == 4 {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+  @else if $level == 5 {
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  }
+}
+
+
+ /**
+ * LINEAR - GRADIENT
+ * -------------------------------------------------------------------
+ * @include linear-gradient(#00FFFF,#0080FF,45deg);
+ */
+
+ @mixin linear-gradient($color-one,$color-two,$degrees) {
+  background: -moz-linear-gradient($degrees, $color-one 0%, $color-two 100%); /* ff3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, $color-one), color-stop(100%, $color-two)); /* safari4+,chrome */
+  background: -webkit-linear-gradient($degrees, $color-one 0%, $color-two 100%); /* safari5.1+,chrome10+ */
+  background: -o-linear-gradient($degrees, $color-one 0%, $color-two 100%); /* opera 11.10+ */
+  background: -ms-linear-gradient($degrees, $color-one 0%, $color-two 100%); /* ie10+ */
+  background: linear-gradient($degrees, $color-one 0%, $color-two 100%); /* w3c */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-one', endColorstr='$color-two',GradientType=1 ); /* ie6-9 */
 }
 
 /**

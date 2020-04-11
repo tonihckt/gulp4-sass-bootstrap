@@ -5,3 +5,281 @@
  * ======================================================================
  * 
  */
+
+ .c-form {
+    &__message {
+      margin: 10px 0;
+      padding: 6px 0;
+      @include font(
+        $ff: $ff-secondary,
+        $fs: 16px,
+        $fw: $fw-medium,
+        $lh: 19px,
+        $ls: -20,
+      );
+  
+      &.is-success {
+        padding-left: 40px;
+        // color: $co-success;
+        @include background("icons/icon-tic.svg", 0 center, 28px);
+      }
+  
+      &.is-failure {
+        padding-left: 40px;
+        // color: $co-failure;
+        @include background("icons/icon-alert.svg", 0 center, 28px);
+      }
+    }
+  
+    &__items{
+    //   display: grid;
+    //   grid-column-gap: 38px;
+    //   grid-row-gap: 22px;
+    //   grid-template-columns: 1fr 1fr;
+    }
+    &__field {
+      margin-bottom: 20px;
+      @include placeholder {
+        font-style:normal;
+        font-weight:100;
+        color: #0066CC;
+        background: #ccffff;
+     }
+    }
+  
+    &__label {
+      position: relative;
+      @include font(
+        $ff: $ff-secondary,
+        $fs: 12px,
+        $fw: $fw-bold,
+        $lh: 14px,
+        $co: $clr-black
+      );
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: block;
+  
+      a{
+        display: inline-block;
+        text-decoration:underline;
+      }
+  
+      &--checkbox {
+        @include font(
+          $ff: $ff-secondary,
+          $fs: 11px,
+          $fw: $fw-regular,
+          $lh: 13px,
+          $co: $clr-black
+        );
+      }
+  
+      // checkbox-color
+      input[type="checkbox"]:not(old) {
+        margin-right: 7px;
+        // opacity: 0;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+  
+      input[type="checkbox"]:not(old):before {
+        content: '';
+        display: inline-block;
+        margin-right: 5px;
+        width: 10px;
+        height: 10px;
+        border: 1px double $clr-black;
+        cursor: pointer;
+        vertical-align: top;
+        background: $clr-white;
+        transition: all 0.25s ease;
+     }
+  
+      input[type="checkbox"]:not(old)::-moz-selection,
+      input[type="checkbox"]:not(old)::selection {
+        color: inherit;
+        background-color: transparent;
+      }
+  
+      input[type="checkbox"]:not(old):checked:before {
+        box-shadow: inset 0 0 1px 2px $clr-white;
+        background: $clr-black;
+        // content: "✔";
+        // position: absolute;
+        // text-indent: 1px;
+        // color: $co-black;
+     }
+  
+  
+  
+      &.is-check {
+        font-weight: $fw-regular;
+        padding: {
+          left: 20px;
+          top: 2px;
+        }
+        @include background("icons/icon-check.svg", left top);
+  
+        .c-form__check:checked + & {
+          @include background("icons/icon-check-checked.svg", left top);
+        }
+  
+        &:hover {
+          cursor: pointer;
+        }
+      }
+  
+      &.is-link {
+        display: inline-block;
+        text-decoration: underline;
+        font-weight: inherit;
+      }
+    }
+  
+    &__input {
+      @include font(
+          $ff: $ff-secondary,
+          $fs: 18px,
+          $fw: $fw-regular,
+          $lh: 21px,
+          $co: $clr-black
+        );
+        width: 100%;
+        padding: 12px 10px;
+        // background: #ccffff;
+        // border: 1px solid $co-border;
+        @include transition;
+  
+        &:focus {
+          outline: none;
+          @include transition;
+          border-color: $clr-black;
+        }
+      &--text {
+        @include font(
+          $ff: $ff-secondary,
+          $fs: 18px,
+          $fw: $fw-regular,
+          $lh: 21px,
+          $co: $clr-black
+        );
+        width: 100%;
+        padding: 12px 10px;
+        background: #fff;
+        // border: 1px solid $co-border;
+        @include transition;
+  
+        &:focus {
+          outline: none;
+          @include transition;
+          border-color: $clr-black;
+        }
+      }
+  
+      &--submit {
+        @include font(
+          $ff: $ff-secondary,
+          $fs: 14px,
+          $fw: $fw-bold,
+          $lh: 17px,
+          $co: $clr-white
+        );
+        text-transform: uppercase;
+        background-color: $clr-black;
+        border: 0;
+        text-align: center;
+        padding: 14px 14px 14px;
+  
+        &:hover {
+          opacity: 0.7;
+          @include transition;
+          cursor: pointer;
+        }
+      }
+    }
+  
+    &__check {
+      display: none;
+    }
+  
+    &__submit {
+      width: 100%;
+      padding: 14px 14px 14px;
+      margin-top: 10px;
+      background-color: $clr-black;
+    //   border: 1px solid $co-border;
+    @include all-transition(all,0.5s,ease-out);
+      text-align: center;
+      text-transform: uppercase;
+      color: #00FFFF;
+      background-color: #0080FF;
+      border-color: #00FFFF;
+    //   @include rotate(180, 0.00000000, 1.00000000, -1.00000000, 0.00000000);
+  
+      @include font(
+        $ff: $ff-secondary,
+        $fs: 14px,
+        $fw: $fw-bold,
+        $lh: 17px,
+        $co: $clr-white
+      );
+  
+      &:hover {
+        opacity: 0.7;
+        color: #0080FF;
+        background-color: #00FFFF;
+        border-color: #0080FF;
+        cursor: pointer;
+      }
+    }
+  
+    &__recaptcha {
+    }
+  
+    &__action {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      text-align: center;
+    }
+  
+    &.is-loading,
+    &.loading {
+      position: relative;
+  
+      form {
+        opacity: 0.4;
+      }
+  
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        @include background("icons/icon-loading.svg", center, 100%);
+      }
+    }
+  
+    @include media-breakpoint-down(sm) {
+      &__items{
+        // display: grid;
+        // grid-column-gap: 38px;
+        // grid-row-gap: 0;
+        // grid-template-columns: 1fr;
+      }
+      &__recaptcha {
+        margin-bottom: 24px;
+      }
+      &__submit{
+        margin-top: 10px;
+      }
+  
+    }
+  }
+  

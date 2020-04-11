@@ -1,0 +1,21 @@
+/*!
+ *
+ * ======================================================================
+ * 00. MAIN- CONTENT
+ * ======================================================================
+ * 
+ */
+
+ // ==> main-header
+ .c-main-content {
+    $this: &;
+
+    @include clearfix;
+
+    &__wrapper{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+}

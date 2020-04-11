@@ -1,0 +1,21 @@
+/*!
+ *
+ * ======================================================================
+ * 00. ARTICLE - VIEWER
+ * ======================================================================
+ * 
+ */
+
+ // ==> article - viewer
+ .c-article-viewer {
+    $this: &;
+
+    @include clearfix;
+
+    &__wrapper{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+}

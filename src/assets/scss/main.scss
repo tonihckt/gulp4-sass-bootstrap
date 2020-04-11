@@ -51,6 +51,8 @@
 @import "03._components/slider";
 @import "03._components/cover";
 @import "03._components/dropdown";
+@import "03._components/cards";
+
 
 /**
   * layout/
@@ -64,6 +66,10 @@
 @import "04._layout/sidebar";
 @import "04._layout/forms";
 @import "04._layout/sidebar";
+@import "04._layout/content";
+@import "04._layout/article-list";
+@import "04._layout/article-viewer";
+@import "04._layout/newsletter-flow";
 
 /**
   * pages/
