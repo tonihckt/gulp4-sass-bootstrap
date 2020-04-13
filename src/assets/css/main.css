@@ -7362,10 +7362,6 @@ a.text-dark:hover, a.text-dark:focus {
  * -------------------------------------------------------------------
  */
 /**
- * LETTER-SPACING FROM ADOBE XD TO EM
- * -------------------------------------------------------------------
- */
-/**
  * POSITION
  * -------------------------------------------------------------------
  * Define vertical, horizontal, or both position
@@ -7374,6 +7370,14 @@ a.text-dark:hover, a.text-dark:focus {
  * COLOR PALETTE
  * -------------------------------------------------------------------
  * .element {background : color ($indigo , 400 );}
+ */
+/**
+ * FONT-SIZE REM TO PIXEL
+ * -------------------------------------------------------------------
+ */
+/**
+ * LETTER-SPACING FROM ADOBE XD TO EM
+ * -------------------------------------------------------------------
  */
 /**
  * FONTS
@@ -7988,9 +7992,13 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline; }
 
+/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block; }
+
+ol, ul {
+  list-style: none; }
 
 /**
  * box sizing border-box for all elements
@@ -8135,7 +8143,7 @@ h2 {
   -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
   margin: auto;
-  background: black; }
+  background: #0099CC; }
 
 .c-container__body {
   -webkit-box-sizing: border-box;
@@ -8169,7 +8177,7 @@ h2 {
   -webkit-box-ordinal-group: 0;
   -ms-flex-order: -1;
   order: -1;
-  background: gray; }
+  background: #0099CC; }
 
 .c-container__aside {
   -webkit-box-sizing: border-box;
@@ -8192,7 +8200,7 @@ footer,
 .c-container__main,
 .c-container__nav,
 .c-container__aside {
-  background: #0099CC;
+  background: #f5eded;
   border: 1px solid #130e7d;
   padding: 1em;
   color: #fff;
@@ -8433,14 +8441,14 @@ input[type="button"] {
     width: 100%; }
   .c-main-card__title {
     font-family: "Merriweather", Helvetica, sans-serif;
-    font-size: 36px;
+    font-size: 2.25rem;
     font-weight: 700;
     line-height: 40px;
     color: #000;
     letter-spacing: -0.072em; }
   .c-main-card__text {
     font-family: "Merriweather", Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 400;
     line-height: 24px;
     letter-spacing: -0.036em; }
@@ -8456,7 +8464,7 @@ input[type="button"] {
     margin: 4px 0 4px 0; }
   .c-main-card__list-text {
     font-family: "Rubik", Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 0.9375rem;
     font-weight: 700;
     line-height: 20px;
     color: #000;
@@ -8483,7 +8491,7 @@ input[type="button"] {
       width: 100%; }
     .c-main-card.is-project .c-main-card__title {
       font-family: "Merriweather", Helvetica, sans-serif;
-      font-size: 42px;
+      font-size: 2.625rem;
       font-weight: 700;
       line-height: 48px;
       color: #000;
@@ -8673,7 +8681,7 @@ input[type="button"] {
 
 .c-main-menu__text, .c-main-menu__link {
   font-family: "Rubik", Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 700;
   line-height: 18px;
   color: #000;
@@ -8710,21 +8718,21 @@ input[type="button"] {
 
 .c-main-menu__title {
   font-family: "Rubik", Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
   line-height: 17px;
   color: #fff;
   text-transform: uppercase; }
   .is-legal .c-main-menu__title {
     font-family: "Rubik", Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
     line-height: 15px;
     color: #fff; }
 
 .c-main-menu__link {
   font-family: "Rubik", Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 15px;
   color: #fff; }
@@ -8755,7 +8763,7 @@ input[type="button"] {
   margin: 10px 0;
   padding: 6px 0;
   font-family: "Rubik", Arial, Helvetica, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 19px;
   letter-spacing: -0.02em; }
@@ -8798,7 +8806,7 @@ input[type="button"] {
 .c-form__label {
   position: relative;
   font-family: "Rubik", Arial, Helvetica, sans-serif;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   line-height: 14px;
   color: #000;
@@ -8810,7 +8818,7 @@ input[type="button"] {
     text-decoration: underline; }
   .c-form__label--checkbox {
     font-family: "Rubik", Arial, Helvetica, sans-serif;
-    font-size: 11px;
+    font-size: 0.6875rem;
     font-weight: 400;
     line-height: 13px;
     color: #000; }
@@ -8857,7 +8865,7 @@ input[type="button"] {
 
 .c-form__input {
   font-family: "Rubik", Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 400;
   line-height: 21px;
   color: #000;
@@ -8878,7 +8886,7 @@ input[type="button"] {
     border-color: #000; }
   .c-form__input--text {
     font-family: "Rubik", Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 400;
     line-height: 21px;
     color: #000;
@@ -8900,7 +8908,7 @@ input[type="button"] {
       border-color: #000; }
   .c-form__input--submit {
     font-family: "Rubik", Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
     line-height: 17px;
     color: #fff;
@@ -8937,7 +8945,7 @@ input[type="button"] {
   background-color: #0080FF;
   border-color: #00FFFF;
   font-family: "Rubik", Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
   line-height: 17px;
   color: #fff; }
@@ -9033,14 +9041,14 @@ input[type="button"] {
       padding-top: 26px; }
   .c-articles-main__title {
     font-family: "Merriweather", Helvetica, sans-serif;
-    font-size: 36px;
+    font-size: 2.25rem;
     font-weight: 700;
     line-height: 40px;
     color: #000;
     letter-spacing: -0.072em; }
   .c-articles-main__text {
     font-family: "Merriweather", Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 400;
     line-height: 24px;
     letter-spacing: -0.036em; }
@@ -9056,7 +9064,7 @@ input[type="button"] {
     margin: 4px 0 4px 0; }
   .c-articles-main__list-text {
     font-family: "Rubik", Arial, Helvetica, sans-serif;
-    font-size: 15px;
+    font-size: 0.9375rem;
     font-weight: 700;
     line-height: 20px;
     color: #000;
@@ -9070,7 +9078,7 @@ input[type="button"] {
       padding: 0 100px; }
     .c-articles-main.is-big .c-articles-main__title {
       font-family: "Merriweather", Helvetica, sans-serif;
-      font-size: 42px;
+      font-size: 2.625rem;
       font-weight: 700;
       line-height: 48px;
       color: #000;
@@ -9125,7 +9133,6 @@ input[type="button"] {
  * 
  */
 .c-subscribe {
-  background: #3f3f3f;
   filter: alpha(opacity=100);
   opacity: 1;
   border: 5px solid rgba(14, 36, 58, 0.66);
@@ -9204,7 +9211,7 @@ input[type="button"] {
     margin: 14px 0;
     padding-left: 16px;
     font-family: "Rubik", Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 700;
     line-height: 24px;
     letter-spacing: -0.01em;
@@ -9229,7 +9236,7 @@ input[type="button"] {
   .c-category-header__title.is-sidebar {
     margin-top: 0px;
     font-family: "Rubik", Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 22px;
     letter-spacing: -0.01em; }
@@ -9240,7 +9247,7 @@ input[type="button"] {
     margin: 14px 0;
     padding-left: 16px;
     font-family: "Rubik", Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 700;
     line-height: 24px;
     letter-spacing: -0.01em;
@@ -9251,7 +9258,7 @@ input[type="button"] {
     .c-category-header .c-category-header__title {
       margin-top: 0px;
       font-family: "Rubik", Arial, Helvetica, sans-serif;
-      font-size: 18px;
+      font-size: 1.125rem;
       font-weight: 700;
       line-height: 22px;
       letter-spacing: -0.01em; }
@@ -9290,7 +9297,7 @@ input[type="button"] {
 
 .c-tag-header__link {
   font-family: "Rubik", Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 15px;
   color: #fff; }
