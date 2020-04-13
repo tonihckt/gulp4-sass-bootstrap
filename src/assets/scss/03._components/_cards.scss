@@ -9,24 +9,24 @@
 // ==> main-card
 .c-main-card {
   $this: &;
-  display: flex;
+  // display: flex;
   position: relative;
+  @include grid();
   @include opacity(1);
   @include border(1px,solid,rgba(245, 245, 220, 0.66),all);
   @include border-radius(1em);
   
   &__right {
-    // @include grid-col(6);
-
- 
-      // @include center(vert);
+    margin: auto;
+    @include grid-col(6);
   }
+
   &__left {
-    // @include grid-col(6);
+    @include grid-col(6);
   }
 
   &__img-link {
-    max-width: 500px;
+    max-width: 50%;
     width: 100%;
   }
 
@@ -44,9 +44,9 @@
     width: 100%;
 
     #{$this}__img-link + & {
-      margin-left: 46px;
-      width: calc(100% - 500px - 46px);
-      padding-top: 26px;
+      // margin-left: 46px;
+      // width: calc(100% - 500px - 46px);
+      // padding-top: 26px;
     }
   }
 
@@ -104,7 +104,7 @@
     );
   }
 
-  &.has-project {
+  &.is-project {
     display: flex;
     @include linear-gradient(#00ffff, #0080ff, 45deg);
     @include card-shadow(1);
@@ -114,8 +114,8 @@
       &__wrapper {
         position: relative;
         width: 100%;
-        margin: 20px 0;
-        padding: 0 100px;
+        // margin: 20px 0;
+        // padding: 0 100px;
       }
 
       &__title {
@@ -127,7 +127,7 @@
           $ls: -20,
           $co: $clr-black
         );
-        text-align: center;
+        text-align: left;
       }
       // &__date, &__date-link{
       //   margin-top: 10px;

@@ -52,9 +52,11 @@
   }
 
   &__item {
-    & + & {
-      margin-left: 20px;
-    }
+    margin-left: 20px;
+
+    // & + & {
+    //   margin-left: 20px;
+    // }
   }
 
   &__link {
@@ -72,12 +74,14 @@
   $this: &;
 
   &__list {
+    display: flex;
   }
 
   &__item {
-    & + & {
-      margin-left: 30px;
-    }
+    
+    // & + & {
+    //   margin-left: 30px;
+    // }
 
     &.is-more {
       #{$this}__link {

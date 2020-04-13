@@ -15,22 +15,35 @@
     &__bottom{}
     &__logo{}
     &__social{}
-    &__menu{}
+    &__menu{
+        display: flex;
+    }
     &__stores{}
 
  }
 
 // ==> main-menu
- .c-footer-menu {
+ .c-main-menu {
     $this: &;
 
-     display: flex;
+    //  display: flex;
      & + & {
-         margin-top: 10px;
+        //  margin-top: 10px;
      }
      &__item{
+        margin-left: 10px;
+
         & + & {
-            margin-left: 10px;
+            // margin-left: 10px;
+        }
+     }
+
+     &__list{
+        display: flex;
+        flex-direction: row;
+
+        .is-static &, .is-legal & , .is-support &{
+            flex-direction: column;
         }
      }
 
@@ -47,8 +60,8 @@
         .is-legal & {
             @include font(
                 $ff: $ff-secondary,
-                $fs: 30px,
-                $fw: $fw-regular,
+                $fs: 14px,
+                $fw: $fw-bold,
                 $lh: 15px,
                 $co: $clr-white,
             );
@@ -56,9 +69,19 @@
     }
 
 
-     &__link{}
+     &__link{
+        @include font(
+            $ff: $ff-secondary,
+            $fs: 14px,
+            $fw: $fw-regular,
+            $lh: 15px,
+            $co: $clr-white,
+        );
+     }
 
-     &.is-legal{margin-top: 10px;}
+    &.is-static, &.is-legal , &.is-support{
+        // margin-top: 10px;
+    }
 
  }
 

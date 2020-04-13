@@ -1,4 +1,4 @@
- /*!
+/*!
  *
  * ======================================================================
  * 00. BASE
@@ -6,25 +6,33 @@
  * 
  */
 
-body {
-  color: $clr-black;
-  background: $clr-black-light;
-  height: 400vh;
+* {
+  margin: 0;
+}
+
+html {
+  height: 100%;
 }
 
 body {
-    // background-color: $clr-base;
-    background:#f8f7f5;
+  height: 100%;
+  color: $clr-black;
+  background: $clr-black-light;
+  font-family: -apple-system, BlinkMacSystemFont“Segoe UI”, “Roboto”, “Oxygen”,
+    “Ubuntu”, “Cantarell”, “Fira Sans”, “Droid Sans”, “Helvetica Neue”,
+    sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.Panel {
+  background-color: $clr-white;
+  padding: 25px;
+
+  &-destacado {
+    background-color: $clr-secondary;
   }
-  
-  .Panel {
-    background-color: $clr-white;
-    padding: 25px;
-  
-    &-destacado {
-      background-color: $clr-secondary;
-    }
-  }
+}
 
 // table styles
 table {
@@ -43,7 +51,7 @@ td {
   max-width: $grid-width;
   background-color: $clr-grey-light;
   margin: 0 auto;
-&:not(:last-child) {
+  &:not(:last-child) {
     margin-bottom: $vertical-margin;
   }
 }
@@ -61,26 +69,17 @@ h2 {
   color: var(--h2-color);
 }
 
-
 /*
   WRAPPER
   A utility with a max width that contains child elements and horizontal centers them
 */
 .wrapper {
-  max-width: 65rem;
+  // max-width: 65rem;
   margin: 0 auto;
   padding: 0 1rem;
 }
 
-
 /* Presentational styles */
-
-body {
-  background: #efefef;
-  // padding: 1rem 0;
-  // line-height: 1.4;
-  font-family: sans-serif;
-}
 
 .ul-li {
   padding: 5rem 1rem;
@@ -90,83 +89,88 @@ body {
   color: #ffffff;
 }
 
-
-.main-demo{
+.main-demo {
   @include grid();
 
-  &__container {}
-  &__wrap {}
-  &__right{
+  &__container {
+  }
+  &__wrap {
+  }
+  &__right {
     @include grid-col(3);
-    background:blue;
+    background: blue;
   }
-  &__left{
+  &__left {
     @include grid-col(9);
-    background:red;
+    background: red;
   }
-  
+  &__top{}
+  &__bottom{}
 }
 
-.page-container{
-  width: 100%;
-  height: 100%;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: column nowrap;
-  flex-flow: column nowrap;
-  margin: auto;
-  background: black;
-}
+.c-container{
+  &__page {
+    width: 100%;
+    height: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column nowrap;
+    flex-flow: column nowrap;
+    margin: auto;
+    background: black;
+  }
 
-.body-container{
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  background: #a5c3e2;
-}
+  &__body {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background: #a5c3e2;
+  }
 
-.content-container{
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-box-flex: 1;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  margin: 0 2%;
-}
+  &__main {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    margin: 0 2%;
+  }
 
-.nav-container{
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 240px;
-  flex: 0 0 240px;
-  -webkit-box-ordinal-group: 0;
-  -ms-flex-order: -1;
-  order: -1;
-  background:gray;
-}
+  &__nav {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 240px;
+    flex: 0 0 240px;
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
+    order: -1;
+    background: gray;
+  }
+  &__nav-top{}
 
-.aside-container{
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 120px;
-  flex: 0 0 120px;
-  background: blue;
+  &__aside {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 120px;
+    flex: 0 0 120px;
+    background: blue;
+  }
 }
 
 
@@ -179,16 +183,50 @@ footer {
   flex: 0 0 auto;
 }
 
-
 header,
 footer,
-.content-container,
-.nav-container,
-.aside-container {
-  background: #0e72da;
+.c-container__main,
+.c-container__nav,
+.c-container__aside {
+  // background: #0e72da;
+  background: #0099CC;
   border: 1px solid #130e7d;
   padding: 1em;
   color: #fff;
-  // text-align: center;
+  flex: 1 1 auto;
+  margin: 0 2%;
 }
 
+nav {
+  background: hsl(350, 50%, 50%);
+  padding: 1.3rem;
+  color: hsl(350, 50%, 10%);
+}
+
+.container {
+  flex: 1;
+  background: hsl(350, 50%, 95%);
+  padding: 1rem;
+}
+
+p.content {
+  padding: 0.7rem;
+  font-size: 0.7rem;
+  color: hsl(350, 50%, 50%);
+}
+
+.container h2.title {
+  padding: 1rem;
+  color: hsl(350, 50%, 20%);
+}
+
+footer {
+  background: hsl(350, 93%, 88%);
+  padding: 1rem;
+}
+
+input[type="button"] {
+  color: hsl(350, 50%, 20%);
+  padding: 0.3rem;
+  font-size: 1rem;
+}

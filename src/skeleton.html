@@ -10,16 +10,16 @@
 </head>
 
 <body>
-    <div class="page-container">
+    <div class="c-container__page">
         <!-- Header content -->
-        <header class="header-container">
+        <header class="c-container__header">
             <div class="c-main-header">
                 <div class="c-main-header__top">
 
                     <div class="c-main-header__left">
                         <div class="c-main-header__logo c-main-logo">
                             <a class="c-main-logo__link">
-                                <img class="c-main-logo__img" src="./assets/logos/logo-color.svg" alt="" width="40px" />
+                                <img class="c-main-logo__img" src="./assets/images/logos/logo-color.svg" alt="" width="40px" />
                             </a>
                         </div>
 
@@ -39,18 +39,24 @@
                 </div>
 
                 <div class="c-main-header__bottom">
-                    <div class="c-main-header__menu c-main-menu">
-                        <nav>
-                            <ul class="c-main-menu__list">
-                                <li class="c-main-menu__item">
-                                    <p class="c-main-menu__title">
-                                        <a class="c-main-menu__link">
-                        Inicio
-                      </a>
-                                    </p>
-                                </li>
-                            </ul>
-                        </nav>
+                    <div class="c-main-header__menu">
+                        <!-- Navigation top-->
+                        <div class="c-container__nav-top">
+                            <nav class="c-main-header__nav c-main-menu">
+                                <ul class="c-main-menu__list">
+                                    <li class="c-main-menu__item">
+                                        <a class="c-main-menu__link">Inicio</a>
+                                    </li>
+                                    <li class="c-main-menu__item">
+                                        <a class="c-main-menu__link">Portfolio</a>
+                                    </li>
+                                    <li class="c-main-menu__item">
+                                        <a class="c-main-menu__link">Contacto</a>
+                                    </li>                                 
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- /Navigation top-->
                     </div>
 
                     <div class="c-main-header__social">
@@ -70,17 +76,10 @@
         </header>
         <!-- /Header content -->
 
-        <div class="body-container">
-
-            <!-- Navigation -->
-            <!-- <nav class="nav-container">
-          nav nav nav nav
-          nav nav nav nav
-        </nav> -->
-            <!-- /Navigation -->
+        <div class="c-container__body">
 
             <!-- Main content -->
-            <main class="content-container">
+            <main class="c-container__main">
 
                 <!-- Article -->
                 <article class="c-articles-main has-gallery">
@@ -111,20 +110,46 @@
                 <!-- /Article -->
 
                 <!-- Card -->
-                <div class="c-main-card has-project">
+                <div class="c-category-header">
+                    <div class="c-category-header__content">
+                        <h3 class="c-category-header__title highlighted">
+                            <a href="" class="c-category-header__link">Projects</a>
+                        </h3>
+                        <p class="c-category-header__desc">Articles description</p>
+                    </div>
+                    <div class="c-category-header__graphic">
+                        <a href="#" class="c-category-header__img-link">
+                            <picture class="c-category-header__picture">
+                                <img class="c-category-header__img" src="./assets/images/icons/start-color.svg" alt="">
+                            </picture>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="c-main-card is-project">
                     <div class="c-main-card__right">
                         <a href="" class="c-main-card__img-link">
                             <picture class="c-main-card__picture">
-                                <img class="c-main-card__img" src="./assets/images/logos/logo-color.svg" alt="" width="70px">
+                                <img class="c-main-card__img" src="./assets/images/icons/strategy-color.svg" alt="">
                             </picture>
                         </a>
                     </div>
                     <div class="c-main-card__left">
                         <div class="c-main-card__wrapper">
                             <h2 class="c-main-card__title">
-                                      <a href="" class="c-main-card__link">Link Article</a>
+                                      <a href="" class="c-main-card__link">Project Title</a>
                                     </h2>
-                            <p class="c-main-card__course">Main Text Link Article</p>
+                            <div class="c-main-card__course c-tag-header">
+                                <ul class="c-tag-header__list">
+                                    <li class="c-tag-header__item">
+                                        <a class="c-tag-header__link">course</a>
+                                    </li>
+                                    <li class="c-tag-header__item">
+                                        <a class="c-tag-header__link">course</a>
+                                    </li>
+                                </ul>
+                            </div>
+
                             <p class="c-main-card__date"><strong>Fecha: </strong>28/2/2020</p>
                             <p class="c-main-card__text">Main Text Link Article</p>
                         </div>
@@ -175,7 +200,7 @@
             <!-- /Main content -->
 
             <!-- Sidebar / Ads -->
-            <!-- <aside class="aside-container">
+            <!-- <aside class="c-container__aside">
           aside aside aside aside 
           aside aside aside aside 
         </aside> -->
@@ -184,15 +209,22 @@
         </div>
 
         <!-- Footer content -->
-        <footer class="footer-container">
+        <footer class="c-container__footer">
             <div class="c-main-footer">
                 <div class="c-main-footer__container">
                     <div class="c-main-footer__top">
+
                         <div class="c-main-footer__logo c-main-logo">
                             <a class="c-main-logo__link">
                                 <img class="c-main-logo__img" src="./assets/images/logos/logo-color.svg" alt="" width="40px" />
                             </a>
                         </div>
+
+                        <div class="c-main-footer__text">
+                            <p class="c-main-footer__copr">Copyright © 2020 de sus respectivos propietarios</p>
+                            <p class="c-main-footer__desc"></p>
+                        </div>
+
                         <div class="c-main-footer__social">
                             <ul class="c-social">
                                 <li class="c-social__item is-facebook">
@@ -204,29 +236,54 @@
                             </ul>
                         </div>
                     </div>
+
                     <div class="c-main-footer__bottom">
                         <div class="c-main-footer__menu">
-
-                            <nav>
-                                <ul class="c-footer-menu">
-                                    <li class="c-footer-menu__item">
-                                        <p class="c-footer-menu__title">
-                                            <a class="c-footer-menu__link">inicio</a>
-                                        </p>
+    
+                            <nav class="c-main-footer__nav c-main-menu is-static">
+                                <p class="c-main-menu__title">Menu</p>
+                                <ul class="c-main-menu__list">
+                                    <li class="c-main-menu__item">
+                                        <a class="c-main-menu__link">Inicio</a>
                                     </li>
+                                    <li class="c-main-menu__item">
+                                        <a class="c-main-menu__link">Portfolio</a>
+                                    </li>
+                                    <li class="c-main-menu__item">
+                                        <a class="c-main-menu__link">Contacto</a>
+                                    </li>                                 
                                 </ul>
                             </nav>
 
-                            <nav>
-                                <ul class="c-footer-menu is-legal">
-                                    <li class="c-footer-menu__item">
-                                        <p class="c-footer-menu__title">
-                                            <a class="c-footer-menu__link">inicio</a>
-                                        </p>
+                            <nav class="c-main-footer__nav c-main-menu is-legal">
+                                <p class="c-main-menu__title">Legal</p>
+                                <ul class="c-main-menu__list">
+                                    <li class="c-main-menu__item">
+                                        <a class="c-main-menu__link">Condiciones de uso</a>
                                     </li>
+                                    <li class="c-main-menu__item">
+                                        <a class="c-main-menu__link">Política de privacidad</a>
+                                    </li>
+                                    <li class="c-main-menu__item">
+                                        <a class="c-main-menu__link">Cookies</a>
+                                    </li>                                 
                                 </ul>
                             </nav>
 
+                            <nav class="c-main-footer__nav c-main-menu is-support">
+                                <p class="c-main-menu__title">Soporte</p>
+                                <ul class="c-main-menu__list">
+                                    <li class="c-main-menu__item">
+                                        <a class="c-main-menu__link">Preguntas Frecuentes</a>
+                                    </li>
+                                    <li class="c-main-menu__item">
+                                        <a class="c-main-menu__link">Reglas de convivencia</a>
+                                    </li>
+                                    <li class="c-main-menu__item">
+                                        <a class="c-main-menu__link">Consejos de seguridad</a>
+                                    </li>                                 
+                                </ul>
+                            </nav>
                         </div>
 
                         <div class="c-main-footer__stores c-stores">
@@ -237,7 +294,6 @@
                                 <img class="c-stores__img" src="./assets/images/icons/app-store-cta.svg" alt="" width="" />
                             </a>
                         </div>
-
                     </div>
                 </div>
             </div>
