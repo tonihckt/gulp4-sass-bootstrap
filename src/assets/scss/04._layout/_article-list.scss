@@ -10,14 +10,22 @@
 .c-articles-main {
   $this: &;
   @include clearfix;
-  
 
   display: flex;
   position: relative;
   // padding-bottom: 22px;
+  @include grid();
 
-  &__right{}
-  &__left{}
+
+  &__right{
+    @include grid-col(4);
+    padding: 2%;
+
+  }
+  &__left{
+    @include grid-col(8);
+    padding: 2%;
+  }
 
   &__img-link {
     max-width: 500px;
@@ -32,6 +40,8 @@
   &__picture {
     display: block;
     position: relative;
+    margin: 0 auto;
+    text-align: center;
   }
 
   &__wrapper {

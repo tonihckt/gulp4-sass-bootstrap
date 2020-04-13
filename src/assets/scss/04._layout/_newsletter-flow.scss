@@ -7,6 +7,7 @@
  */
 
  .c-subscribe {
+    padding: 2%;
     // background:#a5c3e2;
     @include opacity(1);
     @include border(5px,solid,rgba(14, 36, 58, 0.66),all);

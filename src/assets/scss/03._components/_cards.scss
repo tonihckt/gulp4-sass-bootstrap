@@ -18,11 +18,14 @@
   
   
   &__right {
-    margin: auto;
+    margin: 0 auto;
+    padding: 2%;
     @include grid-col(6);
   }
 
   &__left {
+    margin: 0 auto;
+    padding: 2%;
     @include grid-col(6);
   }
 
@@ -137,6 +140,12 @@
       &__img-link {
         width: 100%;
         max-width: 100%;
+      }
+
+      &__picture{
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
     }
   }

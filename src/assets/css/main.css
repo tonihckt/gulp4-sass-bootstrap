@@ -7339,23 +7339,300 @@ a.text-dark:hover, a.text-dark:focus {
   .auto-grid > * + * {
     margin-top: unset; } }
 
+/*!
+ *
+ * ======================================================================
+ * 00. MIXINS
+ * ======================================================================
+ *
+ * They are declared using @mixin and you can name them pretty much whatever you * want (with some sensible exceptions, and obviously it will be easier to read 
+ * your code if you name it something relevant!):
+ * 
+ */
+/**
+ * BACKGROUND IMAGE
+ * -------------------------------------------------------------------
+ */
+/**
+ * CLEARFIX
+ * -------------------------------------------------------------------
+ */
+/**
+ * PLACEHOLDER
+ * -------------------------------------------------------------------
+ */
+/**
+ * POSITION
+ * -------------------------------------------------------------------
+ * Define vertical, horizontal, or both position
+ */
+/**
+ * COLOR PALETTE
+ * -------------------------------------------------------------------
+ * .element {background : color ($indigo , 400 );}
+ */
+/**
+ * FONT-SIZE REM TO PIXEL
+ * -------------------------------------------------------------------
+ * .element{font-size: rem-calc(16px);}
+ */
+/**
+ * LETTER-SPACING FROM ADOBE XD TO EM
+ * -------------------------------------------------------------------
+ */
+/**
+ * FONTS
+ * -------------------------------------------------------------------
+ */
+/**
+ * BOX SHADOW
+ * -------------------------------------------------------------------
+ */
+/**
+ * CARD SHADOW
+ * -------------------------------------------------------------------
+ * .element{ @include card-shadow(1); }
+ */
+/**
+ * LINEAR - GRADIENT
+ * -------------------------------------------------------------------
+ * @include linear-gradient(#00FFFF,#0080FF,45deg);
+ */
+/**
+ * TRANSITION
+ * -------------------------------------------------------------------
+ */
+.container {
+  padding-right: 15px;
+  padding-left: 15px; }
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px; }
+
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12 {
+  padding-right: 15px;
+  padding-left: 15px; }
+
+/**
+ * STICKY FOOTER
+ * -------------------------------------------------------------------
+ */
+/**
+ * FLEXBOX OWN CONFIGURATION
+ * -------------------------------------------------------------------
+ * .element{@include flex-config($flex-direction: row, $align-items: center, $justify-content: center);}
+ */
+/*!
+ *
+ * ======================================================================
+ * 00.HELPERS
+ * ======================================================================
+ * 
+ */
+/**
+ * CONVERT REM
+ * -------------------------------------------------------------------
+ */
+/**
+ * CONTAINER
+ * -------------------------------------------------------------------
+ */
+/**
+* FLEX
+* -------------------------------------------------------------------
+* .centered-elements{@include flex-center(); border: 1px solid gray}
+*/
+/**
+* ROTATE
+* -------------------------------------------------------------------
+* .rotate-elements{@include rotate(45eg);}
+*/
+/**
+* ZEBRA
+* -------------------------------------------------------------------
+* {@include zebra();}
+*/
+/**
+* PADDING > MARGIN
+* -------------------------------------------------------------------
+* @mixin that will choose padding sizing if it’s greater than the margin
+* .container{@include spacing(10px, 20px}
+*/
+/**
+* BUTTON -> CHANGES COLOR
+* -------------------------------------------------------------------
+* @mixin Changes its background color based on its width.
+* .button{@include buttom-color(20px, 30px}
+*/
+/**
+* BOX-SHADOW
+* -------------------------------------------------------------------
+* div{@include box-shadow(0, 5px, 5px, rgba(0, 0, 0, 0.7));}
+*/
+/**
+* COLORS OF STATES
+* -------------------------------------------------------------------
+* .heading {@include color-state(error);}
+*/
+/**
+ * VERTICALLY ALIGNING ELEMENTS
+ * -------------------------------------------------------------------
+ * mixin usage: @include center-elements(both); | @include center-elements(vert);
+ */
+/**
+* BORDER
+* -------------------------------------------------------------------
+* Add a border to one side or three sides
+*
+* .border-all { @include border(5px,solid,#0080FF,all); }
+* .border-less-bottom { @include border(5px,solid,#0080FF,all,bottom); }
+* .border-top { @include border(5px,dashed,#0080FF,top); }
+*/
+/**
+* BORDER RADIUS
+* -------------------------------------------------------------------
+* .element { @include border-radius(1em); }
+* .element { @include border-radius(25px,5px,25px,5px); }
+*/
+/**
+* TRANSITION ALL
+* -------------------------------------------------------------------
+* Animate properties like color, width and padding to create fade and scale effects.
+*
+* .element.fade { @include transition(all,0.5s,ease-out); }
+* .element.scale { @include transition(all,0.3s,ease-out); }
+*/
+/**
+* OPACITY
+* -------------------------------------------------------------------
+* 
+* .element.sevenfive { @include opacity(0.75); }
+*/
+/**
+* TEXT SHADOW
+* -------------------------------------------------------------------
+* Add a basic shadow behind your text, or to create a unique effect 
+*
+* .element{ @include text-shadow(2px,2px,2px,rgba(0,0,0,.25)); }
+* .element{ @include text-shadow(-1px,-2px,3px,#00FFFF, 1px,2px,3px,#0080FF); }
+*/
+/**
+* TRANSFORM ROTATE
+* -------------------------------------------------------------------
+* Add a basic shadow behind your text, or to create a unique effect 
+*
+* .element{   @include rotate(180, 0.00000000, 1.00000000, -1.00000000, 0.00000000); }
+*/
+/**
+* BACKGROUND IMAGE --- (por ver)
+* -------------------------------------------------------------------
+*
+* .element.icon { @include background-image("header.png", right, $black); }
+*/
+/**
+* SQUARE
+* -------------------------------------------------------------------
+*
+* .element.square { @include square(100px, $radius: 4px); }
+*/
+/*REPLACE TEXT
+* -------------------------------------------------------------------
+*
+* .element.icon { @include replace-text(url("../../images/mail.svg"), 0); }
+*/
+/**
+* TINYMCE IMAGE
+* -------------------------------------------------------------------
+* Managing image position
+* Margins and text runaround when working with WYSWIYG HTML editors, like TinyMCE
+*
+* .element{ @include tinymce-img(); }
+*/
+/**
+* INPUT PLACEHOLDER
+* -------------------------------------------------------------------
+* .placeholder { @include placeholder { color: #0066CC; background: #ccffff; } }
+*/
+/*!
+ *
+ * ======================================================================
+ * 00. PLACEHOLDERS
+ * ======================================================================
+ * 
+ */
+/*!
+ *
+ * ======================================================================
+ * 00. ANIMATIONS
+ * ======================================================================
+ * 
+ */
 /**
 * ANIMATIONS AND KEYFRAMES
 * -------------------------------------------------------------------
+* slide-in | slide-out
 */
 /**
- * ANIMATIONS
- * -------------------------------------------------------------------
- *
- * .animation-slide-in-up{ @include animation(0, 0.5s, animation-slide-in-up, ease); } 
- * .animation-slide-in-down{ @include animation(0, 0.5s, animation-slide-in-down, ease); } 
- * .animation-slide-in-right{ @include animation(0, 0.5s, animation-slide-in-right, ease); } 
- * .animation-slide-in-left{ @include animation(0, 0.5s, animation-slide-in-left, ease); } 
- * .animation-slide-out-up{ @include animation(0, 0.5s, animation-slide-out-up, ease); } 
- * .animation-slide-out-down{ @include animation(0, 0.5s, animation-slide-out-down, ease); } 
- * .animation-slide-out-right{ @include animation(0, 0.5s, animation-slide-out-right, ease); } 
- * .animation-slide-out-left{ @include animation(0, 0.5s, animation-slide-out-left, ease); }
- */
+   * ANIMATIONS
+   * -------------------------------------------------------------------
+   *
+   * .animation-slide-in-up{ @include animation(0, 0.5s, animation-slide-in-up, ease); } 
+   * .animation-slide-in-down{ @include animation(0, 0.5s, animation-slide-in-down, ease); } 
+   * .animation-slide-in-right{ @include animation(0, 0.5s, animation-slide-in-right, ease); } 
+   * .animation-slide-in-left{ @include animation(0, 0.5s, animation-slide-in-left, ease); } 
+   * .animation-slide-out-up{ @include animation(0, 0.5s, animation-slide-out-up, ease); } 
+   * .animation-slide-out-down{ @include animation(0, 0.5s, animation-slide-out-down, ease); } 
+   * .animation-slide-out-right{ @include animation(0, 0.5s, animation-slide-out-right, ease); } 
+   * .animation-slide-out-left{ @include animation(0, 0.5s, animation-slide-out-left, ease); }
+   */
 @-webkit-keyframes animation-slide-out-up {
   0% {
     transform: translate(0, 0); }
@@ -7596,270 +7873,6 @@ a.text-dark:hover, a.text-dark:focus {
   100% {
     transform: translate(0, 0); } }
 
-/*!
- *
- * ======================================================================
- * 00. MIXINS
- * ======================================================================
- *
- * They are declared using @mixin and you can name them pretty much whatever you * want (with some sensible exceptions, and obviously it will be easier to read 
- * your code if you name it something relevant!):
- * 
- */
-/**
- * BACKGROUND IMAGE
- * -------------------------------------------------------------------
- */
-/**
- * CLEARFIX
- * -------------------------------------------------------------------
- */
-/**
- * PLACEHOLDER
- * -------------------------------------------------------------------
- */
-/**
- * POSITION
- * -------------------------------------------------------------------
- * Define vertical, horizontal, or both position
- */
-/**
- * COLOR PALETTE
- * -------------------------------------------------------------------
- * .element {background : color ($indigo , 400 );}
- */
-/**
- * FONT-SIZE REM TO PIXEL
- * -------------------------------------------------------------------
- * .element{font-size: rem-calc(16px);}
- */
-/**
- * LETTER-SPACING FROM ADOBE XD TO EM
- * -------------------------------------------------------------------
- */
-/**
- * FONTS
- * -------------------------------------------------------------------
- */
-/**
- * BOX SHADOW
- * -------------------------------------------------------------------
- */
-/**
- * CARD SHADOW
- * -------------------------------------------------------------------
- * .element{ @include card-shadow(1); }
- */
-/**
- * LINEAR - GRADIENT
- * -------------------------------------------------------------------
- * @include linear-gradient(#00FFFF,#0080FF,45deg);
- */
-/**
- * TRANSITION
- * -------------------------------------------------------------------
- */
-.container {
-  padding-right: 15px;
-  padding-left: 15px; }
-
-.row {
-  margin-right: -15px;
-  margin-left: -15px; }
-
-.col-xs-1,
-.col-sm-1,
-.col-md-1,
-.col-lg-1,
-.col-xs-2,
-.col-sm-2,
-.col-md-2,
-.col-lg-2,
-.col-xs-3,
-.col-sm-3,
-.col-md-3,
-.col-lg-3,
-.col-xs-4,
-.col-sm-4,
-.col-md-4,
-.col-lg-4,
-.col-xs-5,
-.col-sm-5,
-.col-md-5,
-.col-lg-5,
-.col-xs-6,
-.col-sm-6,
-.col-md-6,
-.col-lg-6,
-.col-xs-7,
-.col-sm-7,
-.col-md-7,
-.col-lg-7,
-.col-xs-8,
-.col-sm-8,
-.col-md-8,
-.col-lg-8,
-.col-xs-9,
-.col-sm-9,
-.col-md-9,
-.col-lg-9,
-.col-xs-10,
-.col-sm-10,
-.col-md-10,
-.col-lg-10,
-.col-xs-11,
-.col-sm-11,
-.col-md-11,
-.col-lg-11,
-.col-xs-12,
-.col-sm-12,
-.col-md-12,
-.col-lg-12 {
-  padding-right: 15px;
-  padding-left: 15px; }
-
-/**
- * STICKY FOOTER
- * -------------------------------------------------------------------
- */
-/*!
- *
- * ======================================================================
- * 00.HELPERS
- * ======================================================================
- * 
- */
-/**
- * CONVERT REM
- * -------------------------------------------------------------------
- */
-/**
- * CONTAINER
- * -------------------------------------------------------------------
- */
-/**
-* FLEX
-* -------------------------------------------------------------------
-* .centered-elements{@include flex-center(); border: 1px solid gray}
-*/
-/**
-* ROTATE
-* -------------------------------------------------------------------
-* .rotate-elements{@include rotate(45eg);}
-*/
-/**
-* ZEBRA
-* -------------------------------------------------------------------
-* {@include zebra();}
-*/
-/**
-* PADDING > MARGIN
-* -------------------------------------------------------------------
-* @mixin that will choose padding sizing if it’s greater than the margin
-* .container{@include spacing(10px, 20px}
-*/
-/**
-* BUTTON -> CHANGES COLOR
-* -------------------------------------------------------------------
-* @mixin Changes its background color based on its width.
-* .button{@include buttom-color(20px, 30px}
-*/
-/**
-* BOX-SHADOW
-* -------------------------------------------------------------------
-* div{@include box-shadow(0, 5px, 5px, rgba(0, 0, 0, 0.7));}
-*/
-/**
-* COLORS OF STATES
-* -------------------------------------------------------------------
-* .heading {@include color-state(error);}
-*/
-/**
- * VERTICALLY ALIGNING ELEMENTS
- * -------------------------------------------------------------------
- * mixin usage: @include center-elements(both); | @include center-elements(vert);
- */
-/**
-* BORDER
-* -------------------------------------------------------------------
-* Add a border to one side or three sides
-*
-* .border-all { @include border(5px,solid,#0080FF,all); }
-* .border-less-bottom { @include border(5px,solid,#0080FF,all,bottom); }
-* .border-top { @include border(5px,dashed,#0080FF,top); }
-*/
-/**
-* BORDER RADIUS
-* -------------------------------------------------------------------
-* .element { @include border-radius(1em); }
-* .element { @include border-radius(25px,5px,25px,5px); }
-*/
-/**
-* TRANSITION ALL
-* -------------------------------------------------------------------
-* Animate properties like color, width and padding to create fade and scale effects.
-*
-* .element.fade { @include transition(all,0.5s,ease-out); }
-* .element.scale { @include transition(all,0.3s,ease-out); }
-*/
-/**
-* OPACITY
-* -------------------------------------------------------------------
-* 
-* .element.sevenfive { @include opacity(0.75); }
-*/
-/**
-* TEXT SHADOW
-* -------------------------------------------------------------------
-* Add a basic shadow behind your text, or to create a unique effect 
-*
-* .element{ @include text-shadow(2px,2px,2px,rgba(0,0,0,.25)); }
-* .element{ @include text-shadow(-1px,-2px,3px,#00FFFF, 1px,2px,3px,#0080FF); }
-*/
-/**
-* TRANSFORM ROTATE
-* -------------------------------------------------------------------
-* Add a basic shadow behind your text, or to create a unique effect 
-*
-* .element{   @include rotate(180, 0.00000000, 1.00000000, -1.00000000, 0.00000000); }
-*/
-/**
-* BACKGROUND IMAGE --- (por ver)
-* -------------------------------------------------------------------
-*
-* .element.icon { @include background-image("header.png", right, $black); }
-*/
-/**
-* SQUARE
-* -------------------------------------------------------------------
-*
-* .element.square { @include square(100px, $radius: 4px); }
-*/
-/*REPLACE TEXT
-* -------------------------------------------------------------------
-*
-* .element.icon { @include replace-text(url("../../images/mail.svg"), 0); }
-*/
-/**
-* TINYMCE IMAGE
-* -------------------------------------------------------------------
-* Managing image position
-* Margins and text runaround when working with WYSWIYG HTML editors, like TinyMCE
-*
-* .element{ @include tinymce-img(); }
-*/
-/**
-* INPUT PLACEHOLDER
-* -------------------------------------------------------------------
-* .placeholder { @include placeholder { color: #0066CC; background: #ccffff; } }
-*/
-/*!
- *
- * ======================================================================
- * 00. PLACEHOLDERS
- * ======================================================================
- * 
- */
 /**
   * base/
   * -------------------------------------------------------------------
@@ -8680,10 +8693,13 @@ input[type="button"] {
   -ms-border-radius: 1em;
   border-radius: 1em; }
   .c-main-card__right {
-    margin: auto;
+    margin: 0 auto;
+    padding: 2%;
     box-sizing: border-box;
     flex: 0 0 50%; }
   .c-main-card__left {
+    margin: 0 auto;
+    padding: 2%;
     box-sizing: border-box;
     flex: 0 0 50%; }
   .c-main-card__img-link {
@@ -8773,6 +8789,10 @@ input[type="button"] {
     .c-main-card.is-project .c-main-card__img-link {
       width: 100%;
       max-width: 100%; }
+    .c-main-card.is-project .c-main-card__picture {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
   .c-main-card.has-gallery .c-main-card__picture::before {
     display: block;
     position: absolute;
@@ -9292,11 +9312,21 @@ input[type="button"] {
  */
 .c-articles-main {
   display: flex;
-  position: relative; }
+  position: relative;
+  box-sizing: border-box;
+  display: flex; }
   .c-articles-main::after {
     content: "";
     display: table;
     clear: both; }
+  .c-articles-main__right {
+    box-sizing: border-box;
+    flex: 0 0 33.33333%;
+    padding: 2%; }
+  .c-articles-main__left {
+    box-sizing: border-box;
+    flex: 0 0 66.66667%;
+    padding: 2%; }
   .c-articles-main__img-link {
     max-width: 500px;
     width: 100%; }
@@ -9305,7 +9335,9 @@ input[type="button"] {
     max-width: 50%; }
   .c-articles-main__picture {
     display: block;
-    position: relative; }
+    position: relative;
+    margin: 0 auto;
+    text-align: center; }
   .c-articles-main__wrapper {
     width: 100%; }
     .c-articles-main__img-link + .c-articles-main__wrapper {
@@ -9406,6 +9438,7 @@ input[type="button"] {
  * 
  */
 .c-subscribe {
+  padding: 2%;
   filter: alpha(opacity=100);
   opacity: 1;
   border: 5px solid rgba(14, 36, 58, 0.66);
@@ -9499,7 +9532,7 @@ input[type="button"] {
       left: 0;
       top: 6px; }
   .c-category-header__title.highlighted {
-    font-size: 50px;
+    font-size: 3.125rem;
     color: #222;
     background-color: #fff2ac;
     background-image: linear-gradient(to right, #ffe359 0%, #fff2ac 100%); }
