@@ -234,6 +234,20 @@
 }
 
 /**
+* TEXT SHORTENING
+* -------------------------------------------------------------------
+* Adds an ellipsis (…) to the end
+*
+* .element{@include text-shorten();}
+*/
+
+@mixin text-shorten {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/**
 * TEXT SHADOW
 * -------------------------------------------------------------------
 * Add a basic shadow behind your text, or to create a unique effect 
@@ -271,6 +285,39 @@
     zoom: 1;
 }
 
+/**
+* ARROW WITH FOUR OPTIONAL DIRECTIONS
+* -------------------------------------------------------------------
+* This mixin helps you quickly create an arrow with from four directions
+*
+* .element{@include arrow();}
+* .element{@include arrow(up, 10px, #efefef);}
+*/
+
+@mixin arrow($direction: down, $size: 5px, $color: #555) {
+  width: 0;
+  height: 0;
+  @if ($direction == left) {
+     border-top: $size solid transparent;
+     border-bottom: $size solid transparent; 
+     border-right: $size solid $color;
+  }
+  @else if ($direction == right) {
+     border-top: $size solid transparent;
+     border-bottom: $size solid transparent; 
+     border-left: $size solid $color;
+  }
+  @else if ($direction == down) {
+     border-left: $size solid transparent;
+     border-right: $size solid transparent;
+     border-top: $size solid $color;
+  }
+  @else {
+     border-left: $size solid transparent;
+     border-right: $size solid transparent;
+     border-bottom: $size solid $color;
+  }
+}
 
 /**
 * BACKGROUND IMAGE --- (por ver)
@@ -382,6 +429,17 @@ $imgpath--rel : '../../images/';
 }
 }
 
+/**
+* CENTER CONTENT
+* -------------------------------------------------------------------
+* .element { @include center-content; }
+*/
+
+@mixin center-content {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+ }
 
 /**
 * INPUT PLACEHOLDER
@@ -390,8 +448,58 @@ $imgpath--rel : '../../images/';
 */
 
 @mixin placeholder() {
-  input::-webkit-input-placeholder {@content}
-  input:-moz-placeholder           {@content}
-  input::-moz-placeholder          {@content}
-  input:-ms-input-placeholder      {@content}
+  input::-webkit-input-placeholder {@content;}
+  input:-moz-placeholder           {@content;}
+  input::-moz-placeholder          {@content;}
+  input:-ms-input-placeholder      {@content;}
+}
+
+/**
+* ADD VENDOR PREFIXES TO ANY CSS PROPERTY
+* -------------------------------------------------------------------
+* Add vendor prefixes to CSS properties that don’t come with sufficient browser support. 
+*
+* .placeholder { @include css3-prefix(transform, scale3d(2.5, 2, 1.5)); }
+*/
+
+@mixin css3-prefix($prop, $value) {
+  -webkit-#{$prop}: #{$value};
+  -moz-#{$prop}: #{$value};
+  -ms-#{$prop}: #{$value};
+  -o-#{$prop}: #{$value};
+  #{$prop}: #{$value};
+}
+
+
+/**
+* VERTICAL CENTERING
+* -------------------------------------------------------------------
+* The following mixin contains all the CSS declarations you need to vertically position any HTML element  
+*
+* .placeholder { @include vertical-center(); }
+*/
+
+@mixin vertical-center {
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+
+/**
+* ABSOLUTE POSITIONING
+* -------------------------------------------------------------------
+*  It allows you to quickly specify values for the four directions: top, right, bottom, and left.
+*
+* .element { @include abs-position(100px, 100px, auto, auto); }
+*/
+
+@mixin abs-position ($top, $right, $bottom, $left) {
+  position: absolute; 
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
 }

@@ -7274,6 +7274,14 @@ a.text-dark:hover, a.text-dark:focus {
  * ======================================================================
  * 
  */
+/**
+ *   MEDIA QUERIES FOR MOBILE-FIRST DESIGN
+ * -------------------------------------------------------------------
+ * This following font-face mixin, you can make that tedious task much faster. 
+ * Make sure that you use the right file path within the url() function.
+ *
+ * .element {@include breakpoint(large)}
+ */
 /*!
  *
  * ======================================================================
@@ -7397,6 +7405,25 @@ a.text-dark:hover, a.text-dark:focus {
  * LINEAR - GRADIENT
  * -------------------------------------------------------------------
  * @include linear-gradient(#00FFFF,#0080FF,45deg);
+ */
+/**
+ * RETINA-READY IMAGES
+ * -------------------------------------------------------------------
+ * Supporting retina-ready images you can serve to Apple devices with a Retina Display. 
+ * 
+ * element.image{background: url("my-image.png") no-repeat; @include retina-image("my-image2x.png", 1000px, 500px);}
+ */
+/**
+ * FIXED ASPECT RATIO
+ * -------------------------------------------------------------------
+ * A consistent look across different screen sizes you will find this aspect ratio mixin useful. 
+ * It maintains the aspect ratio at any screen size. To use this mixin, you need two HTML elements: 
+ * an outer and an inner one. The mixin calculates the aspect ratio of the two elements and maintains
+ * that at any resolution.
+ * 
+ *
+ * HTML: <div class="outer-box"><div class="inner-box"></div></div>
+ * CSS: element.outer-box{@include aspect-ratio(4, 3);}
  */
 /**
  * TRANSITION
@@ -7557,6 +7584,13 @@ a.text-dark:hover, a.text-dark:focus {
 * .element.sevenfive { @include opacity(0.75); }
 */
 /**
+* TEXT SHORTENING
+* -------------------------------------------------------------------
+* Adds an ellipsis (…) to the end
+*
+* .element{@include text-shorten();}
+*/
+/**
 * TEXT SHADOW
 * -------------------------------------------------------------------
 * Add a basic shadow behind your text, or to create a unique effect 
@@ -7570,6 +7604,14 @@ a.text-dark:hover, a.text-dark:focus {
 * Add a basic shadow behind your text, or to create a unique effect 
 *
 * .element{   @include rotate(180, 0.00000000, 1.00000000, -1.00000000, 0.00000000); }
+*/
+/**
+* ARROW WITH FOUR OPTIONAL DIRECTIONS
+* -------------------------------------------------------------------
+* This mixin helps you quickly create an arrow with from four directions
+*
+* .element{@include arrow();}
+* .element{@include arrow(up, 10px, #efefef);}
 */
 /**
 * BACKGROUND IMAGE --- (por ver)
@@ -7597,9 +7639,35 @@ a.text-dark:hover, a.text-dark:focus {
 * .element{ @include tinymce-img(); }
 */
 /**
+* CENTER CONTENT
+* -------------------------------------------------------------------
+* .element { @include center-content; }
+*/
+/**
 * INPUT PLACEHOLDER
 * -------------------------------------------------------------------
 * .placeholder { @include placeholder { color: #0066CC; background: #ccffff; } }
+*/
+/**
+* ADD VENDOR PREFIXES TO ANY CSS PROPERTY
+* -------------------------------------------------------------------
+* Add vendor prefixes to CSS properties that don’t come with sufficient browser support. 
+*
+* .placeholder { @include css3-prefix(transform, scale3d(2.5, 2, 1.5)); }
+*/
+/**
+* VERTICAL CENTERING
+* -------------------------------------------------------------------
+* The following mixin contains all the CSS declarations you need to vertically position any HTML element  
+*
+* .placeholder { @include vertical-center(); }
+*/
+/**
+* ABSOLUTE POSITIONING
+* -------------------------------------------------------------------
+*  It allows you to quickly specify values for the four directions: top, right, bottom, and left.
+*
+* .element { @include abs-position(100px, 100px, auto, auto); }
 */
 /*!
  *

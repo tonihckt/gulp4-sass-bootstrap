@@ -298,6 +298,59 @@ $rem-base: 16px !default;
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-one', endColorstr='$color-two',GradientType=1 ); /* ie6-9 */
 }
 
+
+/**
+ * RETINA-READY IMAGES
+ * -------------------------------------------------------------------
+ * Supporting retina-ready images you can serve to Apple devices with a Retina Display. 
+ * 
+ * element.image{background: url("my-image.png") no-repeat; @include retina-image("my-image2x.png", 1000px, 500px);}
+ */
+
+@mixin retina-image($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+  (-o-min-device-pixel-ratio: 2.6/2),
+  (-webkit-min-device-pixel-ratio: 1.3),
+  (min-device-pixel-ratio: 1.3),
+  (min-resolution: 1.3dppx) {
+      background-image: url($image);
+      background-size: $width $height;
+  }
+}
+
+
+/**
+ * FIXED ASPECT RATIO
+ * -------------------------------------------------------------------
+ * A consistent look across different screen sizes you will find this aspect ratio mixin useful. 
+ * It maintains the aspect ratio at any screen size. To use this mixin, you need two HTML elements: 
+ * an outer and an inner one. The mixin calculates the aspect ratio of the two elements and maintains
+ * that at any resolution.
+ * 
+ *
+ * HTML: <div class="outer-box"><div class="inner-box"></div></div>
+ * CSS: element.outer-box{@include aspect-ratio(4, 3);}
+ */
+
+ @mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+     display: block;
+     content: "";
+     width: 100%;
+     padding-top: ($height / $width) * 100%;
+  }
+  > .inner-box {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+  }
+}
+
+
+
 /**
  * TRANSITION
  * -------------------------------------------------------------------
