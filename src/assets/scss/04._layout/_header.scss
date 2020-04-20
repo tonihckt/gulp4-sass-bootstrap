@@ -25,6 +25,9 @@
   }
 
   &__left {
+    // background: #222;
+    // position: fixed;
+    // z-index: 1;
   }
 
   &__right {
@@ -134,5 +137,17 @@
   &__link {
   }
   &__img {
+
+    // background-image: url();
+  
+    // :hover, :focus {
+    //   filter: 
+    //     invert(27%) 
+    //     sepia(51%) 
+    //     saturate(2878%) 
+    //     hue-rotate(346deg) 
+    //     brightness(104%) 
+    //     contrast(97%);
+    // }
   }
 }

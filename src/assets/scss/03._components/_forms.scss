@@ -1,0 +1,58 @@
+.form-control {
+  display: block;
+  width: 100%;
+  height: $input-height-base;
+  padding: $padding-base-vertical $padding-basehorizontal;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $input-color;
+  background-color: $input-bg;
+  background-image: none;
+  @include transition(
+    border-color ease-in-out 0.15s,
+    box-shadow ease-in-out 0.15s
+  );
+  @include form-control-focus;
+  // Placeholder
+  @include placeholder;
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: $input-bg-disabled;
+    opacity: 1;
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+  }
+}
+
+@mixin form-control-focus($color: $input-border-focus) {
+  &:focus {
+    border-color: $color;
+    outline: 0;
+  }
+}
+@mixin input-size(
+  $parent,
+  $input-height,
+  $paddingvertical,
+  $padding-horizontal,
+  $font-size,
+  $line-height
+) {
+  #{$parent} {
+    height: $input-height;
+    padding: $padding-vertical $padding-horizontal;
+    font-size: $font-size;
+    line-height: $line-height;
+  }
+  select#{$parent} {
+    height: $input-height;
+    line-height: $input-height;
+  }
+  textarea#{$parent},
+  select[multiple]#{$parent} {
+    height: auto;
+  }
+}

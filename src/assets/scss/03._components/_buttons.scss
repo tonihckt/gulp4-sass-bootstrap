@@ -5,6 +5,15 @@
  * ======================================================================
  * 
  */
+
+// COLORS
+$btn-bg: #999 !default;
+  
+$btn-blue: #4174d5;
+$btn-orange: #ff9933;
+$btn-green: #339900;
+$btn-red: #ff6666;
+
 //  %btn {
 //     width: 100px;
 //     text-align: center;
@@ -150,3 +159,70 @@
     }
   }
 }
+
+
+/**
+* BUTTON LINK
+* -------------------------------------------------------------------
+* Usage:
+* button{@include link-button();}
+*/
+
+@mixin link-button() {
+    overflow: visible; // Shrinkwrap the text in IE7-
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: blue; // Match your link colour
+    background: transparent;
+    font: inherit; // Inherit font settings (doesn’t work in IE7-)
+    line-height: normal; // Override line-height to avoid spacing issues
+    text-decoration: underline; // Make it look linky
+    cursor: pointer; // Buttons don’t make the cursor change in all browsers
+    -moz-user-select: text; // Make button text selectable in Gecko
+
+    /* Remove mystery padding in Gecko browsers.
+     * See https://bugzilla.mozilla.org/show_bug.cgi?id=140562
+     */
+    &::-moz-focus-inner {
+        padding: 0;
+        border: 0;
+    }
+}
+
+/**
+* BUTTON -> RESET
+* -------------------------------------------------------------------
+* 
+* 
+*/
+
+@mixin button-reset {
+	padding: 0;
+	border: none;
+	font: inherit;
+	color: inherit;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+/**
+* BUTTON -> BACKGROUND
+* -------------------------------------------------------------------
+* Usage:
+* @include button-bg(#2ecc71);
+*/
+
+@mixin button-bg($bg) {
+	background: $bg;
+	&:hover {
+	  background:darken($bg,8%);
+	  transition: all 0.3s ease;
+	}
+	&:active {
+	  background:darken($bg,25%);
+	} 
+  }
+  
+
+//////

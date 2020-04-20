@@ -7669,6 +7669,31 @@ a.text-dark:hover, a.text-dark:focus {
 *
 * .element { @include abs-position(100px, 100px, auto, auto); }
 */
+/**
+* BELEVED CORNER MIXIN 
+* -------------------------------------------------------------------
+* Bevels corners of an element, in same fashion as border radius.
+* Compatable down to IE 9. Works like any other block level element (almost)
+*
+* .module { @include border-bevel($background-color, $bevel-radius
+* $corner-top-left-bevel (boolean), $corner-top-right-bevel (boolean),
+* $corner-bottom-right-bevel (boolean), $corner-bottom-left-bevel (boolean);}
+*
+* Usage
+* .element{@include corner-bevel-veryold("MediumAquaMarine", 20px);}
+* .element{@include corner-bevel-veryold( "Pink", 20px);}
+* .element{@include corner-bevel-veryold("LightBlue", 20px);}
+* .element{@include corner-bevel-veryold("LightCoral", 20px, true, false, true, false);}
+* .element{@include corner-bevel-veryold("LightSalmon", 20px);}
+* .element{@include corner-bevel-veryold();}
+*
+*/
+/**
+* MIXIN BUTTON
+* ------------------------------------------------------------------- 
+*
+* .element { @include button(2px 4px,blue, 10px, red,MediumAquaMarine); }
+*/
 /*!
  *
  * ======================================================================
@@ -8721,6 +8746,24 @@ input[type="button"] {
     background-repeat: no-repeat;
     background-attachment: fixed; }
 
+/**
+* BUTTON LINK
+* -------------------------------------------------------------------
+* Usage:
+* button{@include link-button();}
+*/
+/**
+* BUTTON -> RESET
+* -------------------------------------------------------------------
+* 
+* 
+*/
+/**
+* BUTTON -> BACKGROUND
+* -------------------------------------------------------------------
+* Usage:
+* @include button-bg(#2ecc71);
+*/
 /*!
  *
  * ======================================================================
@@ -8881,6 +8924,33 @@ input[type="button"] {
       margin-top: 6px; }
     .c-main-card__text + .c-main-card__list {
       margin-bottom: 15px; } }
+
+.c-main-boxes {
+  border-style: solid;
+  height: 0;
+  width: 100%; }
+  .c-main-boxes__image {
+    margin: 40px 0; }
+  .c-main-boxes__text {
+    margin: 0;
+    padding-bottom: 20px; }
+    .c-main-boxes__text:last-child {
+      padding-bottom: 0; }
+  .c-main-boxes__button {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 2px 4px;
+    background: blue;
+    border: 1px solid red;
+    border-radius: 10px;
+    font-size: MediumAquaMarine;
+    text-align: center; }
+    .c-main-boxes__button:hover {
+      background: #0000d6;
+      transition: all 0.3s ease; }
+    .c-main-boxes__button:active {
+      background: navy;
+      transition: all 0.3s ease; }
 
 /**
   * layout/

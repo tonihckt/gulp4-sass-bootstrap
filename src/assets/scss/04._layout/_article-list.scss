@@ -65,6 +65,12 @@
     );
   }
 
+  &__link{
+    // @include button($red, normal, normal, normal);
+    // @include create-button(black, white);
+    // @include element(#88a23d, $radius: 4px, $size: normal, $hover: true);
+  }
+
   &__text {
     @include font(
       $ff: $ff-primary,
