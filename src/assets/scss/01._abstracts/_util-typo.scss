@@ -1,0 +1,96 @@
+/*!
+ *
+ * ======================================================================
+ * 00. TYPOGRAPHY UTILITIES
+ * ======================================================================
+ * 
+ */
+
+
+ /**
+ * STRING REPLACE
+ * -------------------------------------------------------------------
+ */
+
+//  @function str-replace($string, $search, $replace: "") {
+//     $index: str-index($string, $search);
+//     @if $index {
+//         @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+//     }
+//     @return $string;
+// }
+
+
+ /**
+ * FONT FACE
+ * -------------------------------------------------------------------
+ * @include font-face(Samplino, fonts/Samplino);
+ * @include font-face("Samplina Neue", fonts/SamplinaNeue, bold, italic);
+ * @include font-face(Samplinoff, fonts/Samplinoff, null, null, woff);
+ * @include font-face(Samplinal, fonts/Samplinal, 500, normal, eot woff2 woff);
+ */
+
+//  @mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+//     $src: null;
+//     $extmods: ( eot: "?", svg: "#" + str-replace($name, " ", "_") );
+//     $formats: ( otf: "opentype", ttf: "truetype" );
+//     @each $ext in $exts {
+//         $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+//         $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+//         $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+//     }
+//     @font-face {
+//         font-family: quote($name);
+//         font-style: $style;
+//         font-weight: $weight;
+//         src: $src;
+//     }
+// }
+
+/**
+ * FONT FACE
+ * -------------------------------------------------------------------
+ * This following font-face mixin, you can make that tedious task much faster. 
+ * Make sure that you use the right file path within the url() function.
+ *
+ * Genrate-font-face: https://onlinefontconverter.com/
+ * 
+ * @include font-face("My Font", my-font);
+ *
+ * use: @include font-face('Arial Narrow', 'ArialNarrow/ArialNarrow', normal, normal);
+ * use: @include font-face('Arial Narrow', 'ArialNarrow/ArialNarrow_bolditalic', bold, italic);
+ *
+ */
+
+// @mixin font-face($name, $file) {
+//     @font-face {
+//     font-family: "#{$name}";
+//     src: url("../fonts/#{$file}.eot");
+//     src: url("../fonts/#{$file}.eot?#iefix") format("embedded-opentype"),
+//     url("../fonts/#{$file}.woff") format("woff"),
+//     url("../fonts/#{$file}.ttf") format("truetype"),
+//     url("../fonts/#{$file}.svg?#webfont") format("svg");
+//   }
+//  }
+
+/// Works with several parameters
+@mixin font-face($font-family, $file-name, $font-weight: normal, $font-style: normal) {
+    // $file-path-dir: '../assets/fonts';
+    $file-path-dir: $fontsUrl;
+  
+    @font-face {
+      font-family: '#{$font-family}';
+  
+      src:  url('#{$file-path-dir}/#{$file-name}.eot'); /* IE9 Compat Modes */
+      src:  url('#{$file-path-dir}/#{$file-name}.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+            url('#{$file-path-dir}/#{$file-name}.woff2') format('woff2'), /* Modern Browsers */
+            url('#{$file-path-dir}/#{$file-name}.woff') format('woff'), /* Modern Browsers */
+            url('#{$file-path-dir}/#{$file-name}.ttf') format('truetype'), /* Safari, Android, iOS */
+            // url('#{$file-path-dir}/#{$file-name}.otf') format('opentype'), /* Old Microsoft (?)*/
+            url('#{$file-path-dir}/#{$file-name}.svg?#webfont') format('svg'); /* Legacy iOS */
+            
+      font-weight: '#{$font-weight}';
+      font-style: '#{$font-style}';    
+    }
+  }
+  

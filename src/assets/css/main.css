@@ -7697,6 +7697,39 @@ a.text-dark:hover, a.text-dark:focus {
 /*!
  *
  * ======================================================================
+ * 00. TYPOGRAPHY UTILITIES
+ * ======================================================================
+ * 
+ */
+/**
+ * STRING REPLACE
+ * -------------------------------------------------------------------
+ */
+/**
+ * FONT FACE
+ * -------------------------------------------------------------------
+ * @include font-face(Samplino, fonts/Samplino);
+ * @include font-face("Samplina Neue", fonts/SamplinaNeue, bold, italic);
+ * @include font-face(Samplinoff, fonts/Samplinoff, null, null, woff);
+ * @include font-face(Samplinal, fonts/Samplinal, 500, normal, eot woff2 woff);
+ */
+/**
+ * FONT FACE
+ * -------------------------------------------------------------------
+ * This following font-face mixin, you can make that tedious task much faster. 
+ * Make sure that you use the right file path within the url() function.
+ *
+ * Genrate-font-face: https://onlinefontconverter.com/
+ * 
+ * @include font-face("My Font", my-font);
+ *
+ * use: @include font-face('Arial Narrow', 'ArialNarrow/ArialNarrow', normal, normal);
+ * use: @include font-face('Arial Narrow', 'ArialNarrow/ArialNarrow_bolditalic', bold, italic);
+ *
+ */
+/*!
+ *
+ * ======================================================================
  * 00. PLACEHOLDERS
  * ======================================================================
  * 
@@ -8939,11 +8972,10 @@ input[type="button"] {
   .c-main-boxes__button {
     display: inline-block;
     vertical-align: middle;
-    padding: 2px 4px;
+    padding: 10px 20px;
     background: blue;
     border: 1px solid red;
     border-radius: 10px;
-    font-size: MediumAquaMarine;
     text-align: center; }
     .c-main-boxes__button:hover {
       background: #0000d6;
