@@ -53,7 +53,9 @@
  * This following font-face mixin, you can make that tedious task much faster. 
  * Make sure that you use the right file path within the url() function.
  *
- * Genrate-font-face: https://onlinefontconverter.com/
+ * Genrate-font-face: 
+ * https://onlinefontconverter.com/
+ * https://www.font-converter.net/en
  * 
  * @include font-face("My Font", my-font);
  *
@@ -75,8 +77,8 @@
 
 /// Works with several parameters
 @mixin font-face($font-family, $file-name, $font-weight: normal, $font-style: normal) {
-    // $file-path-dir: '../assets/fonts';
-    $file-path-dir: $fontsUrl;
+    $file-path-dir: '../fonts';
+    // $file-path-dir: $fontsUrl;
   
     @font-face {
       font-family: '#{$font-family}';

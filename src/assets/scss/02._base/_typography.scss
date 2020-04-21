@@ -6,6 +6,23 @@
  * 
  */
 
+  /**
+   * ADD FONTS
+   * -------------------------------------------------------------------
+   *
+   */
+  
+  // // ==> COOPERHEWITT
+
+@include font-face('Cooper Hewitt Bold', 'CooperHewitt/CooperHewitt-Bold', bold, normal);
+@include font-face('Cooper Hewitt', 'CooperHewitt/CooperHewitt-BoldItalic', bold, italic);
+@include font-face('Cooper Hewitt Book', 'CooperHewitt/CooperHewitt-Book', book, normal);
+@include font-face('Cooper Hewitt', 'CooperHewitt/CooperHewitt-BookItalic', book, italic);
+
+// // ==> QONTA
+@include font-face('Qontra', 'Qontra/Qontra', normal, normal);
+
+
 // body {
 // 	font: 9pt/1.5em sans-serif;
 // }
