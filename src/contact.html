@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <!-- Header content -->
+      </header>
+    
+
+      <main>
+
+        <!-- Contact content -->
+        <div class="kwes-form">
+          <form method="POST" action="https://kwes.io/api/foreign/forms/youruniqueid">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" rules="required">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" rules="required|email|max:255">
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rules="required"></textarea>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        <!-- /Contact content -->
+
+      </main>
+    
+      <aside>
+        <!-- Sidebar / Ads -->
+      </aside>
+    
+      <footer>
+        <!-- Footer content -->
+      </footer>
+    </div>
+  </body>
+</html>

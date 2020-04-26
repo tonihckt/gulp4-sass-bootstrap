@@ -9,7 +9,7 @@
     <title>Hello, world!</title>
 </head>
 
-<body>
+<body class="c-layout">
     <div class="c-container__page">
         <!-- Header content -->
         <header class="c-container__header">
@@ -50,12 +50,33 @@
                                     <li class="c-main-menu__item">
                                         <a class="c-main-menu__link">About</a>
                                     </li>
-                                    <li class="c-main-menu__item">
-                                        <a class="c-main-menu__link">Portfolio</a>
-                                    </li>  
+
+                                    <li class="c-main-menu__item c-dropdown-menu">
+                                        <a class="c-main-menu__link">
+                                            <span class="c-dropdown-menu__title" tabindex="-1">Portfolio</span>
+                                        </a>
+
+                                        <ul class="c-dropdown-menu__list" aria-labelledby="c-dropdown-menu__title">
+                                            <li class="c-dropdown-menu__item">
+                                              <a href="#" class="c-dropdown-menu__link">
+                                                  Collaborations
+                                              </a>
+                                            </li>
+                                            <li class="c-dropdown-menu__item">
+                                              <a href="#" class="c-dropdown-menu__link">
+                                                  Photographs
+                                              </a>
+                                            </li>
+                                        </ul>
+
+                                    </li>
+
                                     <li class="c-main-menu__item">
                                         <a class="c-main-menu__link">Blog</a>
-                                    </li>                               
+                                    </li>
+                                    <li class="c-main-menu__item">
+                                        <a class="c-main-menu__link"> Contact</a>
+                                    </li>                                 
                                 </ul>
                             </nav>
                         </div>
@@ -80,65 +101,66 @@
         <!-- /Header content -->
 
         <!-- Nav content -->
-        <nav class="nav">
+        <nav class="c-navbar">
            <!-- aria-label="open the navigation"-->
             <input 
-            class="nav__trigger-input" type="checkbox" 
+            class="c-navbar__trigger-input" type="checkbox" 
             id="trigger" 
             aria-labelledby="trigger"/>
-            <label class="nav__trigger-finger" for="trigger">
+            <label class="c-navbar__trigger-finger" for="trigger">
               <span></span>
             </label>
-            <ul class="nav__list">
-              <li class="nav__item">
-                <a href="#" class="nav__link">
-                  <span class="nav__text">
+            <a href="#" target="_blank" class="c-navbar__brand">AVV</a>
+            <ul class="c-navbar__list">
+              <li class="c-navbar__item">
+                <a href="#" class="c-navbar__link">
+                  <span class="c-navbar__text">
                     Home
                   </span>
                 </a>
               </li>
-              <li class="nav__item">
-                <a href="#" class="nav__link">
-                  <span class="nav__text">
+              <li class="c-navbar__item">
+                <a href="#" class="c-navbar__link">
+                  <span class="c-navbar__text">
                     About
                   </span>
                 </a>
               </li>
-              <li class="nav__item">
-                <a href="#" class="nav__link">
-                  <span class="nav__text">
+              <li class="c-navbar__item">
+                <a href="#" class="c-navbar__link">
+                  <span class="c-navbar__text">
                     Portfolio
                   </span>
                 </a>
-                <input class="nav__submenu-trigger-input" type="checkbox" id="submenu-trigger" />
-                <label class="nav__submenu-trigger-finger" for="submenu-trigger"></label>
-                <ul class="nav__list-child">
-                  <li class="nav__item">
-                    <a href="#" class="nav__link">
-                      <span class="nav__text">
+                <input class="c-navbar__submenu-trigger-input" type="checkbox" id="submenu-trigger" />
+                <label class="c-navbar__submenu-trigger-finger" for="submenu-trigger"></label>
+                <ul class="c-navbar__list-child">
+                  <li class="c-navbar__item">
+                    <a href="#" class="c-navbar__link">
+                      <span class="c-navbar__text">
                         Collaborations
                       </span>
                     </a>
                   </li>
-                  <li class="nav__item">
-                    <a href="#" class="nav__link">
-                      <span class="nav__text">
+                  <li class="c-navbar__item">
+                    <a href="#" class="c-navbar__link">
+                      <span class="c-navbar__text">
                         Photographs
                       </span>
                     </a>
                   </li>
                 </ul>
               </li>
-              <li class="nav__item">
-                <a href="#" class="nav__link">
-                  <span class="nav__text">
+              <li class="c-navbar__item">
+                <a href="#" class="c-navbar__link">
+                  <span class="c-navbar__text">
                     Blog
                   </span>
                 </a>
               </li>
-              <li class="nav__item">
-                <a href="#" class="nav__link">
-                  <span class="nav__text">
+              <li class="c-navbar__item">
+                <a href="#" class="c-navbar__link">
+                  <span class="c-navbar__text">
                     Contact
                   </span>
                 </a>

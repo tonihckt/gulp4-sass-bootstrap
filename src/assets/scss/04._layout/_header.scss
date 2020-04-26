@@ -13,6 +13,11 @@ $yellow: #ecc64b;
 $green: #0b9ea6;
 $red: #f26667;
 
+$color: rebeccapurple;
+$color-dark: scale-color($color, $lightness: -30%);
+
+$transition: 280ms all 120ms ease-out;
+
 // ==> main-header
 .c-main-header {
   $this: &;
@@ -82,6 +87,8 @@ $red: #f26667;
 // ==> main-menu
 .c-main-menu {
   $this: &;
+  // position: sticky;
+  //   top: 0;
 
   &__list {
     // display: flex;
@@ -155,9 +162,15 @@ $red: #f26667;
       $co: $clr-black
     );
     text-transform: uppercase;
+    &:focus {
+      outline: none;
+    }
   }
 
   &__title {
+    &:focus {
+      outline: none;
+    }
   }
 
   &__link {
@@ -209,6 +222,114 @@ $red: #f26667;
   }
 }
 
+// ==> dropdown-menu
+.c-dropdown-menu {
+  $this: &;
+  position: relative;
+
+  &__title {
+    display: inline-flex;
+    align-items: center;
+    pointer-events: none;
+    
+    &:after {
+      content: "";
+      border: 0.35rem solid transparent;
+      border-top-color: rgba(#fff, 0.45);
+      margin-left: 0.25em;
+      transform: translateY(0.15em);
+    }
+    &:focus {
+      outline: none;
+    }
+
+  }
+
+  &__list {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    min-width: 15ch;
+    left: 50%;
+    top: calc(100% - 0.25rem);
+    transition: $transition;
+    transform: rotateX(-90deg) translateX(-50%);
+    transform-origin: top center;
+    opacity: 0.3;
+    padding: 0.5em 0;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 0.15em 0.25em rgba(black, 0.25);
+  }
+
+  &__item {
+      padding: 0;
+  }
+
+  &__text,
+  &__link {
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__link {
+    color: $color-dark;
+    display: block;
+    padding: 0.5em;
+    opacity: 0;
+    transition: $transition;
+
+    &:hover {
+      background-color: rgba($color, 0.15);
+    }
+
+    &:focus {
+      outline: none;
+      background-color: rgba($color, 0.25);
+    }
+  }
+
+  &:after {
+    content: "";
+    border: 0.5rem solid transparent;
+    border-bottom-color: #fff;
+    position: absolute;
+    top: calc(100% - 1.25rem);
+    left: 50%;
+    transform: translateX(-50%);
+    transition: $transition;
+    opacity: 0;
+    will-change: opacity;
+  }
+
+  &:hover,
+  &:focus-within {
+
+    #{$this}{
+
+      &__title {
+        border-top-color: pink;
+      }
+
+      &__list {
+        opacity: 1;
+        transform: rotateX(0) translateX(-50%);
+  
+        a {
+          opacity: 1;
+        }
+      }
+    }
+
+    &:after {
+      opacity: 1;
+    }
+  }
+
+}
+
 // ==> main-logo
 .c-main-logo {
   &__link {
@@ -227,3 +348,4 @@ $red: #f26667;
     // }
   }
 }
+
