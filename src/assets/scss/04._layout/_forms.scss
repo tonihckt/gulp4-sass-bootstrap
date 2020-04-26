@@ -36,6 +36,8 @@
     //   grid-column-gap: 38px;
     //   grid-row-gap: 22px;
     //   grid-template-columns: 1fr 1fr;
+    clear: both;
+    overflow: hidden;
     }
     &__field {
       margin-bottom: 20px;

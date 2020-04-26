@@ -1,9 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
 
     <title>Hello, world!</title>
   </head>
@@ -12,30 +15,68 @@
       <header>
         <!-- Header content -->
       </header>
-    
 
       <main>
+        <!-- Contact form content -->
+        <div class="c-contact">
+          <h3 class="c-contact__title">Contacta con nosotros</h3>
+          <h4 class="c-contact__desc">
+            Contacta con nosotros
+          </h4>
 
-        <!-- Contact content -->
-        <div class="kwes-form">
-          <form method="POST" action="https://kwes.io/api/foreign/forms/youruniqueid">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" rules="required">
-            <label for="email">E-mail</label>
-            <input type="email" name="email" id="email" rules="required|email|max:255">
-            <label for="message">Message</label>
-            <textarea name="message" id="message" rules="required"></textarea>
-            <button type="submit">Submit</button>
+          <form class="c-contact__form c-form" method="post" action="">
+            <div class="c-form__message"></div>
+
+            <div class="c-form__items">
+              <div class="c-form__field">
+                <label class="c-form__label" for="name">Nombre</label>
+                <input
+                  class="c-form__input c-form__input--name"
+                  type="text"
+                  name="name"
+                  id="name"
+                  rules="required"
+                  placeholder="Nombre"
+                />
+              </div>
+
+              <div class="c-form__field">
+                <label class="c-form__label" for="email"
+                  >Correo electrónico</label
+                >
+                <input
+                  class="c-form__input c-form__input--name"
+                  type="email"
+                  name="email"
+                  id="email"
+                  rules="required|email|max:255"
+                  placeholder="Correo Electrónico"
+                />
+              </div>
+
+              <div class="c-form__field">
+                <label class="c-form__label" for="message">Message</label>
+                <textarea
+                  class="c-form__input"
+                  name="message"
+                  id="message"
+                  rules="required"
+                ></textarea>
+              </div>
+
+              <div class="c-form__field c-form__action">
+                <input type="submit" value="Submit" class="c-form__submit" />
+              </div>
+            </div>
           </form>
         </div>
-        <!-- /Contact content -->
-
+        <!-- /Contact form content -->
       </main>
-    
+
       <aside>
         <!-- Sidebar / Ads -->
       </aside>
-    
+
       <footer>
         <!-- Footer content -->
       </footer>

@@ -6,117 +6,197 @@
  * 
  */
 
- .c-subscribe {
-    padding: 2%;
-    // background:#a5c3e2;
-    @include opacity(1);
-    @include border(5px,solid,rgba(14, 36, 58, 0.66),all);
-    @include border-radius(1em);
-    // @include box-shadow(0, 5px, 5px, rgba(0, 0, 0, 0.7));
+.c-subscribe {
+  padding: 2%;
+  // background:#a5c3e2;
+  @include opacity(1);
+  @include border(5px, solid, rgba(14, 36, 58, 0.66), all);
+  @include border-radius(1em);
+  // @include box-shadow(0, 5px, 5px, rgba(0, 0, 0, 0.7));
 
+  &__wrapper {
+    margin: 0 auto;
+  }
 
-    &__wrapper {
-        margin: 0 auto;
-    }
+  &__title {
+    @include fs-big;
+    font-weight: $fw-bold;
+  }
 
-    &__title {
-        @include fs-big;
-        font-weight: $fw-bold;
-    }
+  &__desc {
+    @include fs-medium;
+    // color: $co-textgrey;
+  }
 
-    &__desc {
-        @include fs-medium;
-        // color: $co-textgrey;
-    }
+  &__icon {
+    // background-image: url("");
+    // background-repeat: no-repeat, repeat;
+    // background-color: #cccccc;
+  }
 
-    &__icon{
-        // background-image: url("");
-        // background-repeat: no-repeat, repeat;
-        // background-color: #cccccc;
-    }
+  &__icon-img {
+  }
 
-    &__icon-img{
-        
+  // .icon__add-friend{
+  //     path {
+  //         fill: #72a200;
+  //     }
+  //     &:hover path {
+  //         fill: #72a200;
+  //     }
+  // }
 
-    }
-
-    // .icon__add-friend{
-    //     path {
-    //         fill: #72a200;
-    //     }
-    //     &:hover path {
-    //         fill: #72a200;
-    //     }
-    // }
-
-    &__form {}
-
+  &__form {
+  }
 }
 
 .c-subscribe-modal {
-    @include border(5px,solid,rgba(14, 36, 58, 0.66),all);
+  @include border(5px, solid, rgba(14, 36, 58, 0.66), all);
 
-    &__wrapper {}
-    &__content {}
-    &__close {}
-    &__title {}
-    &__desc {}
-    &__form {}
-
+  &__wrapper {
+  }
+  &__content {
+  }
+  &__close {
+  }
+  &__title {
+  }
+  &__desc {
+  }
+  &__form {
+  }
 }
 
 .c-unsubscribe {
-    @include border(5px,solid,rgba(14, 36, 58, 0.66),all);
+  @include border(5px, solid, rgba(14, 36, 58, 0.66), all);
 
-    &__wrapper {
-        max-width: 500px;
-        margin: 0 auto;
+  &__wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    @include fs-big;
+    font-weight: $fw-bold;
+  }
+
+  &__desc {
+    @include fs-medium;
+    // color: $co-textgrey;
+  }
+
+  &__form {
+  }
+
+  &.loading {
+    position: relative;
+    form {
+      opacity: 0.4;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70px;
+      height: 70px;
+      @include background("icons/icon-loading.svg", center, 100%);
+    }
+  }
+}
+
+.c-contact {
+  $this: &;
+  padding: 2%;
+  // background:#a5c3e2;
+  // @include opacity(1);
+  // @include border(5px,solid,rgba(14, 36, 58, 0.66),all);
+  // @include border-radius(1em);
+  // @include box-shadow(0, 5px, 5px, rgba(0, 0, 0, 0.7));
+
+  &__wrapper {
+    margin: 0 auto;
+  }
+
+  &__title {
+    @include fs-big;
+    font-weight: $fw-bold;
+  }
+
+  &__desc {
+    @include fs-medium;
+    // color: $co-textgrey;
+  }
+
+  &__icon {
+    // background-image: url("");
+    // background-repeat: no-repeat, repeat;
+    // background-color: #cccccc;
+  }
+
+  &__icon-img {
+  }
+
+  // .icon__add-friend{
+  //     path {
+  //         fill: #72a200;
+  //     }
+  //     &:hover path {
+  //         fill: #72a200;
+  //     }
+  // }
+
+  &__form {
+    &:focus-within {
+      background: $clr-black;
+      outline: 3px solid $clr-black;
+      color: red;
     }
 
-    &__title {
-        @include fs-big;
-        font-weight: $fw-bold;
-    }
-
-    &__desc {
-        @include fs-medium;
-        // color: $co-textgrey;
-    }
-
-    &__form {}
-
-    &.loading {
-        position: relative;
-        form {
-          opacity: 0.4;
+    &.c-form {
+      background: #eee;
+      padding: 20px;
+      
+      input[type=name]:focus,
+      input[type=text]:focus,
+      input[type=email]:focus,
+      textarea:focus {
+        outline: 0;
+        border: 2px solid red;
+        background: $clr-base;
+        // width: 50%;
         }
-        &:after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 70px;
-          height: 70px;
-          @include background("icons/icon-loading.svg", center, 100%);
+
+      #{$this} {
+        &__items {
         }
+
+        &__input {
+            &--name {}
+            &--email {}
+        }
+
+        &__label {
+        }
+
       }
-
+      
+    }
+  }
 }
 
 @include media-breakpoint-down(xs) {
-
-    .c-form {
-
-        &__field, &__action {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-
-        &__submit {
-            width: 100%;
-        }
-
+  .c-form {
+    &__field,
+    &__action {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
     }
+
+    &__submit {
+      width: 100%;
+    }
+  }
 }

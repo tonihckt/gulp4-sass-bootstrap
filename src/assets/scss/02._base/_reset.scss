@@ -164,6 +164,10 @@ article > * + * {
   margin-bottom: 0;
 }
 
+// *:focus {
+//   outline: none;
+// }
+
 /* Inherit fonts for inputs and buttons */
 input,
 button,

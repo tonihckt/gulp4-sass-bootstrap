@@ -9893,6 +9893,10 @@ input[type="button"] {
     background-size: 28px;
     background-repeat: no-repeat; }
 
+.c-form__items {
+  clear: both;
+  overflow: hidden; }
+
 .c-form__field {
   margin-bottom: 20px; }
   .c-form__field input::-webkit-input-placeholder {
@@ -10307,6 +10311,32 @@ input[type="button"] {
       background-position: center;
       background-size: 100%;
       background-repeat: no-repeat; }
+
+.c-contact {
+  padding: 2%; }
+  .c-contact__wrapper {
+    margin: 0 auto; }
+  .c-contact__title {
+    font-size: 40px;
+    line-height: 1.2em;
+    font-weight: 700; }
+  .c-contact__desc {
+    font-size: 20px;
+    line-height: 1.2em; }
+  .c-contact__form:focus-within {
+    background: #000;
+    outline: 3px solid #000;
+    color: red; }
+  .c-contact__form.c-form {
+    background: #eee;
+    padding: 20px; }
+    .c-contact__form.c-form input[type=name]:focus,
+    .c-contact__form.c-form input[type=text]:focus,
+    .c-contact__form.c-form input[type=email]:focus,
+    .c-contact__form.c-form textarea:focus {
+      outline: 0;
+      border: 2px solid red;
+      background: #faf5f1; }
 
 @media (max-width: 575.98px) {
   .c-form__field, .c-form__action {
