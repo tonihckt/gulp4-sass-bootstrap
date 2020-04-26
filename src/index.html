@@ -45,14 +45,17 @@
                             <nav class="c-main-header__nav c-main-menu">
                                 <ul class="c-main-menu__list">
                                     <li class="c-main-menu__item">
-                                        <a class="c-main-menu__link">Inicio</a>
+                                        <a class="c-main-menu__link">Home</a>
+                                    </li>
+                                    <li class="c-main-menu__item">
+                                        <a class="c-main-menu__link">About</a>
                                     </li>
                                     <li class="c-main-menu__item">
                                         <a class="c-main-menu__link">Portfolio</a>
-                                    </li>
+                                    </li>  
                                     <li class="c-main-menu__item">
-                                        <a class="c-main-menu__link">Contacto</a>
-                                    </li>                                 
+                                        <a class="c-main-menu__link">Blog</a>
+                                    </li>                               
                                 </ul>
                             </nav>
                         </div>
@@ -76,10 +79,92 @@
         </header>
         <!-- /Header content -->
 
+        <!-- Nav content -->
+        <nav class="nav">
+           <!-- aria-label="open the navigation"-->
+            <input 
+            class="nav__trigger-input" type="checkbox" 
+            id="trigger" 
+            aria-labelledby="trigger"/>
+            <label class="nav__trigger-finger" for="trigger">
+              <span></span>
+            </label>
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a href="#" class="nav__link">
+                  <span class="nav__text">
+                    Home
+                  </span>
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">
+                  <span class="nav__text">
+                    About
+                  </span>
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">
+                  <span class="nav__text">
+                    Portfolio
+                  </span>
+                </a>
+                <input class="nav__submenu-trigger-input" type="checkbox" id="submenu-trigger" />
+                <label class="nav__submenu-trigger-finger" for="submenu-trigger"></label>
+                <ul class="nav__list-child">
+                  <li class="nav__item">
+                    <a href="#" class="nav__link">
+                      <span class="nav__text">
+                        Collaborations
+                      </span>
+                    </a>
+                  </li>
+                  <li class="nav__item">
+                    <a href="#" class="nav__link">
+                      <span class="nav__text">
+                        Photographs
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">
+                  <span class="nav__text">
+                    Blog
+                  </span>
+                </a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">
+                  <span class="nav__text">
+                    Contact
+                  </span>
+                </a>
+              </li>
+            </ul>
+        </nav>
+        <!-- /Nav content -->
+
         <div class="c-container__body">
 
             <!-- Main content -->
             <main class="c-container__main">
+
+                <!-- Hero -->
+                <section class="c-hero">
+                    <div class="c-hero__container">
+                        <h1 class="c-hero__title">
+                            Our Awesome Hero Section
+                        </h1>
+                        <p class="c-hero__description">Aren't transitions cool?</p>
+                        <button class="button c-hero__button">
+                            Hover Me
+                        </button>
+                    </div>
+                </section>              
+                <!-- /Hero -->
 
                 <!-- Article -->
                 <article class="c-articles-main has-gallery">

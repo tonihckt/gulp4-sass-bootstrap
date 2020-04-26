@@ -31,6 +31,19 @@
 }
 
 /**
+* RESET
+* -------------------------------------------------------------------
+*
+*/
+
+@mixin reset {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+
+/**
 * FLEX
 * -------------------------------------------------------------------
 * .centered-elements{@include flex-center(); border: 1px solid gray}
@@ -100,6 +113,27 @@
     background-color: red;
   }
 }
+
+
+/**
+* VISIBILITY
+* -------------------------------------------------------------------
+* Quick mixin to hide or show an element, useful for fade in/out animations
+*
+*/
+
+@mixin fade($type) {
+  @if $type== "hide" {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 1s, opacity 1s;
+  } @else if $type== "show" {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 1s, opacity 1s;
+  }
+}
+
 
 /**
 * BOX-SHADOW
@@ -218,6 +252,40 @@
   -ms-transition:     $what $time $how;
   -o-transition:      $what $time $how;
   transition:         $what $time $how;
+}
+
+
+/**
+* SKEW BACKGROUND TRANSITION
+* -------------------------------------------------------------------
+*
+* .element.button { &:nth-of-type(1) 
+* { @include background-transition(#4CAF50, #3F51B5);}}
+*/
+
+@mixin skew-background-transition($initial, $hover, $inverted: false) {
+  background: linear-gradient(
+    90deg,
+    $hover 0%,
+    $hover 50%,
+    $initial 50%,
+    $initial 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+
+  background-position: right bottom;
+  @if $inverted {
+    background-position: left bottom;
+  }
+  transition: background-position 0.25s ease-out;
+
+  &:hover {
+    background-position: left bottom;
+    @if $inverted {
+      background-position: right bottom;
+    }
+  }
 }
 
 /**
@@ -671,4 +739,27 @@ $imgpath--rel : '../../images/';
     transition: all 0.3s ease;
   }
   
+}
+
+/**
+* TEXT-OVER-IMG
+* ------------------------------------------------------------------- 
+*
+*/
+
+@mixin text-over-img ($background-img){ 
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url($background-img) no-repeat center center fixed;
+  opacity: 0.65;
+  width: 100%;
+  height: auto;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }

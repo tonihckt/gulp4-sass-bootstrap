@@ -96,3 +96,116 @@
     }
   }
   
+
+/**
+ * ADD GOOGLE FONT 
+ * -------------------------------------------------------------------
+ */
+
+
+  //
+// SCSS mixin for adding Google Fonts to your project by generating a single @import
+// rule based on a SCSS map (see $font-list below for an example, which includes all
+// of the font weights and styles for Open Sans, Roboto, Lato and Merriweather).
+//
+// Optionally generate helper classes in order to make using Google Fonts even easier.
+//
+// Developed by Donny Burnside (http://www.donnyburnside.com/)
+// Do what you like with it.
+//
+
+@mixin google-fonts($fonts, $generate_classes: true) {
+  $base_url: "//fonts.googleapis.com/css?family=";
+
+  @for $i from 1 through length($fonts) {
+    $font: nth($fonts, $i);
+    $font-name: map-get($font, name);
+    $font-stub: map-get($font, stub);
+    $font-family: #{"'" + $font-name + "', " + map-get($font, family)};
+    $font-class: map-get($font, class);
+    $font-styles: map-get($font, styles);
+
+    // Add pipe seperator
+    @if $i > 1 {
+      $base_url: $base_url + '|';
+    }
+
+    // Add font name to url
+    $base_url: $base_url + $font-stub;
+
+    // Generate classes
+    @if $generate_classes == true {
+      .#{$font-class} {
+        font-family: $font-family;
+      }
+    }
+
+    // Add font styles
+    @for $n from 1 through length($font-styles) {
+      $font-style: nth($font-styles, $n);
+      $font-style-italic: if( str-index(#{$font-style}, i), true, false);
+      $font-weight: if( str-index(#{$font-style}, i), str-slice( #{$font-style}, 1, str-index(#{$font-style}, i) - 1 ), $font-style);
+      $font-style-class: $font-class + "-" + $font-style;
+
+      // Prefix font style rules
+      @if $n == 1 {
+        // Add colon prefix
+        $base_url: $base_url + ':';
+      } @else if $n > 1 {
+        // Add comma seperator
+        $base_url: $base_url + ',';
+      }
+
+      // Add font style to url
+      $base_url: $base_url + $font-style;
+
+      // Generate classes
+      @if $generate_classes == true {
+        .#{$font-style-class} {
+          font-family: $font-family;
+
+          // Add weight
+          font-weight: $font-weight;
+
+          // Add italics
+          @if $font-style-italic {
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+
+  // Output the @import rule
+  @import url('#{$base_url}');
+}
+
+
+ /**
+ * FONT SIZE CONFIGURATION
+ * -------------------------------------------------------------------
+ * It sets font-size, line-height and letter-spacing in one go and defaults to normal
+ * for line-height and letter-spacing. It also keeps line-height unitless.
+ *
+ *
+ * ===== Usage ===== 
+ * .element{@include font-size(12, 18, 1.2);}
+ */
+
+ @mixin font-size($font-size, $line-height: normal, $letter-spacing: normal) {
+  font-size: $font-size * 1px;
+  // font-size: $font-size * 0.1rem;
+  // example using rem values and 62.5% font-size so 1rem = 10px
+
+  @if $line-height==normal {
+    line-height: normal;
+  } @else {
+    line-height: $line-height / $font-size;
+  }
+
+  @if $letter-spacing==normal {
+    letter-spacing: normal;
+  } @else {
+    letter-spacing: #{$letter-spacing / $font-size}em;
+  }
+}

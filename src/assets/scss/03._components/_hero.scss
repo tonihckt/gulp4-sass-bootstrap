@@ -1,0 +1,77 @@
+/*!
+ *
+ * ======================================================================
+ * 00. Hero
+ * ======================================================================
+ * 
+ */
+
+ 
+//Hero section
+.c-hero {
+  background-image: url(https://images.unsplash.com/photo-1520264914976-a1ddb24d2114?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  height: 820px;
+  position: relative;
+
+  &__container {
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 100px 50px;
+    text-align: center;
+    color: #fff;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 60px;
+    line-height: 1.2;
+    font-weight: 700;
+    opacity: 0;
+    //different delay time
+    animation: Hero 3s 0.1s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  
+  &__description {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 30px;
+    line-height: 1.5;
+    opacity: 0;
+    //different delay time
+    animation: Hero 3s 0.2s forwards cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  &__button {
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 9px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    &:hover {
+      background: white;
+      color: black;
+      transform: translateY(-5px) scale(1.1);
+    }
+  }
+
+}
+
+//animation for Hero section
+@keyframes Hero {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

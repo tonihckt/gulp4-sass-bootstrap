@@ -62,9 +62,9 @@
 
   &__title.highlighted {
     font-size: rem-calc(50px);
-    color: #222;
-    background-color: #fff2ac;
-    background-image: linear-gradient(to right, #ffe359 0%, #fff2ac 100%);
+    color: $clr-text;
+    background-color: $clr-highlighted;
+    background-image: linear-gradient(to right, $clr-highlighted-light 0%, $clr-highlighted-dark 100%);
   }
 
   &__title.is-big {

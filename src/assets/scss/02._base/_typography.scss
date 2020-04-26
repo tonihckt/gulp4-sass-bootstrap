@@ -14,13 +14,57 @@
   
   // // ==> COOPERHEWITT
 
-@include font-face('Cooper Hewitt Bold', 'CooperHewitt/CooperHewitt-Bold', bold, normal);
-@include font-face('Cooper Hewitt', 'CooperHewitt/CooperHewitt-BoldItalic', bold, italic);
-@include font-face('Cooper Hewitt Book', 'CooperHewitt/CooperHewitt-Book', book, normal);
-@include font-face('Cooper Hewitt', 'CooperHewitt/CooperHewitt-BookItalic', book, italic);
+// @include font-face('Cooper Hewitt Bold', 'CooperHewitt/CooperHewitt-Bold', bold, normal);
+// @include font-face('Cooper Hewitt', 'CooperHewitt/CooperHewitt-BoldItalic', bold, italic);
+// @include font-face('Cooper Hewitt Book', 'CooperHewitt/CooperHewitt-Book', book, normal);
+// @include font-face('Cooper Hewitt', 'CooperHewitt/CooperHewitt-BookItalic', book, italic);
 
 // // ==> QONTA
-@include font-face('Qontra', 'Qontra/Qontra', normal, normal);
+// @include font-face('Qontra', 'Qontra/Qontra', normal, normal);
+
+
+// // BALOO BHAINA 2 ( font-family: 'Baloo Bhaina 2', cursive;)
+// @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600;700;800&display=swap');
+
+
+
+$font-list: (
+  (
+    // Set the name of the font
+    name: "Open Sans",
+    // Set the font stub (same as the font name, but URL safe)
+    stub: "Open+Sans",
+    // Set the rest of the font family
+    family: "sans-serif",
+    // Set the class prefix
+    class: 'open-sans',
+    // Set the font weights, styles and variants
+    styles: (300, 300i, 400, 400i, 600, 600i, 700, 700i, 800, 800i)
+  ),
+  (
+    name: "Roboto",
+    stub: "Roboto",
+    family: "Helvetica, sans-serif",
+    class: 'roboto',
+    styles: (100, 100i, 300, 300i, 400, 400i, 500, 500i, 700, 700i, 900, 900i)
+  ),
+  (
+    name: "Lato",
+    stub: "Lato",
+    family: "sans-serif",
+    class: 'lato',
+    styles: (100, 100i, 300, 300i, 400, 400i, 700, 700i, 900, 900i)
+  ),
+  (
+    name: "Merriweather",
+    stub: "Merriweather",
+    family: "'Times New Roman', serif",
+    class: 'merriweather',
+    styles: (300, 300i, 400, 400i, 700, 700i, 900, 900i)
+  )
+);
+
+@include google-fonts($font-list, true);
 
 
 // body {

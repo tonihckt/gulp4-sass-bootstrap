@@ -28,7 +28,9 @@ $palette-shadow-green: #8FC7BE;
 $palette-amaranth: #EF3054;
 
 // ==> basee
-$clr-base: #f4f4f4;
+$clr-base:#faf5f1;
+$clr-base-dark:#f4f4f4;
+$clr-base-light:#f4f4f4;
 
 // ==> primary
 $clr-primary: #52fde8;
@@ -70,6 +72,26 @@ $clr-border: #3a4750;
 
 // ==> link
 $clr-link: #3a4750;
+
+// ==> text
+$clr-text:#201e20;
+$clr-text-light: #fcfaf7;
+$clr-text-dark:#30302e;
+$clr-text-gray:#a4a4a4;
+
+// ==> highlighted
+// vrs1
+$clr-highlighted:#ee2d34;
+$clr-highlighted-light: #ff0202;
+$clr-highlighted-dark:#af181c;
+// vrs2
+// $clr-highlighted:#fff2ac;
+// $clr-highlighted-light:#e1df3d;
+// $clr-highlighted-dark:#ffe359 #fffda5;
+// VR3
+// $clr-highlighted:#f91e66 #ec1c81 #de5372 #f6abcc ;
+
+// $clr-highlighted:#f9c766 #fed600 #ef8e00 #f80a78 #edb72d #f80890 #f80c66;
 
 
 // ==> functional
