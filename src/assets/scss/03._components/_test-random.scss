@@ -1,0 +1,9 @@
+.c-pseudo{
+    &__title{
+        // @include pseudo-element('before') {
+        //     //  content: ''; 
+        //     @include pseudo-content($encoded-wedge, $height, $width);
+        // }
+
+    }
+}

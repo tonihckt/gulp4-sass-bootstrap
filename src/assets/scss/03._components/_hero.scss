@@ -75,3 +75,11 @@
     transform: translateY(0px);
   }
 }
+
+
+.c-jumbotron{
+  position: relative;
+  height: 300px;
+  background-image: linear-gradient(#4568dc, #b06ab3);
+  @include angled-edge("outside bottom", "lower right", #b06ab3, 100);
+}

@@ -4,6 +4,8 @@
  * 00. NEWSLETTER FLOW
  * ======================================================================
  * 
+ * https://uglyduck.ca/easy-custom-radio-inputs/
+ * https://dev.to/wilsmex/pure-css-custom-radio-buttons-554h
  */
 
 .c-subscribe {
@@ -157,6 +159,14 @@
     &.c-form {
       background: #eee;
       padding: 20px;
+      // => with-circle
+      // width: 100vw;
+      // height: 100vh;
+      background: radial-gradient(
+        circle,
+        rgba(255, 153, 111, 1) 45%,
+        rgba(255, 255, 255, 1) 45.1%
+      );
       
       input[type=name]:focus,
       input[type=text]:focus,
@@ -166,7 +176,7 @@
         border: 2px solid red;
         background: $clr-base;
         // width: 50%;
-        }
+    }
 
       #{$this} {
         &__items {
@@ -184,6 +194,12 @@
       
     }
   }
+}
+
+.c-login{
+    // https://dev.to/alvaromontoro/building-an-interactive-login-form-with-html-and-css-1i2n?utm_source=additional_box&utm_medium=internal&utm_campaign=regular&booster_org=
+    $this: &;
+
 }
 
 @include media-breakpoint-down(xs) {

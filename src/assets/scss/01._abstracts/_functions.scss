@@ -6,13 +6,11 @@
  * 
  */
 
-
 /**
  * BOOTSTRAP FUNCTIONS
  * -------------------------------------------------------------------
  * Utility mixins and functions for evaluating source code across our variables, * maps, and mixins.
  */
-
 
 /**
  * ASCENDING
@@ -20,45 +18,195 @@
  * Used to evaluate Sass maps like our grid breakpoints.
  */
 
- @mixin _assert-ascending($map, $map-name) {
-    $prev-key: null;
-    $prev-num: null;
-    @each $key, $num in $map {
-      @if $prev-num == null or unit($num) == "%" {
-        // Do nothing
-      } @else if not comparable($prev-num, $num) {
-        @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
-      } @else if $prev-num >= $num {
-        @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
-      }
-      $prev-key: $key;
-      $prev-num: $num;
+@mixin _assert-ascending($map, $map-name) {
+  $prev-key: null;
+  $prev-num: null;
+  @each $key, $num in $map {
+    @if $prev-num == null or unit($num) == "%" {
+      // Do nothing
+    } @else if not comparable($prev-num, $num) {
+      @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+    } @else if $prev-num >= $num {
+      @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
     }
+    $prev-key: $key;
+    $prev-num: $num;
   }
-  
+}
+
 /**
  * START AT ZERO
  * -------------------------------------------------------------------
  * Used to ensure the min-width of the lowest breakpoint starts at 0.
  */
- 
-  @mixin _assert-starts-at-zero($map, $map-name: "$grid-breakpoints") {
-    $values: map-values($map);
-    $first-value: nth($values, 1);
-    @if $first-value != 0 {
-      @warn "First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.";
-    }
+
+@mixin _assert-starts-at-zero($map, $map-name: "$grid-breakpoints") {
+  $values: map-values($map);
+  $first-value: nth($values, 1);
+  @if $first-value != 0 {
+    @warn "First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.";
   }
-  
+}
+
 /**
  * SOURCES
  * -------------------------------------------------------------------
  */
- 
-  @if $workspace == local {
-    $imagesUrl: "../assets/";
-    $fontsUrl: "../assets/fonts/";
-  } @else {
-    $imagesUrl: "/uploads/static/#{$subsideFolder}/";
-    $fontsUrl: "/uploads/static/#{$subsideFolder}/fonts/";
+
+@if $workspace == local {
+  $imagesUrl: "../assets/";
+  $fontsUrl: "../assets/fonts/";
+} @else {
+  $imagesUrl: "/uploads/static/#{$subsideFolder}/";
+  $fontsUrl: "/uploads/static/#{$subsideFolder}/fonts/";
+}
+
+/**
+ * STRING-REPLACE
+ * -------------------------------------------------------------------
+ * @param  {String}  $string - Initial string
+ * @param  {String}  $search - Substring to replace
+ * @param  {String}  $replace ('') - New value
+ * @return {String}  Updated string
+ */
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
   }
+
+  @return $string;
+}
+
+/**
+ * ENCODE SVG - USE AS BACKGROUND
+ * -------------------------------------------------------------------
+ * @param  {String}  $string
+ * @return {String}  Encoded svg data
+ */
+
+@function svg-encode($string) {
+  $result: str-replace(
+    $string,
+    "<svg",
+    '<svg xmlns="http://www.w3.org/2000/svg"'
+  );
+  $result: str-replace($result, "%", "%25");
+  $result: str-replace($result, '"', "'");
+  $result: str-replace($result, "<", "%3C");
+  $result: str-replace($result, ">", "%3E");
+
+  @return "data:image/svg+xml," + $result;
+}
+
+/**
+ * OUTPUTS PSEUDO CONTENT
+ * -------------------------------------------------------------------
+ *  @param  {String}  $location
+ *  @param  {Number}  $height
+ *  @output psuedo content
+ */
+
+@mixin pseudo-content($wedge, $height, $width) {
+  background-image: url($wedge);
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  // full width wedge - needed as Firefox ignores preserveAspectRatio="none" in this case
+  @if ($width == null) {
+    background-size: 100% 100%;
+  }
+
+  content: "";
+  height: $height * 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+/**
+ * ATTATCHES AN SVG WEDGE SHAPE TO AN ELEMENT
+ * -------------------------------------------------------------------
+ * @param  {String}  $location   - 'inside top', 'outside top', 'inside bottom', 'outside bottom'
+ * @param  {String}  $hypotenuse - 'upper left', 'upper right', 'lower left', 'lower right'
+ * @param  {Color}   $fill
+ * @param  {Number}  $height
+ * @param  {Number}  $width
+ * @output '::before' and/or '::after' with svg background image
+ *
+ *
+ * .element { position: relative; height: 300px; background-image: linear-gradient(#4568dc, #b06ab3); @include angled-edge("outside bottom", "lower right", #b06ab3, 100);}
+ */
+
+@mixin angled-edge($location, $hypotenuse, $fill, $height: 100, $width: null) {
+  position: relative;
+
+  $points: (
+    "upper left": "0,#{$height} #{$width},#{$height} #{$width},0",
+    "upper right": "0,#{$height} #{$width},#{$height} 0,0",
+    "lower left": "0,0 #{$width},#{$height} #{$width},0",
+    "lower right": "0,0 #{$width},0 0,#{$height}",
+  );
+
+  // full width wedge
+  @if ($width == null) {
+    $points: (
+      "upper left": "0,#{$height} 100,#{$height} 100,0",
+      "upper right": "0,#{$height} 100,#{$height} 0,0",
+      "lower left": "0,0 100,#{$height} 100,0",
+      "lower right": "0,0 100,0 0,#{$height}",
+    );
+  }
+
+  // ensure $fill color is using rgb()
+  $fill-rgb: "rgb(" + round(red($fill)) + "," + round(green($fill)) + "," +
+    round(blue($fill)) + ")";
+
+  // capture alpha component of $fill to use with fill-opacity
+  $fill-alpha: alpha($fill);
+
+  $wedge: '<svg width="#{$width}" height="#{$height}" fill="#{$fill-rgb}" fill-opacity="#{$fill-alpha}"><polygon points="#{map-get($points, $hypotenuse)}"></polygon></svg>';
+
+  // full width wedge
+  @if ($width == null) {
+    $wedge: '<svg preserveAspectRatio="none" viewBox="0 0 100 #{$height}" fill="#{$fill-rgb}" fill-opacity="#{$fill-alpha}"><polygon points="#{map-get($points, $hypotenuse)}"></polygon></svg>';
+  }
+
+  $encoded-wedge: svg-encode($wedge);
+
+  @if ($location == "inside top") {
+    &::before {
+      @include pseudo-content($encoded-wedge, $height, $width);
+      top: 0;
+    }
+  } @else if ($location == "outside top") {
+    &::before {
+      @include pseudo-content($encoded-wedge, $height, $width);
+      top: -$height * 1px;
+    }
+  } @else if ($location == "inside bottom") {
+    &::after {
+      @include pseudo-content($encoded-wedge, $height, $width);
+      bottom: 0;
+    }
+  } @else if ($location == "outside bottom") {
+    &::after {
+      @include pseudo-content($encoded-wedge, $height, $width);
+      bottom: -$height * 1px;
+    }
+  } @else {
+    @error 'Invalid argument for $location - must use: `inside top`, `outside top`, `inside bottom`, `outside bottom`';
+  }
+  @if (map-has-key($points, $hypotenuse) == false) {
+    @error 'Invalid argument for $hypotenuse - must use: `upper left`, `upper right`, `lower left`, `lower right`';
+  }
+}

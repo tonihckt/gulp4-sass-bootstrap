@@ -4,6 +4,7 @@
  * 00. TYPOGRAPHY UTILITIES
  * ======================================================================
  * 
+ * https://dev.to/royalfig/easy-responsive-typography-507a
  */
 
 
@@ -184,8 +185,6 @@
  /**
  * FONT SIZE CONFIGURATION
  * -------------------------------------------------------------------
- * It sets font-size, line-height and letter-spacing in one go and defaults to normal
- * for line-height and letter-spacing. It also keeps line-height unitless.
  *
  *
  * ===== Usage ===== 
@@ -207,5 +206,118 @@
     letter-spacing: normal;
   } @else {
     letter-spacing: #{$letter-spacing / $font-size}em;
+  }
+}
+
+
+
+ /**
+ * DEFINE FONT 
+ * -------------------------------------------------------------------
+ *
+ * .element{@include useFont('Roboto');}
+ */
+
+ @mixin useFont(
+  $fontName: '',
+  $fontWeight: 400
+) {
+  $fallbackFonts: 'Arial, Helvetica, sans-serif';
+
+  @if($fontName == 'Roboto'){
+    $fontName: 'Roboto, #{$fallbackFonts}';
+  }
+
+  @if($fontName == 'Comic San') {
+    $fontName: 'Comic Sans, #{$fallbackFonts}'
+  }
+
+  @if($fontName == '') {
+    $fontName: $fallbackFonts;
+  }
+
+  font-family: "#{$fontName}";
+  font-weight: $fontWeight;
+}
+
+ /**
+ * FONT SIZE 
+ * -------------------------------------------------------------------
+ *
+ * ===== Usage ===== 
+ * h2 { @include heading(large); }
+ * h4 { @include heading(medium); }
+ * p { @include heading(hi); }
+ */
+
+@mixin heading($size) {
+  @if($size == large) {
+      font-size: 40px;
+  } @else if ($size == medium) {
+      font-size: 24px;
+  } @else if ($size == small) {
+      font-size: 18px;
+  } @else {
+      font-size: 16px;
+  }
+}
+
+
+/**
+ * TEXT EFFECT
+ * -------------------------------------------------------------------
+ *
+ */
+
+
+@mixin text-effect($val) {
+  @if $val == danger {
+    color: red;
+  }
+  @else if $val == alert {
+    color: yellow;
+  }
+  @else if $val == success {
+    color: green;
+  }
+  @else {
+    color: black;
+  }
+}
+
+/**
+ * BOLD
+ * -------------------------------------------------------------------
+ *
+ */
+
+
+// @mixin make-bold($bool) {
+//   @if $bool == true {
+//     font-weight: bold;
+//   }
+// }
+
+
+
+/**
+ * LINKS MIXINS
+ * -------------------------------------------------------------------
+ *
+ * .element { @include link-color(orange, blue, yellow, teal); }
+ */
+
+ @mixin link-color ($link, $visited, $hover, $active) {
+  & {
+      color: $link;
+      &:visited {
+          color: $visited;
+      }
+      &:hover {
+          color: $hover;
+      }
+      &:active, &:focus {
+          color: $active;
+      }
   }
 }

@@ -6,6 +6,8 @@
  * ======================================================================
  *
  * @link: https://sass-guidelin.es/
+ * https://dev.to/carlillo/understanding-itcss-real-case-using-itcss-in-a-ghostcms-blog-1p9b
+ * https://dev.to/andreabarghigiani/10-librerie-sass-che-ti-aiutano-nello-sviluppo-css-523a
  *
  */
 /*!
@@ -7309,6 +7311,40 @@ a.text-dark:hover, a.text-dark:focus {
  * SOURCES
  * -------------------------------------------------------------------
  */
+/**
+ * STRING-REPLACE
+ * -------------------------------------------------------------------
+ * @param  {String}  $string - Initial string
+ * @param  {String}  $search - Substring to replace
+ * @param  {String}  $replace ('') - New value
+ * @return {String}  Updated string
+ */
+/**
+ * ENCODE SVG - USE AS BACKGROUND
+ * -------------------------------------------------------------------
+ * @param  {String}  $string
+ * @return {String}  Encoded svg data
+ */
+/**
+ * OUTPUTS PSEUDO CONTENT
+ * -------------------------------------------------------------------
+ *  @param  {String}  $location
+ *  @param  {Number}  $height
+ *  @output psuedo content
+ */
+/**
+ * ATTATCHES AN SVG WEDGE SHAPE TO AN ELEMENT
+ * -------------------------------------------------------------------
+ * @param  {String}  $location   - 'inside top', 'outside top', 'inside bottom', 'outside bottom'
+ * @param  {String}  $hypotenuse - 'upper left', 'upper right', 'lower left', 'lower right'
+ * @param  {Color}   $fill
+ * @param  {Number}  $height
+ * @param  {Number}  $width
+ * @output '::before' and/or '::after' with svg background image
+ *
+ *
+ * .element { position: relative; height: 300px; background-image: linear-gradient(#4568dc, #b06ab3); @include angled-edge("outside bottom", "lower right", #b06ab3, 100);}
+ */
 /*!
  *
  * ======================================================================
@@ -7541,6 +7577,11 @@ a.text-dark:hover, a.text-dark:focus {
  * -------------------------------------------------------------------
  * .element{@include flex-config($flex-direction: row, $align-items: center, $justify-content: center);}
  */
+/**
+ * CONVERTS A LIST OF PX VALUES ​​TO REM
+ * -------------------------------------------------------------------
+ * .element{@include rem-fallback(margin, 10, 20, 30, 40);}
+ */
 /*!
  *
  * ======================================================================
@@ -7725,6 +7766,13 @@ a.text-dark:hover, a.text-dark:focus {
 * .placeholder { @include vertical-center(); }
 */
 /**
+* POSITION CENTER
+* -------------------------------------------------------------------
+* Block horizontal and vertical centering helper (Important:
+* you must have a parent element with position: relative). 
+*
+*/
+/**
 * ABSOLUTE POSITIONING
 * -------------------------------------------------------------------
 *  It allows you to quickly specify values for the four directions: top, right, bottom, and left.
@@ -7761,12 +7809,52 @@ a.text-dark:hover, a.text-dark:focus {
 * ------------------------------------------------------------------- 
 *
 */
+/**
+* GRADIENT BORDER
+* ------------------------------------------------------------------- 
+*
+* .element.article-promo { @include gradient-border; // Gives all defaults}
+* .big-border { @include gradient-border(50px);} // If declared in order you don't have to label your arguments
+* .red-gradient {@include gradient-border($gradient-start-color: red,$gradient-end-color: darkred);}
+* .vertical-gradient { @include gradient-border($gradient-direction: to bottom);}
+*/
+/**
+* SPACING
+* ------------------------------------------------------------------- 
+* .element { @include spacing( 10px, 1px solid black )}
+*/
+/**
+* TRANSITION-COLOR
+* ------------------------------------------------------------------- 
+* .element {@include transition;}
+* .element {@include transition(color);}
+*/
+/**
+* Liner-Gradients
+* ------------------------------------------------------------------- 
+* .elemento {
+  @include linear-gradient(#000,#fff);
+}
+
+@mixin linear-gradient($fromColor, $toColor) {
+  background-color: $toColor;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor));
+  background-image: -webkit-linear-gradient(top, $fromColor, $toColor);
+  background-image: linear-gradient(top, $fromColor, $toColor);
+}
+
+/**
+* PSEUDO-ELEMENT
+* ------------------------------------------------------------------- 
+* @include pseudo-element('before') { content: ''; }
+*/
 /*!
  *
  * ======================================================================
  * 00. TYPOGRAPHY UTILITIES
  * ======================================================================
  * 
+ * https://dev.to/royalfig/easy-responsive-typography-507a
  */
 /**
  * STRING REPLACE
@@ -7803,12 +7891,41 @@ a.text-dark:hover, a.text-dark:focus {
 /**
  * FONT SIZE CONFIGURATION
  * -------------------------------------------------------------------
- * It sets font-size, line-height and letter-spacing in one go and defaults to normal
- * for line-height and letter-spacing. It also keeps line-height unitless.
  *
  *
  * ===== Usage ===== 
  * .element{@include font-size(12, 18, 1.2);}
+ */
+/**
+ * DEFINE FONT 
+ * -------------------------------------------------------------------
+ *
+ * .element{@include useFont('Roboto');}
+ */
+/**
+ * FONT SIZE 
+ * -------------------------------------------------------------------
+ *
+ * ===== Usage ===== 
+ * h2 { @include heading(large); }
+ * h4 { @include heading(medium); }
+ * p { @include heading(hi); }
+ */
+/**
+ * TEXT EFFECT
+ * -------------------------------------------------------------------
+ *
+ */
+/**
+ * BOLD
+ * -------------------------------------------------------------------
+ *
+ */
+/**
+ * LINKS MIXINS
+ * -------------------------------------------------------------------
+ *
+ * .element { @include link-color(orange, blue, yellow, teal); }
  */
 /*!
  *
@@ -9402,6 +9519,58 @@ input[type="button"] {
     opacity: 1;
     transform: translateY(0px); } }
 
+.c-jumbotron {
+  position: relative;
+  height: 300px;
+  background-image: linear-gradient(#4568dc, #b06ab3);
+  position: relative; }
+  .c-jumbotron::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 100 100' fill='rgb(176,106,179)' fill-opacity='1'%3E%3Cpolygon points='0,0 100,0 0,100'%3E%3C/polygon%3E%3C/svg%3E");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    content: "";
+    height: 100px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+    bottom: -100px; }
+
+/*!
+ *
+ * ======================================================================
+ * 00. ACCORDION
+ * ======================================================================
+ * 
+ */
+.c-accordion {
+  margin: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5); }
+  .c-accordion__label {
+    display: flex;
+    padding: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    background: #333;
+    color: #fff; }
+  .c-accordion__input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1; }
+  .c-accordion__content {
+    max-height: 0;
+    padding: 0 1em;
+    background: white;
+    color: #000;
+    transition: all 0.35s; }
+  .c-accordion input:checked ~ .c-accordion__content {
+    max-height: 100vh;
+    padding: 1em; }
+
 /**
   * layout/
   * -------------------------------------------------------------------
@@ -10260,6 +10429,8 @@ input[type="button"] {
  * 00. NEWSLETTER FLOW
  * ======================================================================
  * 
+ * https://uglyduck.ca/easy-custom-radio-inputs/
+ * https://dev.to/wilsmex/pure-css-custom-radio-buttons-554h
  */
 .c-subscribe {
   padding: 2%;
@@ -10329,7 +10500,8 @@ input[type="button"] {
     color: red; }
   .c-contact__form.c-form {
     background: #eee;
-    padding: 20px; }
+    padding: 20px;
+    background: radial-gradient(circle, #ff996f 45%, white 45.1%); }
     .c-contact__form.c-form input[type=name]:focus,
     .c-contact__form.c-form input[type=text]:focus,
     .c-contact__form.c-form input[type=email]:focus,

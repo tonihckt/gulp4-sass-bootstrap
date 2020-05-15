@@ -17,6 +17,31 @@
 // }
 
 
+// @function countRem($value) {
+//   $remValue: $value / 16px;
+//   @return $remValue * 1rem;
+// }
+// @mixin font-size($value) {
+//   font-size: $value;
+//   font-size: calculateRem($value);
+// }
+
+///////////// 
+// @include font-size(16px), this will compile into font-size: 1rem;
+
+// @function calculate-rem($size) {
+//   $rem-size: $size / 16px;
+//   @return #{$rem-size}rem;
+// }
+// @mixin rem-calc($size) {
+//   font-size: calculate-rem($size);
+// }
+
+
+// Functions
+// @function px-to-em($pixels) {
+//   @return #{$pixels/$base-font-size}em;
+// }
 /**
  * CONTAINER
  * -------------------------------------------------------------------
@@ -67,6 +92,8 @@
   -o-transform:rotate($degree); // Opera
   transform:rotate($degree); // Standar Css
 }
+
+
 
 /**
 * ZEBRA
@@ -503,7 +530,7 @@ $imgpath--rel : '../../images/';
 * .element { @include center-content; }
 */
 
-@mixin center-content {
+@mixin flex-center {
   display: flex; 
   justify-content: center; 
   align-items: center; 
@@ -555,6 +582,22 @@ $imgpath--rel : '../../images/';
   transform: translateY(-50%);
 }
 
+/**
+* POSITION CENTER
+* -------------------------------------------------------------------
+* Block horizontal and vertical centering helper (Important:
+* you must have a parent element with position: relative). 
+*
+*/
+
+@mixin position-center {
+  position:absolute;
+  top:50%;
+  left:50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 
 /**
 * ABSOLUTE POSITIONING
@@ -763,3 +806,138 @@ $imgpath--rel : '../../images/';
   -o-background-size: cover;
   background-size: cover;
 }
+
+
+/**
+* GRADIENT BORDER
+* ------------------------------------------------------------------- 
+*
+* .element.article-promo { @include gradient-border; // Gives all defaults}
+* .big-border { @include gradient-border(50px);} // If declared in order you don't have to label your arguments
+* .red-gradient {@include gradient-border($gradient-start-color: red,$gradient-end-color: darkred);}
+* .vertical-gradient { @include gradient-border($gradient-direction: to bottom);}
+*/
+
+@mixin gradient-border() {
+  position: relative;
+  padding: $border-size * 2;
+  > * {
+      z-index: 100;
+      position: relative;
+  }
+  &::before {
+      @extend %pseudo-properties;
+      background-color: $original-background-color;
+      top: $gradient-size;
+      left: $gradient-size;
+      width: calc(100% - #{$gradient-border-size * 2});
+      height: calc(100% - #{$gradient-border-size * 2});
+  }
+  &::after {
+      @extend %pseudo-properties;
+      background-image: linear-gradient($gradient-direction, $gradient-start-color, $gradient-end-color);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      mix-blend-mode: screen;
+  }
+}
+
+/**
+* SPACING
+* ------------------------------------------------------------------- 
+* .element { @include spacing( 10px, 1px solid black )}
+*/
+
+@mixin spacing ($margin, $padding, $border) {
+  margin: $margin;
+  border: $border;
+  padding: $padding;
+}
+
+// @mixin color ($background, $text, $border) {
+//   background-color: $background;
+//   color: $text;
+//   border-color: $border
+// }
+
+
+/**
+* TRANSITION-COLOR
+* ------------------------------------------------------------------- 
+* .element {@include transition;}
+* .element {@include transition(color);}
+*/
+
+@mixin transition-color($what: all, $length: .3s, $easing: ease-in-out, $args: '') {
+  @if( $args=='' ){
+    -webkit-transition: $what $length $easing;
+    transition: $what $length $easing;
+  } @else {
+    -webkit-transition: $args;
+    transition: $args;
+  }
+}
+
+/**
+* Liner-Gradients
+* ------------------------------------------------------------------- 
+* .elemento {@include linear-gradient(#000,#fff);}
+*/
+
+@mixin linear-gradient($fromColor, $toColor) {
+  background-color: $toColor;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor));
+  background-image: -webkit-linear-gradient(top, $fromColor, $toColor);
+  background-image: linear-gradient(top, $fromColor, $toColor);
+}
+
+/**
+* PSEUDO-ELEMENT
+* ------------------------------------------------------------------- 
+* @include pseudo-element('before') { content: ''; }
+*/
+
+@mixin pseudo-element($element) {
+  &:#{$element}, &::#{$element} {
+    @content;
+  }
+}
+
+
+@mixin pseudo($display: block, $pos: absolute, $content: ‘’){
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+
+@mixin responsive-aspect-ratio($x,$y, $pseudo: false) {
+  $padding: unquote( ( $y / $x ) * 100 + ‘%’ );
+  @if $pseudo {
+      &:before {
+          @include pseudo($pos: relative);
+          width: 100%;
+          padding-top: $padding;
+      }
+  } @else {
+      padding-top: $padding;
+  }
+}
+
+
+// @mixin ba($ba,$width,$height,$top,$left,$rel:true,$content:null) {
+//   @if ($rel == true) {
+//     position: relative;
+//   }
+//   &:#{$ba} {
+//     position: absolute;
+//     width:$width;
+//     height:$height;
+//     top:$top;
+//     left:$left;
+//     content: "#{$content}";
+//     @content;
+//   }
+// }

@@ -5,6 +5,8 @@
  * ======================================================================
  *
  * @link: https://sass-guidelin.es/
+ * https://dev.to/carlillo/understanding-itcss-real-case-using-itcss-in-a-ghostcms-blog-1p9b
+ * https://dev.to/andreabarghigiani/10-librerie-sass-che-ti-aiutano-nello-sviluppo-css-523a
  *
  */
 
@@ -56,6 +58,9 @@
 @import "03._components/cards";
 @import "03._components/boxes";
 @import "03._components/hero";
+@import "03._components/accordion";
+@import "03._components/test-random";
+
 
 
 /**

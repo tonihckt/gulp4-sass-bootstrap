@@ -181,3 +181,92 @@
 //     @content;
 //   }
 // }
+
+
+
+
+//////////
+
+// @mixin bp-large {
+//   @media only screen and (max-width: 60em) {
+//       @content;
+//   }
+// }
+// @mixin bp-medium {
+//   @media only screen and (max-width: 40em) {
+//       @content;
+//   }
+// }
+// @mixin bp-small {
+//   @media only screen and (max-width: 30em) {
+//       @content;
+//   }
+// }
+
+
+///////
+// @mixin media($typeMedia, $width: ''){
+//   @if ($typeMedia == 'min' or $typeMedia == 'max') {
+//     @media screen and ('#{$typeMedia}-width': $width){
+//       @content;
+//     }
+//   }
+
+//   @if ($typeMedia == 'print') {
+//     @media print {
+//       @content;
+//     }
+//   }
+// }
+
+
+/////////////
+
+@mixin mq($screen) {
+  @media (max-width: $screen+"px") {
+    @content; // the content you add will be placed here
+  }
+}
+
+
+// $mobile: 480px;
+// $tabletPortrait: 767px;
+// $tabletLandscape: 1024px;
+// $desktop: 1200px;
+// @mixin breakpoint($media) {
+//   @if $media == mobile {
+//     @media (max-width: $mobile) { @content; }
+//   }
+//   @else if $media == tablet {
+//     @media (min-width: $tabletPortrait) and (max-width: $tabletLandscape) { @content; }
+//   }
+//   @else if $media == smallScreen {
+//     @media (max-width: $desktop) { @content; }
+//   }
+//   @else if $media == desktop {
+//     @media (min-width: $desktop) { @content; }
+//   }
+// }
+
+// $breakpoints: (
+//     "phone":        400px,
+//     "phone-wide":   480px,
+//     "phablet":      560px,
+//     "tablet-small": 640px,
+//     "tablet":       768px,
+//     "tablet-wide":  1024px,
+//     "desktop":      1248px,
+//     "desktop-wide": 1440px
+// );
+
+// @mixin screen($width, $type: min) {
+//     @if map_has_key($breakpoints, $width) {
+//         $width: map_get($breakpoints, $width);
+//         @if $type == max {
+//             $width: $width - 1px;
+//         }
+//         @media only screen and (#{$type}-width: $width) {
+//             @content;
+//         }
+//     }
+// }

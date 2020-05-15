@@ -4,4 +4,119 @@
  * 00. RESOURCES
  * ======================================================================
  * 
+ * https://dev.to/sarah_chima/sass-control-directives-6hk
  */
+
+/**
+ * BOX
+ * -------------------------------------------------------------------
+ * The @for directive is used to output styles in a loop
+ * This loop has a start and end value. There are two
+ * forms of the @for directive: you can either loop
+ * through the start and end value or you loop from the
+ * start to end value. There's a subtle difference inboth
+ * While through loops and includes the end point, to does
+ * not include the end value. 
+ *
+ */
+
+ @for $i from 1 through 4 {
+    .box-#{$i} { width: 10 * $i;}
+} 
+
+/**
+ * IMAGE
+ * -------------------------------------------------------------------
+ * The @each directive is used to loop through a list or
+ * map instead of starting and ending values as in the
+ * case of @for. Its syntax is @each $var in <list> where * $var can be the name of any variable like $name or
+ * $animal. This variable is set to each item on the list
+ * and processes the block of styles beneath the directive
+ * using the variable. 
+ *
+ *
+ * .place-lagos { background-image: url("img/place/lagos"); }
+ */
+
+ // => @each
+ @each $place in lagos, newyork, paris {
+    .place-#{$place} {
+        background-image: url("img/place/#{$place}" )
+    }
+}
+
+
+// => @each with multiple variables
+
+// .place-lagos {
+//     background-image: url("img/place/lagos");
+//     border: 2px solid blue;
+//     position: fixed; }
+
+// Notice that different variables are used. Each of these variables is set to a corresponding item in each sublist and the block of styles is processed using these variables
+
+@each $place, $color, $position in (lagos, blue, fixed), 
+(newyork, black, relative),
+(paris, gray, absolute) {
+.place-#{$place} {
+background-image: url("img/place/#{$place}" );
+border: 2px solid $color;
+position: $position;
+}
+}
+
+// => @each with a map
+//   .fish-avatar {background-image: url("/img/fish.png");}
+
+$animals: ( animal1:fish, animal2:rat, animal3:monkey);
+
+@each $key, $animal in $animals  {
+    .#{$animal}-avatar {
+        background-image: url('/img/#{$animal}.png');
+}
+}
+
+
+/**
+ * GET VALUES ​​FROM A CONFIGURATION MAP.
+ * -------------------------------------------------------------------
+ *
+ *
+ */
+
+//  $lista-valores: (
+//   cor: 'red',
+//   tamanho: (
+//     sm: 576px
+//   ),
+//   background: (
+//     info: blue,
+//   )
+// );
+
+// .container {
+//     color: getprops-map($lista-valores, cor);
+//     width: getprops-map($lista-valores, tamanho, sm);
+//     background: getprops-map($lista-valores, background, info);
+//   }
+
+
+ @function getprops-map($obj, $prop-first, $prop-deep:null) {
+    @if($prop-deep != null) {
+      // Pegando o segundo nível
+      @return map-get(map-get($obj, $prop-first), $prop-deep);
+    }
+    // Pegando o primeiro nível
+    @return map-get($obj, $prop-first);
+  }
+
+  /**
+ * GET VALUES ​​FROM A CONFIGURATION MAP.
+ * -------------------------------------------------------------------
+ *
+ *
+ */
+
+ @for $i from 1 through 12 {
+    .col-#{$i} { width: 100%/12 * $i; }
+  }

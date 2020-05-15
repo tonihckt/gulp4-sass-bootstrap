@@ -564,6 +564,16 @@ $rem-base: 16px !default;
   justify-content: center;
 }
 
+// @include flex-center-align(row); // Will set flex-direction to row
+// @include flex-center-align(column); // Will set flex-direction to column
+
+@mixin flex-center-align($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
  /**
  * FLEXBOX OWN CONFIGURATION
  * -------------------------------------------------------------------
@@ -588,4 +598,44 @@ $rem-base: 16px !default;
   @if $align-items != false {
     align-items: $align-items;
   }
+}
+
+
+
+ /**
+ * CONVERTS A LIST OF PX VALUES ​​TO REM
+ * -------------------------------------------------------------------
+ * .element{@include rem-fallback(margin, 10, 20, 30, 40);}
+ */
+
+
+ @function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin rem-fallback($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value*16}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+
+  #{$property}: $pxValues;
+  #{$property}: $remValues;
 }
