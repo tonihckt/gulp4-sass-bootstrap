@@ -16,6 +16,20 @@
 
 
 /**
+* Creating variables
+* -------------------------------------------------------------------
+*/
+//Base Color
+// $violet-base: #A200FF;
+
+// //For Directive
+// @for $i from 1 through 14 {
+//    .box:nth-of-type(#{$i}) {
+//      background-color: darken($violet-base, 2*$i);
+//    }
+// }
+
+/**
 * COLORS
 * -------------------------------------------------------------------
 */
@@ -495,3 +509,34 @@ $blue-grey: (
   800:  #37474f,
   900:  #263238
 );
+
+$alerts: ("error" : red,
+    "neutral" : blue,
+    "good" : green,
+    "warning" : yellow
+);
+
+@each $name, $color in $alerts {
+        .alert-#{$name} {
+                background: $color;
+                color: #FFFFFF;
+                padding: 10px;
+                text-align: center;
+        }
+}
+
+// .heading { @include text-color(error); }
+@mixin text-color($val) {
+  @if $val == error {
+    color: red;
+  }
+  @else if $val == warning {
+    color: yellow;
+  }
+  @else if $val == success {
+    color: green;
+  }
+  @else {
+    color: black
+  }
+}

@@ -44,6 +44,8 @@
 @import "02._base/reset";
 @import "02._base/base";
 @import "02._base/typography";
+@import "02._base/typo-structure";
+
 
 
 /**
@@ -59,6 +61,7 @@
 @import "03._components/boxes";
 @import "03._components/hero";
 @import "03._components/accordion";
+@import "03._components/article-list";
 @import "03._components/test-random";
 
 
@@ -90,6 +93,8 @@
 @import "05._pages/home";
 @import "05._pages/contact";
 @import "05._pages/about";
+@import "05._pages/error";
+
 
 /**
   * themes/

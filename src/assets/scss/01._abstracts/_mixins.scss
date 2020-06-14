@@ -419,6 +419,19 @@ $rem-base: 16px !default;
   z-index: index($elements, $id);
   }
 
+
+/**
+ * Opacity
+ * -------------------------------------------------------------------
+ * .sample { @include opacity(0.8); }
+ */
+ 
+ @mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
 /**
  * TRANSITION
  * -------------------------------------------------------------------
@@ -600,7 +613,76 @@ $rem-base: 16px !default;
   }
 }
 
+/**
+ * FLOAT COLUMNS
+ * -------------------------------------------------------------------
+ * .sidebar { @include float-column(3); }
+ * @media only screen and (max-width: 480px) { .sidebar { @include grid(12); }}
+ * https://www.toptal.com/sass/css3-flexbox-sass-grid-tutorial
+ */
 
+ @mixin float-column($colSpan, $gridColumns: 4, $margin: 1%,) {
+  $unitWidth: $gridColumns / $colSpan;
+  float:left;
+  width: (100 - $unitWidth * $margin) / $unitWidth;
+  margin: 0 $margin/2;
+}
+  
+/* COLUMN FLEXBOX
+//------------------------------------------------------------------*/
+// .element{@include flex-box(2);}
+@mixin set-flex-column($columns, $gutter) {
+  > *  {
+    flex: 0 0 auto;
+    width: calc(#{100% / $columns} - #{$gutter});      
+ }
+}
+
+$gutter-flex-box:$gutter;
+@mixin flex-box($columns: 0, $gutter: $gutter-flex-box, $item-minwidth: 300px) {
+ display: flex;
+ flex-wrap: wrap;
+
+ > * {
+   margin: 0 ($gutter/2) $gutter;
+   flex: 1 1 $item-minwidth;
+ }
+
+ @if $columns > 0 {
+   @include set-flex-column($columns, $gutter);
+ }
+}
+
+// // Container Mixin
+// @mixin grid($width: $container) {
+  
+//   $container: $width;
+  
+//   display: flex;
+//   flex-direction: row;
+//   flex-flow: wrap;
+//   flex: 0 1 auto;
+  
+//   max-width: $container;
+//   margin: 0 auto;
+  
+// }
+
+// // Column Mixin
+// @mixin column($span: $columns) {
+  
+//   $columns: $span;
+  
+//   box-sizing: border-box;
+//   flex: $columns $columns auto;
+//   flex-basis: $columns;
+//   max-width: $columns;
+  
+//   padding-right: $gutter;
+//   padding-left: $gutter;
+//   padding-bottom: $gutter*2;
+    
+// }
 
  /**
  * CONVERTS A LIST OF PX VALUES ​​TO REM

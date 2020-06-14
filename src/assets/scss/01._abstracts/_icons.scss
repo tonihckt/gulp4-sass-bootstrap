@@ -19,6 +19,7 @@ $icon-linkedin    : url(‘assets/linkedin.png’);
 $icon-pinterest  : url(‘assets/pinterest.png’);
 $icon-youtube    : url(‘assets/youtube.png’);
 $icon-whatsapp    : url(‘assets/ywhatsapp.png’);
+
 /*!
  *
  * ======================================================================
@@ -59,3 +60,23 @@ $social-media-icons: (
   email           : $icon-email,
   print           : $icon-print
 )
+
+
+
+// .icon {
+//   $_icons: (
+//       delete: icn-delete,
+//       edit: icn-edit,
+//       add: icn-add
+//   );
+//   &::before {
+//       content: '';
+//   }
+//   @each $label, $icon in $_icons {
+//       &--#{$label} {
+//           &::before {
+//               @include svg-sprite($icon);
+//           }
+//       }
+//   }
+// }

@@ -49,8 +49,24 @@
 }
 
 /**
+ * GRID COLS -- por ver
+ * -------------------------------------------------------------------
+ * #sidebar { width: box-grid-width(5); }
+ * #sidebar { width: box-grid-width($n: 5); }
+ */
+
+// $grid-width: 40px;
+// $gutter-width: 10px;
+
+// @function box-grid-width($n) {
+//   @return $n * $grid-width + ($n - 1) * $gutter-width;
+// }
+
+/**
  * SOURCES
  * -------------------------------------------------------------------
+ *  background: url($pathImages + 'imagen.png') left top no-repeat;
+ *  background: url($imagesUrl + 'images/imagen.png') left top no-repeat;
  */
 
 @if $workspace == local {
@@ -83,6 +99,25 @@
   }
 
   @return $string;
+}
+
+/**
+ * Converts units from pixels to REMs or EMs
+ * -------------------------------------------------------------------
+ * .component__wrapper { max-width: rem(30px); }
+ * .component__wrapper { max-width: em(30px); }
+ * https://alumni.utoronto.ca/themes/alumni/styleguide////////#!/section/2.7.1
+ * https://www.hcd.es/cursos/html/sass-kit/sass.html
+ */
+
+ $base-font-size: 16px !default;
+
+@function em($px, $base: $base-font-size) {
+  @return ($px / $base) * 1em;
+}
+
+@function rem($px, $base: $base-font-size) {
+  @return ($px / $base) * 1rem;
 }
 
 /**

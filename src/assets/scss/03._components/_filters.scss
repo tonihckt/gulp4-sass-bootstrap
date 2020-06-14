@@ -1,0 +1,45 @@
+/*!
+ *
+ * ======================================================================
+ * 00. DROPDOWN
+ * ======================================================================
+ * 
+ */
+
+
+ .filters-block {
+    $this: &;
+    $_filter-height: 20px;
+
+    @mixin _note-size($value) {
+        height: $value;
+        line-height: $value;
+        margin-top: -($value);
+    }
+    &__list {
+        height: $_filters-height * 7; // Display 7 filters
+        overflow: auto;
+    }
+    &__item {
+        height: $_filter-height;
+    }
+    &__note {
+        @include _note-size(30px);
+    }
+
+    &__title {
+        color: black;
+    }
+    
+    &--expandable {
+        #{$this}__title {
+            color: blue;
+        }
+    }
+
+    // @media screen and (max-width 1000px) {
+    //     &__note {
+    //         @include _note-size(40px);
+    //     }
+    // }
+}

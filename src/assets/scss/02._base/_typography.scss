@@ -6,6 +6,17 @@
  * 
  */
 
+//  @function calculateRem($size) {
+//   $remSize: $size / 16px;
+//   @return $remSize * 1rem;
+// }
+
+// @mixin font-size($size) {
+//   font-size: $size;
+//   font-size: calculateRem($size);
+// }
+
+
   /**
    * ADD FONTS
    * -------------------------------------------------------------------
@@ -199,3 +210,8 @@ $font-list: (
 //     clear: both;
 //     visibility: hidden;
 // }
+
+// $font-stack: (
+//   decorative: #{'oswald', Helvetica, sans-serif},
+//   general: #{'Helvetica Neue', Helvetica, Arial, sans-serif}
+// ); 

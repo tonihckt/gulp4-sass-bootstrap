@@ -1,0 +1,43 @@
+/*!
+ *
+ * ======================================================================
+ * 00. TEASER
+ * ======================================================================
+ */
+
+ // one component file
+@mixin c-teaser($base_class) {
+    @include o-teaser-content(&);
+}
+
+// another component file
+@mixin c-hero($base_class) {
+    @include o-teaser-content(&);
+}
+
+
+
+.c-teaser{
+    &__title{}
+    &_compact{}
+
+    &-card{
+        &__title{}
+        &__compact{}
+    }
+}
+
+@mixin c-teaser($base_class) {
+
+    // styling applied to the component root
+    border:1px black solid;
+
+    @at-root {
+        #{$base_class}__title {
+            
+        }
+        #{$base_class}_compact {
+            
+        }
+    }
+}

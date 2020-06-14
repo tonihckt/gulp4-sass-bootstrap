@@ -1,0 +1,29 @@
+// Columns
+$one: 8.33%;
+$two: 16.667%;
+$three: 25%;
+$four: 33.333%;
+$five: 41.667%;
+$six: 50%;
+$seven: 58.333%;
+$eight: 66.667%;
+$nine: 75%;
+$ten: 83.333%;
+$eleven: 91.667%;
+$twelve: 100%;
+
+
+// COLUMNS -> .col-1
+@for $i from 1 through 4{
+    .col-#{$i} {
+       width: 100% / $i;
+    }
+  }
+
+//   $i: 1;
+//   @while $i < 5 {
+//     .col-#{$i} {
+//        width: 100% / $i;
+//     }
+//     $i: $i + 1;
+//   }

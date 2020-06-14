@@ -2,9 +2,12 @@
  *
  * ======================================================================
  * 00. BUTTONS
- * ======================================================================
+ * ====================================================================== https://codepen.io/Treehouse/pen/vEkit
+ https://iamsteve.me/blog/entry/create_a_sass_button_element_mixin
+ http://compass-style.org/reference/compass/typography/vertical_rhythm/
  * 
  */
+
 
 // COLORS
 $btn-bg: #999 !default;
@@ -226,3 +229,211 @@ $btn-red: #ff6666;
   
 
 //////
+
+
+/**
+* CREATE BUTTON
+* -------------------------------------------------------------------
+* Usage:
+* @include button($red, normal, normal, normal);
+*/
+
+// Alternate Colors
+$gold		    : rgb(234, 170, 0);
+$purple		  : rgb(149, 149, 210);
+$blue		    : rgb(7, 114, 206);
+$lightblue	: rgb(65, 182, 230);
+$green		  : rgb(100, 167, 11);
+$red		    : rgb(218, 41, 28);
+$black		  : rgb(0, 0, 0);
+$white		  : rgb(255, 255, 255);
+
+// Color Variations Array
+$prefix: color;
+$color-list: (
+	'gold' $prefix $gold,
+	'purple' $prefix $purple,
+	'blue' $prefix $blue,
+	'lightblue' $prefix $lightblue,
+	'green' $prefix $green,
+	'red' $prefix $red,
+	'white' $prefix $white
+);
+
+
+@mixin button($button-color: $red, $button-type: '', $button-border: '', $button-size: '') {
+	// Standard Button Styles
+	@include border-radius(5px);
+	@include transition(.3s ease-in-out);
+	display: inline-block;
+	border: 2px solid $button-color;
+	padding: 10px 30px 8px;
+	color: $button-color;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	// Button Hover Styles
+	&:hover {
+		border-color: $black;
+		color: $black;
+	}
+	// Foreach Loop
+	// Using the Color Variations in _variables.scss
+	@each $i in $color-list {
+		$alt-color: nth($i, 3);
+		&.#{nth($i, 2)}-#{nth($i, 1)} {
+			color: $alt-color;
+			border-color: $alt-color;
+			&:hover {
+				border-color: $black;
+				color: $black;
+			}
+		}
+	}
+
+	// Button Size (small or normal (or no value) )
+	@if $button-size == small {
+		@include font-size(13);
+		padding: 6px 30px 3px;
+	} @else {
+		&.button-small {
+			font-size: 13px;
+			padding: 6px 30px 3px;
+		}
+	}
+
+	// Button Fill
+	// solid: color is the filled background color w/white text
+	// normal or no value: color is the border & text color
+	@if $button-type == solid {
+		background: $button-color;
+		color: $light;
+		@if $button-color == $light {
+			color: $dark !important;
+		}
+		&:hover {
+			border-color: $dark;
+			background: $dark;
+			color: $light;
+		}
+	} @else {
+		&.button-solid {
+			background: $button-color;
+			color: $white;
+			@each $i in $color-list {
+				$alt-color: nth($i, 3);
+				&.#{nth($i, 2)}-#{nth($i, 1)} {
+					background: $alt-color;
+					@if $alt-color == $white {
+						color: $black;
+					}
+				}
+			}
+			&:hover {
+				border-color: $black;
+				background: $black;
+				color: $white;
+			}
+		}
+	}
+
+	// Button Border
+	// bordered: border is white
+	// normal or no value: border is colored
+	@if $button-border == bordered {
+		border-color: $white !important;
+		&:hover {
+			border-color: $black;
+		}
+	} @else {
+		&.button-bordered { border-color: $white !important; }
+	}
+}
+
+
+/**
+* button draw-border hover effect : Drawing effect
+* -------------------------------------------------------------------
+* Usage:
+* .draw-border { @include btn-border-drawing(#58afd1, #ffe593, 4px, bottom, right); }
+*/
+
+@mixin btn-border-drawing($color: #ccc, $hover: black, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {
+  box-shadow: inset 0 0 0 $width $color;
+  color: $color;
+  transition: color $duration $duration/3;
+  position: relative;
+  
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0; height: 0;
+    
+    #{$vertical}: 0; 
+    #{$horizontal}: 0;
+  }
+
+  &::before {
+    $h-side: if($horizontal == 'left', 'right', 'left');
+    
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+  
+  &::after {
+    $v-side: if($vertical == 'top', 'bottom', 'top');
+    
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+  
+  &:hover {
+    color: $hover;
+    
+    &::before,
+    &::after {
+      border-color: $hover;
+      transition: border-color 0s, width $duration, height $duration;
+      width: 100%;
+      height: 100%;
+    }
+    
+    &::before { transition-delay: 0s, 0s, $duration; }
+    
+    &::after { transition-delay: 0s, $duration, 0s; }
+  }
+}
+
+
+/**
+* Buttons Colour Functions
+* -------------------------------------------------------------------
+* Usage:
+* .button-purple  { @include buttonColors($violet-base); }
+*/
+
+//Base Color
+$violet-base: #A200FF;
+
+//Mixin for Button Properties: Border + Background-Color
+@mixin buttonColorProperties($color) {
+    $border: adjust-hue($color, -6deg);
+    background-color: $color; 
+    border: 3px solid $border;
+}
+
+//Mixin that applies the above color properties 
+@mixin buttonColors($baseColor) {
+    @include buttonColorProperties($baseColor);
+  
+    &:hover {
+      $base-hover: darken($baseColor, 30);
+      
+      @include buttonColorProperties($base-hover);
+      transition: all 0.25s;
+    }
+}

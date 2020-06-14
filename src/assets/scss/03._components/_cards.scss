@@ -111,7 +111,7 @@
 
   &.is-project {
     display: flex;
-    @include linear-gradient(#00ffff, #0080ff, 45deg);
+    // @include linear-gradient(#00ffff, #0080ff, 45deg);
     @include card-shadow(1);
     @include animation(0, 0.5s, animation-slide-in-down, ease);
 
