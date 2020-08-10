@@ -1,0 +1,51 @@
+/*!
+ *
+ * ======================================================================
+ * 00. IMAGES UTILITIES
+ * ======================================================================
+ *  https://thoughtbot.com/blog/svg-animations
+ * 
+ */
+
+
+ /**
+ * CSS Blend Modes
+ * ------------------------------------------------------------------* .. * .blend { @include blendy("mountains.jpg", #00bfff); }
+ * .feat {@include blendy("featured.jpg", $grad: $fancy-grad);}
+ * USE: 
+  .blend {
+  @include blendy("http://sassbreak.com/assets/mountains.jpg", $grad: $cool-grad);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-size: cover;
+  margin: 1.5em auto;
+  }
+ */
+
+// Blend mode gradients
+$fancy-grad  : linear-gradient(aqua, royalblue);
+$transp-grad : linear-gradient(black, transparent);
+$snarky-grad : linear-gradient(firebrick 40%, blue);
+
+// @mixin blendy($img, $color, $blend) {
+//   $img-path: url('#{$img}');
+//   @if $color == $bm-gradient {
+//     background: $color, $img-path;
+//   } @else {
+//     background-image: $img-path;
+//     background-color: $color;
+//   }
+//   background-blend-mode: $blend;
+// }
+
+@mixin blendy($img, $color: null, $grad: null, $blend: multiply) {
+  $img-path: url('img/#{$img}');
+  @if $grad {
+    background: $grad, $img-path;
+  } @else {
+    background-image: $img-path;
+    background-color: $color;
+  }
+  background-blend-mode: $blend;
+}

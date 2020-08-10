@@ -3,7 +3,7 @@
  * ======================================================================
  * 00. FOOTER
  * ======================================================================
- * 
+ * https://codepen.io/mofny/pen/RWBeLJ
  */
 
 // ==> main-footer
@@ -39,8 +39,8 @@
      }
 
      &__list{
-        display: flex;
-        flex-direction: row;
+        // display: flex;
+        // flex-direction: row;
 
         .is-static &, .is-legal & , .is-support &{
             flex-direction: column;

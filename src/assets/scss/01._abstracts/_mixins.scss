@@ -62,6 +62,20 @@
 }
 
 /**
+ * vendor-prefix
+ * -------------------------------------------------------------------
+ * .redondo { @include vendor-prefix(border-radius, 1px 1px 1px 1px) }
+ */
+@mixin vendor-prefix($name, $argument) 
+{ #{$name}: $argument;
+ -webkit-#{$name}: $argument;
+ -ms-#{$name}: $argument;
+ -moz-#{$name}: $argument;
+ -o-#{$name}: $argument; 
+} 
+
+
+/**
  * PLACEHOLDER
  * -------------------------------------------------------------------
  */
@@ -720,4 +734,16 @@ $gutter-flex-box:$gutter;
 
   #{$property}: $pxValues;
   #{$property}: $remValues;
+}
+
+
+/* element_content
+//------------------------------------------------------------------*/
+// @include element_content(".header", 'Hello dear guest!');
+
+@mixin element_content($element, $content: '') {
+  #{$element}:before {
+    content: $content;
+    position: absolute;
+  }
 }

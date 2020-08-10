@@ -1,0 +1,8 @@
+
+// https://hugogiraudel.com/2013/03/25/compass-extensions/
+// https://www.educative.io/
+$direction: left;
+$opposite: opposite-position($direction); /* Outputs “right” */
+
+$position: top right;
+$opposite: opposite-position($position); /* Outputs “bottom left” */

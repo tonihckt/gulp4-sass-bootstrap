@@ -1,0 +1,37 @@
+/*box sizing mixin*/
+@mixin box-sizing($box-model) {
+    -webkit-box-sizing: $box-model; // Safari <= 5
+       -moz-box-sizing: $box-model; // Firefox <= 19
+            box-sizing: $box-model;
+  }
+  
+  
+  /*border radius mixin*/
+  @mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+    background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+  }
+  
+  
+  /*dropshadow mixin*/
+  @mixin box-shadow($top, $left, $blur, $size, $color) {
+     -webkit-box-shadow: $top $left $blur $size $color;
+     -moz-box-shadow: $top $left $blur $size $color;
+     box-shadow: $top $left $blur $size $color;
+  }
+  
+  /*rotate mixin*/
+  @mixin rotate($degrees) {
+    -webkit-transform: rotate(#{$degrees}deg);
+    -moz-transform: rotate(#{$degrees}deg);
+    -ms-transform: rotate(#{$degrees}deg);
+    -o-transform: rotate(#{$degrees}deg);
+    transform: rotate(#{$degrees}deg);
+  
+    filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+    zoom: 1;
+    }
+  
+  

@@ -1,0 +1,117 @@
+/*!
+ *
+ * ======================================================================
+ * 00. HEADER
+ * ======================================================================
+ * https://koghi.com/Gobernacion-Quindio/KLID-impuesto-facil-pagar/blob/d6673d352295b24bd23fbdbbdd9e064736024634/app-klid/src/assets/sass/partials/_header.scss
+ * 
+ *https://codepen.io/Rabrennie/pen/WogNvV
+ https://codepen.io/gabriellewee/pen/ybKxgB
+ https://codepen.io/Twikito/pen/zGdqVO
+ https://codepen.io/WispProxy/pen/GqzoYg
+ https://codepen.io/jlnljn/pen/LkXoBb
+ https://codepen.io/tonkec/pen/XXgdoo
+ */
+
+
+
+/**
+ * Simple-nav-menu
+ * -------------------------------------------------------------------
+ *  
+ */
+ .c-simple-nav {
+  $this: &;
+
+  $transition: 280ms all 120ms ease-out;
+
+
+  &--top {
+    position: sticky;
+    top: 0;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: 100%;
+    // background: darken(#ecf0f1, 10%);
+    background:#ecf0f1;
+    color: #000;
+  
+
+    &__menu {
+
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      // line-height: 45px;
+      font-weight: 500;
+      text-transform: uppercase;
+
+      &-item {
+        display: inline-block;
+        position: relative;
+        margin: 0 0.5rem;
+        padding: 0;
+
+        &:hover {
+          .c-simple-nav--top__submenu {
+            display: block;
+            position: absolute;
+            min-width: 15ch;
+            left: 50%;
+            top: calc(100% - 0.25rem);
+            transform: rotateX(0) translateX(-50%);
+            transform-origin: top center;
+            opacity: 1;
+            padding: 0.5em 0;
+            border-radius: 4px;
+            box-shadow: 0 0.15em 0.25em rgba(black, 0.25);
+            transition: $transition;
+
+          }
+        }
+      }
+      &-link {
+        display: inline-block;
+        padding: 0.5rem 0.5rem;
+        color: #000;
+        line-height: inherit;
+        text-decoration: none;
+        text-align: center;
+        border-top: 3px solid transparent;
+        cursor: pointer;
+
+        &:focus {
+          outline: none;
+        }
+
+        &:hover,
+        &:focus {
+          border-top-color: #000;
+          color: #000;
+        }
+      }
+    }
+
+    &__submenu {
+      display: none;
+      position: absolute;
+      width: 220px;
+      background:#ecf0f1;
+      font-weight: 500;
+      text-transform: none;
+      z-index: 1;
+      transition: $transition;
+      &-item {
+        &:hover {
+          background: rgba(#000, 0.1);
+        }
+      }
+      &-link {
+        display: block;
+        padding: 0 16px;
+        line-height: inherit;
+        cursor: pointer;
+      }
+    }
+  }
+}

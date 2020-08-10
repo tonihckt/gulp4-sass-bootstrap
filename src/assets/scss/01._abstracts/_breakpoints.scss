@@ -272,6 +272,12 @@
 // }
 
 
+// $small-device: 576px;
+// $medium-device: 768px;
+// $large-device: 992px;
+// $extra-large-device: 1200px;
+
+
 
 @mixin breakpoint($point) {
   @if $point == desktop {
@@ -322,4 +328,26 @@ $breakpoints: (
 						@warn "Couldn't find a your breakpoint named `#{$name}`.";
 					}
 				}
-			
+      
+        
+/*media queries mixin*/
+
+@mixin xs { @media (min-width: #{$screen-xs-min}) {@content;} } // Tiny devices
+@mixin sm { @media (min-width: #{$screen-sm-min}) {@content;} } // Small devices
+@mixin md { @media (min-width: #{$screen-md-min}) {@content;} } // Medium devices
+@mixin lg { @media (min-width: #{$screen-lg-min}) {@content;} } // Large devices
+@mixin xl { @media (min-width: #{$screen-xl-min}) {@content;} } // Extra large devices
+
+ /**
+ *   MEDIA QUERIES FOR MOBILE-FIRST DESIGN
+ * -------------------------------------------------------------------
+ *
+ * @include media(320px) { background: red; }
+ */
+
+
+@mixin media($width) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
+}

@@ -6,6 +6,13 @@
  * 
  */
 
+
+ p {
+  $font-size: 100%;
+  $line-height: 1.5;
+  font: #{$font-size}/#{$line-height} Arial, Helvetica, sans-serif;
+}
+
 //  $headings : h1 h2 h3 h4 h5 h6;
 //  $font-size-base : 16px;
  
@@ -208,3 +215,228 @@ input, textarea, select {
 // @include headings(){
 //   font-family: Lato, 'Helvetica Neue', sans-serif;
 // }
+
+
+// =>headings
+// https://vuetifyjs.com/en/customization/sass-variables/#example-variable-file
+
+// https://webdesign.tutsplus.com/es/tutorials/an-introduction-to-sass-maps-usage-and-examples--cms-22184
+// https://www.sitepoint.com/using-sass-maps/
+// http://getkickstart.com/
+// https://john-dugan.com/styleguide/
+
+$size            : font-size;
+$weight          : font-weight;
+$line-height     : line-height;
+$letter-spacing  : letter-spacing;
+$font-family     : font-family;
+$text-transform  : text-transform;
+
+
+@mixin headings() {
+h1 {
+  $size: 6rem;
+  $weight: 300;
+  $line-height: normal;
+  $letter-spacing: -0.09375rem;
+  $font-family: $heading-font-family;
+  // $text-transform : false;
+}
+h2{
+  $size: 3.75rem;
+  $weight: 300;
+  $line-height: Normal;
+  $letter-spacing: -0.03125rem;
+  $font-family: $heading-font-family;
+  // $text-transform: False;
+}
+h3{
+  $size: 3rem;
+  $weight: Normal;
+  $line-height: Normal;
+  $letter-spacing: Normal;
+  $font-family: $heading-font-family;
+  // $text-transform: False;
+}
+h4{
+  $size: 2.125rem;
+  $weight: Normal;
+  $line-height: Normal;
+  $letter-spacing: 0.015625rem;
+  $font-family: $heading-font-family;
+  // $text-transform: False;
+}
+
+h5{
+  $size: 1.5rem;
+  $weight: Normal;
+  $line-height: 2rem;
+  $letter-spacing: Normal;
+  $font-family: $heading-font-family;
+  // $text-transform: False;
+}
+
+h6{
+  $size: 1.25rem;
+  $weight: 500;
+  $line-height: Normal;
+  $letter-spacing: 0.009375rem;
+  $font-family: $heading-font-family;
+  // $text-transform: False;
+}
+
+.title{
+  $size: 1rem;
+  $weight: Normal;
+  $line-height: Normal;
+  $letter-spacing: 0.009375rem;
+  $font-family: $body-font-family;
+  // $text-transform: False
+}
+
+.title-sm{
+  $size: .875rem;
+  $weight: 500;
+  $line-height: Normal;
+  $letter-spacing: 0.00625rem;
+  $font-family: $body-font-family;
+  // $text-transform: False
+}
+
+.button{
+  $size: .875rem;
+  $weight: 500;
+  $line-height: Normal;
+  $letter-spacing: 0.00625rem;
+  $font-family: $body-font-family;
+  // $text-transform: False
+}
+.caption{
+  $size: .75rem;
+  $weight: Normal;
+  $line-height: Normal;
+  $letter-spacing: 0.025rem;
+  $font-family: $body-font-family;
+  // $text-transform: False
+}
+.overline{
+  $size: .625rem;
+  $weight: Normal;
+  $line-height: Normal;
+  $letter-spacing: 0.09375rem;
+  $font-family: $body-font-family;
+  // $text-transform: Uppercase
+}
+}
+
+
+// $headings: (
+//   (
+//     'H1': (
+//       'Size': 6rem,
+//       'Weight': 300,
+//       'Line-Height': Normal,
+//       'Letter-Spacing': -0.09375rem,
+//       // 'Font-Family': $Heading-Font-Family,
+//       'Text-Transform': False
+//     ),
+//     'H2': (
+//       'Size': 3.75rem,
+//       'Weight': 300,
+//       'Line-Height': Normal,
+//       'Letter-Spacing': -0.03125rem,
+//       // 'Font-Family': $Heading-Font-Family,
+//       'Text-Transform': False
+//     ),
+//     'H3': (
+//       'Size': 3rem,
+//       'Weight': Normal,
+//       'Line-Height': Normal,
+//       'Letter-Spacing': Normal,
+//       // 'Font-Family': $Heading-Font-Family,
+//       'Text-Transform': False
+//     ),
+//     'H4': (
+//       'Size': 2.125rem,
+//       'Weight': Normal,
+//       'Line-Height': Normal,
+//       'Letter-Spacing': 0.015625rem,
+//       // 'Font-Family': $Heading-Font-Family,
+//       'Text-Transform': False
+//     ),
+//     'H5': (
+//       'Size': 1.5rem,
+//       'Weight': Normal,
+//       'Line-Height': 2rem,
+//       'Letter-Spacing': Normal,
+//       // 'Font-Family': $Heading-Font-Family,
+//       'Text-Transform': False
+//     ),
+//     'H6': (
+//       'Size': 1.25rem,
+//       'Weight': 500,
+//       'Line-Height': Normal,
+//       'Letter-Spacing': 0.009375rem,
+//       // 'Font-Family': $Heading-Font-Family,
+//       'Text-Transform': False
+//     ),
+//     'Subtitle-1': (
+//       'Size': 1rem,
+//       'Weight': Normal,
+//       'Line-Height': Normal,
+//       'Letter-Spacing': 0.009375rem,
+//       // 'Font-Family': $Body-Font-Family,
+//       'Text-Transform': False
+//     ),
+//     'Subtitle-2': (
+//       'Size': .875rem,
+//       'Weight': 500,
+//       'Line-Height': Normal,
+//       'Letter-Spacing': 0.00625rem,
+//       // 'Font-Family': $Body-Font-Family,
+//       'Text-Transform': False
+//     ),
+//     'Body-1': (
+//       'Size': 1rem,
+//       'Weight': Normal,
+//       'Line-Height': Normal,
+//       'Letter-Spacing': 0.03125rem,
+//       // 'Font-Family': $Body-Font-Family,
+//       'Text-Transform': False
+//     ),
+//     'Body-2': (
+//       'Size': .875rem,
+//       'Weight': Normal,
+//       'Line-Height': Normal,
+//       'Letter-Spacing': 0.015625rem,
+//       // 'Font-Family': $Body-Font-Family,
+//       'Text-Transform': False
+//     ),
+//     'Button': (
+//       'Size': .875rem,
+//       'Weight': 500,
+//       'Line-Height': Normal,
+//       'Letter-Spacing': 0.078125rem,
+//       // 'Font-Family': $Body-Font-Family,
+//       'Text-Transform': Uppercase
+//     ),
+//     'Caption': (
+//       'Size': .75rem,
+//       'Weight': Normal,
+//       'Line-Height': Normal,
+//       'Letter-Spacing': 0.025rem,
+//       // 'Font-Family': $Body-Font-Family,
+//       'Text-Transform': False
+//     ),
+//     'Overline': (
+//       'Size': .625rem,
+//       'Weight': Normal,
+//       'Line-Height': Normal,
+//       'Letter-Spacing': 0.09375rem,
+//       // 'Font-Family': $Body-Font-Family,
+//       'Text-Transform': Uppercase
+//     )
+//   ),
+//   // $Headings
+// );
+

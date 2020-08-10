@@ -1,0 +1,105 @@
+/*!
+ *
+ * ======================================================================
+ * 00. css mixins
+ * ======================================================================
+ * https://hospodarets.com/css_apply_rule#overflow-ellipsis-mixin
+ */
+
+
+/**
+* property-name
+* -------------------------------------------------------------------
+* APPLYING @apply --custom-property-name;
+*/
+
+:root {
+  --custom-property-name: {
+      prop-name: value;
+  }
+
+  --page-bg-dark-mode: #808080;
+  --page-color-dark-mode: #69bac9;
+  --page-color-light-mode: #0b4491;
+ 
+}
+
+
+
+/**
+* clearfix
+* -------------------------------------------------------------------
+* .box:after{ @apply --clearfix; }
+*/
+
+:root {
+  --clearfix: {
+    display: table;
+    clear: both;
+    content: '';
+  };
+}
+
+/**
+* overflow-ellipsis
+* -------------------------------------------------------------------
+* .overflow-box{ @apply --mixin-overflow-ellipsis; }
+*/
+
+:root {
+  --mixin-overflow-ellipsis: {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  };
+}
+
+
+/**
+* triangle
+* -------------------------------------------------------------------
+* .triangle-to-bottom { @apply --triangle-to-bottom; }
+*/
+
+// :root {
+//   --triangle-to-bottom: {
+//     width: 0;
+//     height: 0;
+//     border-style: solid;
+//     border-width: 50px 50px 0 50px;
+//     border-color: #007bff transparent transparent transparent;
+//   };
+// }
+
+:root {
+  --zero-size: {
+    width: 0;
+    height: 0;
+  };
+  
+  --triangle-to-bottom-size: 50px;
+  --triangle-to-bottom-color: #007bff;
+  
+  --triangle-to-bottom: {
+    @apply --zero-size;
+    border-style: solid;
+    border-width: var(--triangle-to-bottom-size) var(--triangle-to-bottom-size) 0 var(--triangle-to-bottom-size);
+    border-color: var(--triangle-to-bottom-color) transparent transparent transparent;
+  };
+}
+
+
+/**
+* Mode Page
+* -------------------------------------------------------------------
+*
+*/
+
+.dark-mode {
+background: var(--page-bg-dark-mode);
+color: var(--page-color-dark-mode);
+}
+
+.light-mode {
+color: var(--page-color-light-mode);
+}

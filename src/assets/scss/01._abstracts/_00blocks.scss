@@ -1,0 +1,56 @@
+/*!
+ *
+ * ======================================================================
+ * 00. block hepers structuring
+ * ======================================================================
+ // https://github.com/inuitcss/inuitcss#css-directory-structure
+
+ // https://www.telerik.com/blogs/10-time-saving-css-tips-i-learned-the-hard-way-when-using-sass
+ * 
+ */
+
+ .header {}
+ .header__logo {}
+
+ .site-logo {}
+.site-logo--xmas {}
+
+
+.page--home         { background-image:url(home.jpg); }
+.page--about        { background-image:url(about.jpg); }
+.page--portfolio    { background-image:url(portfolio.jpg); }
+.page--contact      { background-image:url(contact.jpg); }
+
+
+
+.button {
+  $this: &;
+
+	border: none;
+	margin: 20px;
+	cursor: pointer;
+
+	.button__icon {
+		width: 20px;
+		height: 20px;
+	}
+
+	.button__label {
+		color: white;
+		padding: 20px 40px;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 16px;
+	}
+
+	// --> MODIFIERS: COLORS <--
+
+	&--blue {
+		background-color: blue;
+	}
+
+	&--red {
+		background-color: red;
+  }
+  
+}

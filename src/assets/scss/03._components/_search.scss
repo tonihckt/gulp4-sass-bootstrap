@@ -1,0 +1,65 @@
+/*!
+ *
+ * ======================================================================
+ * 00. search.scss
+ * ======================================================================
+ * https://codepen.io/kkasischke/pen/YyqqBY
+ */
+
+ .search { // Block
+  align-content: center;
+  display: flex;
+
+  &--is-disabled { // A Modifier for disabled state
+    display: none;
+  }
+}
+
+.search__input { // Block with an Element
+  border: 1px #000 solid;
+  display: inline-block;
+  flex: 1;
+  padding: 1.5em 1em;
+}
+
+.search__button { // Block with another Element
+  background-color: #000;
+  color: #FFF;
+  display: inline-block;
+  font-size: 1.25em;
+}
+
+
+///
+.search {
+  align-content: center;
+  display: flex;
+
+  &--is-disabled {
+    display: none;
+  }
+}
+
+.search__input {
+  border: 1px #000 solid;
+  display: inline-block;
+  flex: 1;
+  padding: 1.5em 1em;
+
+  // Landing page specific styles
+  .landing & {
+    padding: 2.5em 2em;
+  }
+}
+
+.search__button {
+  background-color: #000;
+  color: #FFF;
+  display: inline-block;
+  font-size: 1.25em;
+
+  // Landing page specific styles
+  .landing & {
+    font-size: 1.5em;
+  }
+}

@@ -1,0 +1,38 @@
+/*!
+ *
+ * ======================================================================
+ * 00. BANNER
+ ======================================================================
+ * 
+ */
+ .home-banner {
+  // styles here
+  &__right-column {
+      // styles here
+  }
+  &__left-column {
+      // styles here
+  }
+  &__button {
+      // styles here
+          &--alt {
+              // styles here
+          }
+  }
+}
+
+%banner {
+  background-color: #eee;
+  border: 1px solid #ddd;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.yellow-banner {
+  @extend %banner;
+  background-color: yellow;
+}
+
+.red-banner {
+  @extend %banner;
+  background-color: red;
+}

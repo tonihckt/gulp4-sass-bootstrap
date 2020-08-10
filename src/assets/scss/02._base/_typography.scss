@@ -215,3 +215,75 @@ $font-list: (
 //   decorative: #{'oswald', Helvetica, sans-serif},
 //   general: #{'Helvetica Neue', Helvetica, Arial, sans-serif}
 // ); 
+
+
+  /**
+   *  Web font variables
+   * -------------------------------------------------------------------
+   *
+   */
+// Web font URLs
+$font-google-prim : 'http://fonts.googleapis.com/css?family=Lato:100,300,400';
+$font-google-sec  : 'http://fonts.googleapis.com/css?family=PT+Serif:400,700';
+
+
+@if variable-exists(font-google-prim) {
+  @import url($font-google-prim);
+}
+@if variable-exists(font-google-sec) {
+  @import url($font-google-sec);
+}
+
+// Font Stacks
+$stack-lato     : 'Lato', sans-serif;
+$stack-pt-serif : 'PT Serif', serif;
+
+  /**
+   *  Title Border 
+   * -------------------------------------------------------------------
+   * To apply a decorative border beneath a title
+   * use: .heading { @include title-border($color:#c20e9b); }
+   * use: .heading { @include title-border(#6d9eeb, 10px, 100%); }
+   */
+@mixin title-border($color:#27ae60, $height:4px, $width:50%) {
+	&:after {
+        border-bottom: $height solid $color;
+        content: "";
+        display: block;
+        margin: 0 auto;
+        padding-bottom: 15px;
+        width: $width;
+    }
+}
+
+//.link { @include link(#2980b9) }
+@mixin link($color-link) {
+  text-decoration: none;
+  color: $color-link;
+}
+
+
+
+@mixin visually-hidden() {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+  /**
+   *  converts px values into em values
+   * -------------------------------------------------------------------
+   * h1 { font-size: em(72); }
+   * https://www.shopify.co.uk/partners/blog/a-beginners-guide-to-sass-with-shopify-part-2-making-stylesheets-smarter-with-sass-mixins-and-functions
+   */
+
+$browser-context: 16; // default
+
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em
+}

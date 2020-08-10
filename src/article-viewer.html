@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <title>article viewer!</title>
+    </head>
+    <body>
+        <!-- <section>
+         <h1>Getting Involved</h1>
+         <ul>
+           <li><img src="link" alt="descriptive text"></li>
+           <li><img src="link" alt="descriptive text"></li>
+           <li><img src="link" alt="descriptive text"></li>
+         </ul>
+         <article>
+           <header>
+             <h2>How to Become an MDN Contributor</h2>
+             <p>Do you want to help protect the web?....</p>
+           </header> 
+           <section>
+                    <h3>Subsection</h3>
+         
+             <p>Donec ut librero sed accu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor.</p>
+         
+             <p>Pelientesque auctor nisi id magna consequat sagittis. Curabitur dapibus, enim sit amet elit pharetra tincidunt feugiat nist imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros.</p>
+         
+             <h3>Another subsection</h3>
+         
+             <p>Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum soclis natoque penatibus et manis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.</p>
+         
+             <p>Vivamus fermentum semper porta. Nunc diam velit, adipscing ut tristique vitae sagittis vel odio. Maecenas convallis ullamcorper ultricied. Curabitur ornare, ligula semper consectetur sagittis, nisi diam iaculis velit, is fringille sem nunc vet mi.</p>
+           </section>
+           <footer>
+             <p>Author info</p>
+             <p>publication date</p>
+           </footer>
+         </article>
+         </section> -->
+        <main>
+            <section class="article">
+                <div class="article__container">
+                    <div class="article__wrapper">
+                        <div class="article__content" id="article__content">
+                            <div class="c-article-viewer">
+                                <!-- bio -->
+                                <div class="c-article-viewer__bio mbl">
+                                    <div class="c-article-bio">
+                                        <div class="c-article-bio__image mbl mrm">
+                                            <figure class="c-author__figure">
+                                                <a class="c-author__figure-link">
+                                                    <div class="c-author__border">
+                                                        <img src="#" alt="" class="c-author__image" />
+                                                    </div>
+                                                </a>
+                                            </figure>
+                                        </div>
+                                        <div class="c-article-bio__content c-author__desc">
+                                            <h3 class="c-author__desc__title">
+                                                Sobre el Autor
+                                            </h3>
+                                            <p>
+                                                Bruce ha estado trabajando en accesibilidad, estándares web y navegadores desde 2001. Por eso se ve tan mal.
+                                                <a href="#" class="c-author__show-more-link">show-more-link</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /bio -->
+                                <!-- header -->
+                                <div class="c-article-viewer__header">
+                                    <header class="c-article-header">
+                                        <ul class="c-article-header--meta">
+                                            <li class="c-article-header--meta-item c-article-header--meta-item__date">
+                                                <time class="c-article-header--date" datetime="2020-01-07">
+                                                    7 de enero de 2020
+                                                </time>
+                                            </li>
+                                            <li class="c-article-header--meta-item">
+                                                <span class="c-article-header--comments">
+                                                    <a href="#">
+                                                        <span class="c-article-header--comments c-article-header--comments__small-caps">24</span>
+                                                    </a>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <h1 class="article-header--title">
+                                            ¿Por qué debería elegir HTML5
+                                        </h1>
+                                    </header>
+                                </div>
+                                <!-- /header -->
+                                <!-- metas -->
+                                <div class="c-article-viewer__aside--meta">
+                                    <ul class="c-meta-box c-meta-box--article">
+                                        <li class="c-meta-box--item c-meta-box--published">
+                                            8 min de lectura
+                                        </li>
+                                        <li class="c-meta-box--item c-meta-box--tags">
+                                            <a href="#">CSS</a>
+                                            <a href="#">CSS</a>
+                                            <a href="#">CSS</a>
+                                        </li>
+                                        <li class="c-meta-box--item c-meta-box--share">
+                                            <section>
+                                                Comparte en
+                                                <a href="#">Twitter</a>
+                                            </section>
+                                        </li>
+                                        <li class="c-meta-box--item c-meta-box--saved">
+                                            Guardado para lectura fuera de línea
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- /metas-->
+                                <!-- newsletter -->
+                                <div class="c-article-viewer__aside--newsletter">
+                                    <div class="c-promo-box c-promo-box--newsletter">
+                                        <div class="promo-newsletter--article">
+                                            <div class="promo-newsletter">
+                                                <div class="promo-newsletter-image-wrapper">
+                                                    <a href="#" class="promo-newsletter-image-link">
+                                                        <img class="promo-newsletter-image" />
+                                                    </a>
+                                                </div>
+                                                <h2 class="h2 promo-newsletter-title">Newsletter</h2>
+                                                <p class="promo-newsletter-description">
+                                                    Cada segundo martes, enviamos un boletín con técnicas útiles en front-end y UX. Suscríbase y obtenga listas de verificación de diseño de interfaz inteligente PDF en su bandeja de entrada.
+                                                </p>
+                                                <div class="promo-newsletter-form">
+                                                    <form method="post" action="" class="c-form">
+                                                        <div class="c-form__wrapper">
+                                                            <div class="c-form__content">
+                                                                <label for="email" class="c-form__field js-form-field c-form__field--floating">
+                                                                    <span class="c-form__field__label">correo electrónico </span>
+                                                                    <span class="c-form__field__label--extra">(sensacional)</span>
+                                                                    <input autocomplete="off" class="c-form__field__input" type="email" pattern="(.+)@(.+){2,}\.(.+){2,}" name="EMAIL" id="email" required="" />
+                                                                </label>
+                                                            </div>
+
+                                                            <button
+                                                                type="submit"
+                                                                class="c-form__btn c-form__btn--promo-newsletter"
+                                                                value="Submit"
+                                                            >
+                                                                <span class="ladda-label">Suscribir</span>
+                                                                <span class="ladda-spinner"></span>
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- newsletter -->
+                                <!-- adds -->
+                                <div class="c-garfield-native-panel">
+                                    <div class="c-promo-box c-promo-box--ad sponsors sponsors__native">
+                                        <ul class="bnnr-list">
+                                            <li>
+                                                <a href="#">
+                                                    <img src="#" alt="Desarrollar habilidades bajo demanda" width="250" />
+                                                </a>
+                                                <a href="#">Desarrollar habilidades bajo demanda</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- /adds -->
+                                <!-- summary -->
+                                <div class="c-article-viewer__summary">
+                                    <section class="c-content-summary">
+                                        <code>&lt;section&gt;</code> La visualización visual de los encabezados anidados dentro de los
+                                        <p>Hace unos días, estaba conversando con algunos amigos, uno de los cuales me preguntó la diferencia entre</p>
+                                        <blockquote>
+                                            "El elemento del artículo representa una composición completa o autónoma en un documento, página, aplicación o sitio y que, en principio, es distribuible o reutilizable independientemente, por
+                                            ejemplo, en sindicación."
+                                        </blockquote>
+                                        <p>Hace unos días, estaba conversando con algunos amigos, uno de los cuales me preguntó la diferencia entre</p>
+                                        <div class="feature-panel-container">
+                                            <div>
+                                                <aside class="feature-panel">
+                                                    <div class="feature-panel-left-col">
+                                                        <div class="feature-panel-description">
+                                                            <p>
+                                                                Cada segundo martes, enviamos nuestro
+                                                                <a href="#"><strong>encantador boletín</strong></a>
+                                                                por
+                                                                <a href="#"><strong> correo electrónico</strong></a>
+                                                                en front-end y UX. Suscríbase y obtenga "Listas de verificación de diseño de interfaz inteligente" , una plataforma PDF con más de 150 preguntas que debe hacerse al diseñar y
+                                                                construir casi cualquier cosa, desde mega desplegables hasta configuradores avanzados.
+                                                            </p>
+                                                        </div>
+    
+                                                        <section class="nl-box__form">
+                                                            <form action="#" method="post">
+                                                                <div class="nl-box__wrapper">
+                                                                    <label for="mce-EMAIL" class="sr-only">Su correo electrónico (sensacional)</label>
+                                                                </div>
+                                                                <div class="nl-box__group">
+                                                                    <input type="email" name="EMAIL" class="nl-box__form--email" id="mce-EMAIL" placeholder="Tu correo electrónico" />
+                                                                    <input type="submit" value="¡Maullar!" name="subscribe" class="nl-box__form--button" />
+                                                                </div>
+                                                            </form>
+                                                        </section>
+                                                    </div>
+                                                    <div class="feature-panel-right-col">
+                                                        <a href="#" class="feature-panel-image-link">
+                                                            <div class="feature-panel-image"><img class="feature-panel-image-img" src="#" alt="Panel de funciones" /></div>
+                                                        </a>
+                                                    </div>
+                                                </aside>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <!-- /summary -->
+    
+                                <!-- sponsors__external -->
+                                <div class="c-promo-box sponsors sponsors__lead sponsors__external" data-audience="non-subscriber" data-remove="true" data-amount="1" data-rendered="true">
+                                    <ul>
+                                        <li class="sponsors-37740">
+                                            <a href="#">
+                                                <div class="sponsors--image-wrapper" data-title="">
+                                                    <img src="#" />
+                                                </div>
+                                                <div class="sponsors--content-wrapper">
+                                                    <div class="sponsors--title">Espacio cuadrado</div>
+                                                    <div class="sponsors--text" data-title="">Obtenga un dominio y cree un sitio web con Squarespace</div>
+                                                </div>
+                                                <span class="sponsors--cta">Comience una prueba gratuita</span>
+                                            </a>
+                                            <img class="pixel" src="#" style="display: none;" height="0" width="0" />
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- /sponsors external -->
+    
+                                <!-- image__external -->
+                                <figure class="break-out article__image">
+                                  <a href="#">
+                                    <img src="#" sizes="100vw" alt="Screenshot of the top of a Smashing Magazine article"></a>
+                                  <figcaption class="op-vertical-bottom">The Smashing “Quick Summary” is separated from its full article by a horizontal line. (<a href="#">Large preview</a>)</figcaption>
+                                </figure>
+                                <!-- image__external -->
+    
+                                <!-- signature -->
+                                <div class="signature">
+                                  <img src="#" alt="Smashing Editorial">
+                                  <span>(ra, il)</span>
+                                </div>
+                                <!-- /signature -->
+    
+                                <!-- Comments -->
+                                <div data-component="CommentsArea" id="comments-html5-article-section" data-thread="/2020/01/html5-article-section/" data-date="2020-01-07 11:30:00 +0000 UTC">
+                                    <div class="article__comments" aria-live="polite" aria-relevant="additions">
+                                        <h2>- Comentarios<span class="comments__comment-count sup">24</span></h2>
+                                        <div class="article__comment-wrapper">
+                                            <figure class="article__comment">
+                                                <header>
+                                                    <figure class="author author--avatar-only">
+                                                        <a href="#">
+                                                            <div class="author__image-wrapper tilt">
+                                                                <div class="author__image">
+                                                                    <img src="#" alt="Tom" />
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </figure>
+                                                    <span><a href="#">Tom</a></span>
+                                                    <p>escribió</p>
+                                                    <time datetime="2020-01-07 13:43">7 de enero de 2020 13:43</time>
+                                                </header>
+    
+                                                <div class="comment__content">
+                                                    <p>Hola, gracias por eso y el rápido intercambio en twitter;</p>
+                                                </div>
+    
+                                                <footer>
+                                                    <button type="button" class="btn btn--white btn--white--bordered btn--small">Respuesta</button>
+                                                </footer>
+                                            </figure>
+    
+                                            <!-- old comments -->
+                                            <div class="article__comment-wrapper">
+                                                <figure class="article__comment">
+                                                    <header>
+                                                        <figure class="author author--avatar-only">
+                                                            <a href="#">
+                                                                <div class="author__image-wrapper tilt">
+                                                                    <div class="author__image">
+                                                                        <img src="#" alt="Tom" />
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        </figure>
+                                                        <span><a href="#">Tom</a></span>
+                                                        <p>escribió</p>
+                                                        <time datetime="2020-01-07 13:43">7 de enero de 2020 13:43</time>
+                                                    </header>
+    
+                                                    <div class="comment__content">
+                                                        <p>Hola, gracias por eso y el rápido intercambio en twitter;</p>
+                                                    </div>
+    
+                                                    <footer>
+                                                        <button type="button" class="btn btn--white btn--white--bordered btn--small">Respuesta</button>
+                                                    </footer>
+                                                </figure>
+                                            </div>
+                                            <!-- /old comments -->
+                                        </div>
+                                        <button type="button" class="btn btn--medium btn--load-comments btn--blue">Cargue comentarios antiguos</button>
+                                    </div>
+                                </div>
+                                <!-- /Comments -->
+    
+                                <!-- form Comments -->
+                                <div class="comment-form__sticky">
+                                    <form>
+                                        <h4 class="article__comments__form__desc">Deja un comentario</h4>
+                                        <small class="article__comments--notes">
+                                            <span>
+                                                <a href="#">formulario de contacto</a>
+                                            </span>
+                                        </small>
+                                        <div class="comment__message-field">
+                                            <div class="comment__reply-to-container">
+                                                <label class="form__field blurred comment__message-field form__field--floating comment__message-field">
+                                                    <label class="form__field__label">Tu mensaje</label>
+                                                </label>
+                                                <div class="input-wrapper">
+                                                    <textarea label="Your message" type="textarea" class="" id="el-0.5172539197098351" inputmode="text" name="message"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <label class="form__field blurred comment__name-field form__field--floating comment__name-field">
+                                            <label class="form__field__label">Tu nombre real</label>
+                                            <div class="input-wrapper">
+                                                <input label="Your (real) name" class="form__field__input" type="text" id="el-0.887758334075192" inputmode="text" name="name" value="" />
+                                            </div>
+                                        </label>
+                                        <label class="form__field blurred comment__twitter-field form__field--floating comment__twitter-field">
+                                            <label class="form__field__label">Tu Twitter (por ejemplo, 'smashingmag')</label>
+                                            <div class="input-wrapper">
+                                                <input label="Your Twitter (e.g. 'smashingmag')" class="form__field__input" type="text" id="el-0.30497433675212493" data-optional="true" inputmode="text" name="twitter" value="" />
+                                            </div>
+                                        </label>
+                                        <div class="btn--lined">
+                                            <button class="ladda-button btn btn--green btn--large btn--text-shadow auth__modal__btn ladda-button">publicar comentario</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /form Comments -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

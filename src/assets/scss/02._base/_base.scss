@@ -5,7 +5,7 @@
  * ======================================================================
  * 
  */
- 
+//  https://davidinformatico.com/intro-sass/
 
 * {
   margin: 0;
@@ -27,8 +27,8 @@ body {
     sans-serif;
   display: flex;
   flex-direction: column;
-  word-break: break-word;
-  -webkit-word-break: break-word;
+  // word-break: break-word;
+  // -webkit-word-break: break-word;
 }
 
 .Panel {
@@ -148,17 +148,17 @@ h2 {
 
   &__body {
     -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -webkit-box-flex: 1;
-    -ms-flex: 1 0 auto;
-    flex: 1 0 auto;
-    box-sizing: border-box;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+    // box-sizing: border-box;
+    // -webkit-box-flex: 1;
+    // -ms-flex: 1 0 auto;
+    // flex: 1 0 auto;
+    // box-sizing: border-box;
+    // display: -webkit-box;
+    // display: -ms-flexbox;
+    // display: flex;
+    // -webkit-box-pack: justify;
+    // -ms-flex-pack: justify;
+    // justify-content: space-between;
     background: #a5c3e2;
   }
 
@@ -182,7 +182,7 @@ h2 {
     order: -1;
     background: #0099CC;
   }
-  &__nav-top{}
+  &__top-nav{}
 
   &__aside {
     -webkit-box-sizing: border-box;
@@ -221,7 +221,7 @@ footer,
 
 nav {
   background: hsl(350, 50%, 50%);
-  padding: 1.3rem;
+  // padding: 1.3rem;
   color: hsl(350, 50%, 10%);
 }
 

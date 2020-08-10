@@ -3,6 +3,8 @@
  * ======================================================================
  * 00. COLORS
  * ======================================================================
+ *http://www.alwaystwisted.com/articles/creating-utility-classes-with-design-tokens-using-sass
+ *http://www.alwaystwisted.com/articles/category/sass
  * 
  */
 
@@ -28,6 +30,10 @@
 //      background-color: darken($violet-base, 2*$i);
 //    }
 // }
+$grey-medium: #767676;
+$grey-light: #efefef;
+$deep-blue: #102039;
+
 
 /**
 * COLORS

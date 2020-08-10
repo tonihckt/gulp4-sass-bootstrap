@@ -357,3 +357,24 @@ $wide-screen : "(min-width: #{$max-breakpoint}px)";
       }
   }
 }
+
+
+
+/**
+ * text-selection
+ * -------------------------------------------------------------------
+ *
+ * use: @include text-selection(#f0f, #222);
+ */
+
+
+@mixin text-selection($bgcolor, $color){
+  ::-moz-selection{
+      background-color: $bgcolor;
+      color: $color;
+  }
+  ::selection{
+      background-color: $bgcolor;
+      color: $color;
+  }
+}

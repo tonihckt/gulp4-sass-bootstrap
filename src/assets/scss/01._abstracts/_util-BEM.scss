@@ -1,0 +1,66 @@
+/*!
+ *
+ * ======================================================================
+ * 00. BEM UTILITIES
+ * ======================================================================
+ * https://thoughtbot.com/blog/sasss-content-directive
+ * 
+ */
+
+
+ /**
+ * STRING REPLACE
+ * -------------------------------------------------------------------
+ * Instead of creating many .component--modifiers or chaining modifying classes, we can better separate our concerns by defining a style’s context specificity. 
+ // .header {
+//   height: 12em;
+//   background: red;
+
+//   @include context--alternate-template {
+//     background: green;
+//   }
+// }
+ */
+
+//  @mixin create-context($classes) {
+//   @each $class in $classes {
+//     .#{$class} & {
+//       @content;
+//   }
+// }
+
+// @mixin context--alternate-template {
+//   @include create-context(about, blog) {
+//     @content
+//   }
+// }
+
+
+ /**
+ * Getting BEMy
+ * -------------------------------------------------------------------
+ *
+ *.block {
+ * color: red;
+ *
+ * @include element(element) {
+ *   color: green;
+ *
+ *   @include modifier(modifier) {
+ *     color: blue;
+ *  }
+ * }
+ *}
+ */
+
+ @mixin element($name) {
+  @at-root #{&}__#{$name} {
+    @content;
+  }
+}
+
+@mixin modifier($name) {
+  @at-root #{&}--#{$name} {
+    @content;
+  }
+}
