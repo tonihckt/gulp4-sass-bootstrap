@@ -1,0 +1,51 @@
+/**
+ * cards.css
+ *
+ * These are the styles for the card component.
+ * https://webdesign.tutsplus.com/articles/css-documentation-best-practices--cms-30139
+ 
+ *
+ * Index
+ * - Card Base 
+ * - Card Grid
+ * - Card List
+ * - Card Dark
+ */
+ 
+
+ 
+/**
+ * Card Base
+ *
+ * Defines the appearance and behaviour of the default card with its multiple parts:
+ * - Card Image
+ * - Card Logo
+ * - Card Content
+ * - Card Footer
+*/
+
+.card {
+    @media (min-width: 576px) {
+        border: none;   /* because the card takes 100% of the screen on mobile */
+      }  
+}
+.card__image {}
+.card__logo {}
+.card__content {
+    flex: 1 1 auto;   /* "auto" needs to be explicit to avoid the div collapsing on IE.*/
+}
+.card__footer {}
+ 
+/**
+ * Card Grid
+ */
+ 
+ 
+/**
+ * Card List
+ */
+ 
+ 
+/**
+ * Card Dark
+ */
